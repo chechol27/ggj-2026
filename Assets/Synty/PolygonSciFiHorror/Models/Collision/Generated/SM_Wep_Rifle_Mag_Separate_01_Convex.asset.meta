@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 241414f49494fe845a486451af5ad9df
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Wep_Rifle_Mag_Separate_01_Convex.asset
+  uploadId: 829278

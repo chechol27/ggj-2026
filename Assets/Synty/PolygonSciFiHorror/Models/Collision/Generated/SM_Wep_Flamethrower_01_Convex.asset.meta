@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2fa196d6a04a42c4a8ec669f9a937c0c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Wep_Flamethrower_01_Convex.asset
+  uploadId: 829278

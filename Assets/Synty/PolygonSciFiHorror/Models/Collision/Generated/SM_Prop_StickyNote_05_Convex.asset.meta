@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c1195c8d2fceb30428e0f802c1a55b44
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Prop_StickyNote_05_Convex.asset
+  uploadId: 829278

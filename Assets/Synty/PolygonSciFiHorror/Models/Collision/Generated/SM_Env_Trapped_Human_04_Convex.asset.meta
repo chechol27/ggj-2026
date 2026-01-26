@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 674401c5421fd6f4894e2dc3f31f0613
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Env_Trapped_Human_04_Convex.asset
+  uploadId: 829278

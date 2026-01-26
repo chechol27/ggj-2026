@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e6515ede68a3c0b4f8633b518bc7f68b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Bld_Trim_Curve_Floor_01_Convex.asset
+  uploadId: 829278

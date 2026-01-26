@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6b2d61f2b5268ed4aa8a815a0f193a4b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Prop_Bench_03_Convex.asset
+  uploadId: 829278

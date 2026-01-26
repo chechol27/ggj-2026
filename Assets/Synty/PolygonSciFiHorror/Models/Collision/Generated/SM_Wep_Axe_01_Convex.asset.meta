@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8fc5116015bc48446b7fc0d73e1ed3c2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 340952
+  packageName: POLYGON - Sci-Fi Horror Pack - Art by Synty
+  packageVersion: 1.0.0
+  assetPath: Assets/Synty/PolygonSciFiHorror/Models/Collision/Generated/SM_Wep_Axe_01_Convex.asset
+  uploadId: 829278
