@@ -29,7 +29,6 @@ public class Spawner : MonoBehaviour
         if (state == SpawnerState.Preloading)
         {
             int instanceCount = GameServices.Get<Pool>().GetInstanceCount(prefab);
-            Debug.Log(instanceCount);
             if (instanceCount >= maxSize)
             {
                 state = SpawnerState.Ready;
