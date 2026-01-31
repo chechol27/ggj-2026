@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private Player player;
     NavMeshAgent agent;
-    void Start()
+    void OnEnable()
     {
         player = GameServices.Get<Player>();
         agent = GetComponent<NavMeshAgent>();

@@ -8,7 +8,7 @@ public class EnemyAttacks : MonoBehaviour
     [SerializeField] float attackRangeOffset;
     EnemyMovement movement;
 
-    private void Start()
+    private void OnEnable()
     {
         movement = GetComponent<EnemyMovement>();
     }
@@ -17,9 +17,12 @@ public class EnemyAttacks : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() == null) return;
         movement.CancelMove();
-        Invoke("TempInvokeDamage", 1f);
+        
+        //DELAY TEMPORAL SIMULANDO LA ANIMACIÓN
+        Invoke("TempInvokeDamage", 0.5f);
     }
 
+    //FUNCIÓN TEMPORAL SIMULANDO LA ANIMACIÓN
     void TempInvokeDamage()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange);
