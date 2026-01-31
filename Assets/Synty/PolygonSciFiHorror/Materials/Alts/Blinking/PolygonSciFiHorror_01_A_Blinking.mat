@@ -107,7 +107,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EMITETYPE: 0
     - _EMITTYPE: 0
-    - _Emission_Intensity: 1
+    - _Emission_Intensity: 2.4
     - _Metallic: 0
     - _Normal_Amount: 1
     - _QueueControl: 0
