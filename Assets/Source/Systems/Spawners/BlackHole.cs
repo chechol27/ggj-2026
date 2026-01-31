@@ -1,22 +1,35 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class BlackHole : MonoBehaviour
 {
+    public enum SurfaceType
+    {
+        Floor,
+        Ceiling,
+        Wall
+    }
+    
+    [SerializeField] private int roomId;
+    [SerializeField] private SurfaceType surfaceType;
     [SerializeField] GameObject meleeEnemyPrefab;
     [SerializeField] GameObject rangeEnemyPrefab;
     [SerializeField] float rangeEnemySpawnProbability;
     [SerializeField] float spawnWait;
     [SerializeField] float spawnDelay;
 
-    private void Start()
+    private void Awake()
     {
-        InvokeRepeating("spawnEnemy", spawnDelay, spawnWait);
+        GameServices.Get<BlackHoleRegistry>().Register(roomId, this);
     }
 
-    void spawnEnemy()
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpawnEnemy), spawnDelay, spawnWait);
+    }
+
+    void SpawnEnemy()
     {
         // if (Random.value < rangeEnemySpawnProbability)
         // {
@@ -32,6 +45,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        CancelInvoke("spawnEnemy");
+        CancelInvoke("SpawnEnemy");
+        GameServices.Get<BlackHoleRegistry>().Unregister(roomId, this);
     }
+
+    public SurfaceType CurrentSurfaceType => surfaceType;
 }
