@@ -15,7 +15,7 @@ public class PlasmaGun : Weapon
 
     public override bool Shoot(out DamageResponse response)
     {
-        GameServices.Get<Pool>().Spawn(VFXPrefab, out GameObject particleSystem, TransformFrame.T(muzzle.position));
+        GameServices.Get<Pool>().Spawn(VFXPrefab, out GameObject particleSystem, TransformFrame.TR(muzzle.position, muzzle.rotation));
 
         Ray r = new Ray(muzzle.position, muzzle.forward);
         if (Physics.Raycast(r, out RaycastHit hit, Mathf.Infinity, detectionMask))
