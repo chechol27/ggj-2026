@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
                 {
                     if (response.result == DamageResult.Damaged)
                     {
-                        Debug.Log($"Ay! {response.receivedDamage}");
+                        
                     }
                 }
             }

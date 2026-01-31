@@ -40,7 +40,8 @@ public class PlayerAim : MonoBehaviour , IGameService
 
     private void Update()
     {
-        target.forward = aimVector;
+        if(aimVector.magnitude > 0)
+            target.forward = aimVector;
         Debug.DrawLine(target.position, target.position + persistentAimVector.normalized);
     }
 }
