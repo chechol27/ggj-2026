@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6466374904137765340}
   - component: {fileID: 4836030699244291025}
   - component: {fileID: 6897063926574308866}
+  - component: {fileID: 8320835518363234126}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -130,3 +131,16 @@ MonoBehaviour:
   rangeEnemySpawnProbability: 0
   spawnWait: 2
   spawnDelay: 0
+--- !u!114 &8320835518363234126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911760085085775953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c4e15db78af0343afbe6470f832a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerHealth
+  maxHalth: 100
