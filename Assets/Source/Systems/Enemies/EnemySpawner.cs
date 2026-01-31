@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         // if (Random.value < rangeEnemySpawnProbability)
         // {
             GameServices.Get<Pool>().Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
-            spawnedEnemy.transform.position = transform.position;
+            spawnedEnemy.GetComponent<NavMeshAgent>().Warp(transform.position);
         // }
         // else
         // {

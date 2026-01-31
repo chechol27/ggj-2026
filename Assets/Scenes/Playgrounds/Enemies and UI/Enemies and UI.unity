@@ -273,13 +273,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: 0.21159893, y: -0, z: -0, w: 0.9773566}
+  m_LocalPosition: {x: -32.7, y: 4.4, z: 22.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 24.432, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.826666
+      value: -35.8
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.708731
+      value: 25.7
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1397,6 +1397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 911760085085775953, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2132348962455655287, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.8
@@ -1436,6 +1440,14 @@ PrefabInstance:
     - target: {fileID: 2132348962455655287, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836030699244291025, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897063926574308866, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
+      propertyPath: spawnWait
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

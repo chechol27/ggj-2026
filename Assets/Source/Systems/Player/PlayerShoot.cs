@@ -20,7 +20,7 @@ public class PlayerShoot : MonoBehaviour
             rumbleSpeed.ForceValue(new Vector2(0.5f, 1.0f));
             rumbleSpeed.TargetValue = Vector2.zero;
             
-            Debug.Log("Attack");
+            //Debug.Log("Attack");
             if (weapon != null)
             {
                 if (weapon.Shoot(out DamageResponse response))
@@ -37,6 +37,6 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         rumbleSpeed.Update();
-        Gamepad.current.SetMotorSpeeds(rumbleSpeed.CurrentValue.x, rumbleSpeed.CurrentValue.y);
+        Gamepad.current?.SetMotorSpeeds(rumbleSpeed.CurrentValue.x, rumbleSpeed.CurrentValue.y);
     }
 }

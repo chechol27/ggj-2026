@@ -10,8 +10,8 @@ public class EnemyMovement : MonoBehaviour
     {
         player = GameServices.Get<Player>();
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = true;
-        agent.isStopped = false;
+        if(agent.isOnNavMesh)
+            agent.updateRotation = true;
         Move();
     }
 
@@ -22,14 +22,16 @@ public class EnemyMovement : MonoBehaviour
 
     public void Move()
     {
-        agent.isStopped = false;
+        if(agent.isOnNavMesh)
+            agent.isStopped = false;
         InvokeRepeating("SetNavMeshTarget", 0.5f, 1.5f);
     }
 
     public void CancelMove()
     {
-        agent.isStopped = true;
         CancelInvoke("SetNavMeshTarget");
+        if(agent.isOnNavMesh)
+            agent.isStopped = true;
     }
 
     private void OnDisable()
