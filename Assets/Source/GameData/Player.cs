@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
 public class Player : MonoBehaviour, IGameService
 {
     private const string CONFIG_PATH = "GameData/PlayerConfig";
@@ -18,7 +19,8 @@ public class Player : MonoBehaviour, IGameService
     [SerializeField] private float speed;
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float fireRate;
-    
+
+    [SerializeField] private PlayerMode currentMode = PlayerMode.Combat;
     private void Awake()
     {
         PlayerConfig config = Resources.Load<PlayerConfig>(CONFIG_PATH); 
@@ -103,6 +105,12 @@ public class Player : MonoBehaviour, IGameService
         get => fireRate;
         set => fireRate = value;
     }
-    
+
+    public PlayerMode CurrentMode
+    {
+        get => currentMode;
+        set => currentMode = value;
+    }
+
     public Vector3 CharacterPosition { get; set; }
 }
