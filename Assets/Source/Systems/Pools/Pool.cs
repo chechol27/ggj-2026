@@ -30,7 +30,8 @@ public class Pool : MonoBehaviour, IGameService
 
     public bool Spawn<TComponent>(GameObject prefab, out TComponent result, bool activate = true) where TComponent : Component
     {
-        if (prefab.TryGetComponent(out TComponent _))
+        TComponent comp = prefab.GetComponent<TComponent>();
+        if (comp == null)
         {
             if (Spawn(prefab, out result, activate))
             {

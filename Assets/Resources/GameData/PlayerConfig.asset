@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   baseHealth: 100
+  minO2: -15
+  maxO2: 100
   baseO2: 100
   baseO2Regen: 20
   baseO2Deplete: 20

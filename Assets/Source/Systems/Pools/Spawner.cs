@@ -33,7 +33,6 @@ public class Spawner : MonoBehaviour
             {
                 state = SpawnerState.Ready;
             }
-
             GameServices.Get<Pool>().RequestPreload(prefab, batchSize);
         }
     }

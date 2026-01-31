@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerConfig : ScriptableObject
 {
     public float baseHealth;
+    public float minO2;
+    public float maxO2;
     public float baseO2;
     public float baseO2Regen;
     public float baseO2Deplete;
