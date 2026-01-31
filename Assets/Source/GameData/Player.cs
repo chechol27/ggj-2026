@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, IGameService
     [SerializeField] private float speed;
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float fireRate;
-
+    
     private void Awake()
     {
         PlayerConfig config = Resources.Load<PlayerConfig>(CONFIG_PATH); 
@@ -103,4 +103,6 @@ public class Player : MonoBehaviour, IGameService
         get => fireRate;
         set => fireRate = value;
     }
+    
+    public Vector3 CharacterPosition { get; set; }
 }

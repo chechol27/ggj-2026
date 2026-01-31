@@ -67,5 +67,6 @@ public class PlayerMovement : MonoBehaviour
         inputTransformer.Update();
         ComputeMotionVector();
         Move();
+        player.CharacterPosition = transform.position;
     }
 }
