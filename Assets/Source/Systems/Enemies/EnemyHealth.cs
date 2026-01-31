@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageResponse>
 {
     [SerializeField] float maxHealth = 100;
-    float currentHealth;
+    [SerializeField] float currentHealth;
 
     private void OnEnable()
     {
@@ -18,7 +18,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
         currentHealth -= damage.value;
         
         response.result = currentHealth <= 0 ? DamageResult.Dead : DamageResult.Damaged;
-        
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
         return response;
     }
 }

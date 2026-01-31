@@ -25,7 +25,7 @@ public class EnemyAttacks : MonoBehaviour
     //FUNCIÓN TEMPORAL SIMULANDO LA ANIMACIÓN
     void TempInvokeDamage()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange);
+        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward*attackRangeOffset, attackRange);
         damagePlayer(colliders);
     }
 

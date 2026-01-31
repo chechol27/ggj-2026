@@ -22,4 +22,10 @@ public class Vector2Damper
         get => targetValue;
         set => targetValue = value;
     }
+
+    public void ForceValue(Vector2 value)
+    {
+        currentValue = value;
+        targetValue = value;
+    }
 }

@@ -17,16 +17,16 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnEnemy()
     {
-        if (Random.value < rangeEnemySpawnProbability)
-        {
+        // if (Random.value < rangeEnemySpawnProbability)
+        // {
             GameServices.Get<Pool>().Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
             spawnedEnemy.transform.position = transform.position;
-        }
-        else
-        {
-            GameServices.Get<Pool>().Spawn(rangeEnemyPrefab,  out GameObject spawnedRange);
-            spawnedRange.transform.position = transform.position;
-        }
+        // }
+        // else
+        // {
+        //     //GameServices.Get<Pool>().Spawn(rangeEnemyPrefab,  out GameObject spawnedRange);
+        //     //spawnedRange.transform.position = transform.position;
+        // }
     }
 
     private void OnDestroy()

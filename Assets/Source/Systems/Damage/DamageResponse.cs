@@ -1,4 +1,6 @@
-﻿public enum DamageResult
+﻿using UnityEngine;
+
+public enum DamageResult
 {
     Damaged,
     Immune,

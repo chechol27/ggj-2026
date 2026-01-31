@@ -33,7 +33,6 @@ public class PlayerAim : MonoBehaviour , IGameService
         Vector3 pointerWS = new Vector3(pointer.x, pointer.y, characterDepth);
         pointerWS = Camera.main.ScreenToWorldPoint(pointerWS);
         Vector3 projectedRelative = Vector3.ProjectOnPlane(pointerWS - target.position, target.up).normalized;
-        Debug.Log($"Relative aim = {projectedRelative}");
         Debug.DrawLine(target.position, target.position + projectedRelative);
         Debug.DrawLine(Camera.main.transform.position, pointerWS, Color.aquamarine);
         aimVector = projectedRelative;

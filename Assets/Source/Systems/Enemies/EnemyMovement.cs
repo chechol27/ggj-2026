@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,7 +31,9 @@ public class EnemyMovement : MonoBehaviour
         agent.isStopped = true;
         CancelInvoke("SetNavMeshTarget");
     }
-    
-    
-    
+
+    private void OnDisable()
+    {
+        CancelMove();
+    }
 }
