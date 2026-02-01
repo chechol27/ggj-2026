@@ -78,6 +78,7 @@ MonoBehaviour:
   speedBuffDuration: 5
   speedBuffAmount: 10
   MaskPrefab: {fileID: 4676716165949294376, guid: b74d15e513ce5f644b563ed006328c2e, type: 3}
+  HUD: {fileID: 0}
 --- !u!1 &4914265534204597039
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +96,7 @@ GameObject:
   - component: {fileID: 5596354717086208295}
   - component: {fileID: 8962737899998290883}
   - component: {fileID: 2492708277904152288}
+  - component: {fileID: 7182491900922415107}
   m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -513,6 +515,21 @@ MonoBehaviour:
   stateRepair: {fileID: 6653618622022975970}
   stateDistract: {fileID: 3932926330811061059}
   maskCooldown: 0
+  HUD: {fileID: 0}
+--- !u!114 &7182491900922415107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4914265534204597039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &5541235377907762020
 GameObject:
   m_ObjectHideFlags: 0

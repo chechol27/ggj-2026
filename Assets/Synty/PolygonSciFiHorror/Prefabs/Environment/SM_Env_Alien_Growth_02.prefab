@@ -63,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44c126b7b28798c4f93ea340fc6a357a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2779229075187049427}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44c126b7b28798c4f93ea340fc6a357a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7067202761234907963}
   m_SourcePrefab: {fileID: 100100000, guid: 44c126b7b28798c4f93ea340fc6a357a, type: 3}
 --- !u!1 &2642685105407212307 stripped
 GameObject:
@@ -91,3 +94,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5850615588734165627, guid: 574aad2b0e79e5b419df118deb004f8a, type: 2}
+--- !u!114 &7067202761234907963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642685105407212307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1067230969
+      Data2: 1079106349
+      Data3: 56330417
+      Data4: 1886352580
+    Path: event:/AlienStuff
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3.21
+  OverrideMaxDistance: 11.13

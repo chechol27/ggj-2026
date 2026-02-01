@@ -8,73 +8,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: -7511558181221131132, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d91e2d665907439458db295e89fa707e, type: 2}
-    - target: {fileID: 188948639800355599, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: 188948639800355599, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 188948639800355599, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 188948639800355599, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 07c07dd8965e2da41af69c90756be953, type: 2}
-    - target: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - target: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Specimen_Tank_02
       objectReference: {fileID: 0}
@@ -82,15 +68,16 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443,
-        type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7723279500692966193}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6243415055773087261}
   m_SourcePrefab: {fileID: 100100000, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
 --- !u!1 &3425511172003406408 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa4ea4f716bf764283a551719af7443, type: 3}
   m_PrefabInstance: {fileID: 2542481632102194969}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &7723279500692966193
@@ -115,3 +102,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8206225674730684113, guid: b07729f0a9512e148bcc15bad911f30d, type: 2}
+--- !u!114 &6243415055773087261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425511172003406408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -378052641
+      Data2: 1167170156
+      Data3: -414516316
+      Data4: -879070245
+    Path: event:/Tanks
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.9
+  OverrideMaxDistance: 3.53

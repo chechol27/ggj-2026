@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{51143d14-5dd6-4580-87f9-4639b0fd6a0f}">
+		<property name="assetPath">
+			<value>Horror Scary Bug Creatures Movements 01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.1040000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{490ae179-64ed-418a-9e7f-aca4091ede0d}</destination>
+		</relationship>
+	</object>
+</objects>
