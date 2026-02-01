@@ -248,6 +248,18 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5560515111590758001}
+        m_TargetAssemblyTypeName: PlayerRepairController, Assembly-CSharp
+        m_MethodName: OnRepairing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1625646555776798326}
         m_TargetAssemblyTypeName: PlayerShoot, Assembly-CSharp
         m_MethodName: OnShoot
@@ -355,15 +367,51 @@ MonoBehaviour:
     m_ActionId: 57f1f5e5-ba22-44a6-ab3f-61dece6b6383
     m_ActionName: 'Player/Aim[/Mouse/position,/Pen/position]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2492708277904152288}
+        m_TargetAssemblyTypeName: PlayerStateController, Assembly-CSharp
+        m_MethodName: OnModeCombat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d5bf24e0-4727-473f-bd62-d6713428e650
-    m_ActionName: 'Player/ModeCombat[/Keyboard/1]'
+    m_ActionName: 'Player/ChangeMode[/Keyboard/1,/Keyboard/2,/Keyboard/3]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2492708277904152288}
+        m_TargetAssemblyTypeName: PlayerStateController, Assembly-CSharp
+        m_MethodName: OnModeRepair
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: cbef422a-a455-445f-b7ab-7ff9beeacb78
     m_ActionName: 'Player/ModeRepair[/Keyboard/2]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2492708277904152288}
+        m_TargetAssemblyTypeName: PlayerStateController, Assembly-CSharp
+        m_MethodName: OnModeDistract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 174440b4-046e-4f34-99bd-d478d9a8b290
     m_ActionName: 'Player/ModeDistract[/Keyboard/3]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -504,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e014d754b5e594bb045d68331eb11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStateController
-  o2Consumption: 0
+  o2Consumption: 25
   stateCombat: {fileID: 5541235377907762020}
   stateRepair: {fileID: 6653618622022975970}
   stateDistract: {fileID: 3932926330811061059}
@@ -601,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRepairController
   repairRange: 2
+  activeSpawner: {fileID: 0}
 --- !u!1 &8636982443213192090
 GameObject:
   m_ObjectHideFlags: 0
