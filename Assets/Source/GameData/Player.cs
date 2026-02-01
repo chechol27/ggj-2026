@@ -21,6 +21,9 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float fireRate;
     private bool canMove = true;
+    
+    public event Action<float> OnO2Changed;
+    public event Action<float> OnHealthChanged;
 
     private float characterSpeed;
     [SerializeField] private PlayerMode currentMode = PlayerMode.Combat;
@@ -43,7 +46,12 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     public float Health
     {
         get => health;
-        set => health = value;
+        set
+        {
+            health = value;
+            OnHealthChanged?.Invoke(health);
+        }
+            
     }
 
     public float MinO2
@@ -64,6 +72,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         set
         {
             o2 = Mathf.Clamp(value, MinO2, MaxO2);
+            OnO2Changed?.Invoke(o2);
         }
     }
 
