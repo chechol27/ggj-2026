@@ -1,10 +1,11 @@
 using System;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 
-public class Player : MonoBehaviour, IGameService
+public class Player : MonoBehaviour, IGameService, IBuffReceiver
 {
     private const string CONFIG_PATH = "GameData/PlayerConfig";
 
@@ -91,7 +92,16 @@ public class Player : MonoBehaviour, IGameService
 
     public float Speed
     {
-        get => speed;
+        get
+        {
+            float ret = speed;
+            foreach (IBuff buff in GetComponents<IBuff>().Where(buff => buff.StatName == "Speed"))
+            {
+                ret = (float)buff.ModifyValue(ret);
+            }
+
+            return ret;
+        }
         set => speed = value;
     }
 
@@ -119,5 +129,12 @@ public class Player : MonoBehaviour, IGameService
     {
         get => canMove;
         set => canMove = value;
+    }
+
+    public TBuff AddBuff<TBuff>(string statName) where TBuff : Component, IBuff
+    {
+        TBuff buff = gameObject.AddComponent<TBuff>();
+        buff.StatName = statName;
+        return buff;
     }
 }
