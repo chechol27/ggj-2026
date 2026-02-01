@@ -1,0 +1,70 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerStateController : MonoBehaviour
+{
+    Player player;
+    public delegate void OnPlayerStateChanged(bool distract);
+    public OnPlayerStateChanged onPlayerStateChanged;
+    [SerializeField] float o2Consumption;
+
+    [Header("States References")] 
+    [SerializeField] GameObject stateCombat;
+    [SerializeField] GameObject stateRepair;
+    [SerializeField] GameObject stateDistract;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        player = GameServices.Get<Player>();
+        ChangeState(stateCombat);
+    }
+
+    public void OnModeCombat(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        player.CurrentMode = PlayerMode.Combat;
+        
+        ChangeState(stateCombat);
+    }
+
+    public void OnModeRepair(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        player.CurrentMode = PlayerMode.Repair;
+        
+        ChangeState(stateRepair);
+        Debug.Log(player.O2);
+        onPlayerStateChanged?.Invoke(true);
+    }
+
+    public void OnModeDistract(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        player.CurrentMode = PlayerMode.Distract;
+        
+        ChangeState(stateDistract);
+    }
+
+    private void FixedUpdate()
+    {
+        if (player.CurrentMode == PlayerMode.Combat) return;
+        player.O2 -= o2Consumption*Time.fixedDeltaTime;
+        if (player.O2 <= 0)
+        {
+            player.CurrentMode = PlayerMode.Combat;
+            ChangeState(stateCombat);
+        }
+    }
+
+    void ChangeState(GameObject state)
+    {
+        stateCombat.SetActive(false);
+        stateRepair.SetActive(false);
+        stateDistract.SetActive(false);
+        
+        state.SetActive(true);
+        onPlayerStateChanged?.Invoke(false);
+    }
+}

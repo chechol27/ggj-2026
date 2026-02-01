@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAttacks : MonoBehaviour
+public class MeleeEnemyAttacks : MonoBehaviour
 {
     [SerializeField] float attackRange;
     [SerializeField] float attackRangeOffset;

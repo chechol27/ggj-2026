@@ -7,7 +7,7 @@ public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
 
     public UnityEvent onRepaired;
 
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     public void Awake()
     {
