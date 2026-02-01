@@ -31,4 +31,9 @@ public class LoseCanvas : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void OpenURL()
+    {
+        Application.OpenURL("https://docs.google.com/spreadsheets/d/1L5vBsGF22rwBB1LknJJE--WBD0LxTnja8pETV1AL5XU/edit?usp=sharing");
+    }
 }

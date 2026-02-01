@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainMenuScreen : MonoBehaviour
 {
     [SerializeField] private Button startGameButton;
-    [SerializeField] private InputField UsernameInputField;
+    [SerializeField] private TMP_InputField UsernameInputField;
     [SerializeField] private TextMeshProUGUI FeedbackText;
     private bool _announced;
 
@@ -26,25 +26,18 @@ public class MainMenuScreen : MonoBehaviour
         GameServices.Get<GameFlow>().SwitchStage(GameStageType.StartGame);
     }
 
-    void AnnounceUsername()
+    public void AnnounceUsername()
     {
-        if (!_announced)
-        {
             if (UsernameInputField.text.Length > 3)
             {
                 PlayerPrefs.SetString("Username", UsernameInputField.text);
                 StartGame();
-                return;
             }
             else
             {
                 PlayerPrefs.DeleteAll();
                 FeedbackText.text = "Sin username, tu puntaje no podrá ser guardado. Si no quieres guardar juega como invitado.";
-                _announced = true;
-                return;
             }
-        }
-        StartGame();
     }
     
     /*private void Awake()

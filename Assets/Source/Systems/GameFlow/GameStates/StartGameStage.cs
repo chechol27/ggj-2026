@@ -13,6 +13,6 @@ public class StartGameStage : GameStage
     public override void OnStateEnter()
     {
         SceneManager.LoadScene("level01", LoadSceneMode.Single);
-        GameServices.Get<Game>().Points = 0;
+        flow.SwitchStage(GameStageType.EnemyWave);
     }
 }
