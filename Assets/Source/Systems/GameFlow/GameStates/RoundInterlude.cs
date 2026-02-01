@@ -32,7 +32,7 @@ public class RoundInterlude : GameStage
         timer += Time.deltaTime;
         if (timer > MAX_INTERLUDE_TIME)
         {
-            flow.SwitchStage(GameStageType.EnemyWave); //TODO get next Game Stage Type based on game design (EnemyWave vs AsteroidShower)
+            flow.SwitchStage(flow.GetNextRound()); //TODO get next Game Stage Type based on game design (EnemyWave vs AsteroidShower)
             timer = 0;
         }
     }

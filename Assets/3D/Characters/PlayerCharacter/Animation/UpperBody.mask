@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Astronauta
+    m_Weight: 0
+  - m_Path: Astronauta/root
+    m_Weight: 0
+  - m_Path: Astronauta/root/CUERPO
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/caderas 2
+    m_Weight: 0
+  - m_Path: Astronauta/root/CUERPO/caderas 2/CADERAS
+    m_Weight: 0
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.L
+    m_Weight: 0
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.L/ZAPATO.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.L/ZAPATO.L/ZAPATO_PUNTA.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.R
+    m_Weight: 0
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.R/ZAPATO.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/caderas 2/PIERNA.R/ZAPATO.R/ZAPATO_PUNTA.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004/OXIGENO.005
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004/OXIGENO.005/OXIGENO.006
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004/OXIGENO.005/OXIGENO.006/OXIGENO.007
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004/OXIGENO.005/OXIGENO.006/OXIGENO.007/OXIGENO.008
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/CUELLO/CABEZA/OXIGENO/OXIGENO.001/OXIGENO.002/OXIGENO.003/OXIGENO.004/OXIGENO.005/OXIGENO.006/OXIGENO.007/OXIGENO.008/OXIGENO.009
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L/BRAZO2.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L/BRAZO2.L/BRAZO3.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L/BRAZO2.L/BRAZO3.L/BRAZO4.L
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L/BRAZO2.L/BRAZO3.L/BRAZO4.L/BRAZO4.L.001
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.L/BRAZO.L/BRAZO2.L/BRAZO3.L/BRAZO4.L/Hueso
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.R/BRAZO.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.R/BRAZO.R/BRAZO2.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.R/BRAZO.R/BRAZO2.R/BRAZO3.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/hombro.R/BRAZO.R/BRAZO2.R/BRAZO3.R/BRAZO4.R
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/OXIGENO.010
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/OXIGENO.010/ik_oxigeno
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/OXIGENO.010/OXI_ABAJO
+    m_Weight: 1
+  - m_Path: Astronauta/root/CUERPO/PECHO/OXIGENO.010/OXI_ARRIBA
+    m_Weight: 1
+  - m_Path: SM_MCharacter.004
+    m_Weight: 0

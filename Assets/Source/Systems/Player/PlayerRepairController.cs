@@ -67,7 +67,6 @@ public class PlayerRepairController : MonoBehaviour
                 player.CanMove = false;
                 break;
             }
-                
         }
     }
 

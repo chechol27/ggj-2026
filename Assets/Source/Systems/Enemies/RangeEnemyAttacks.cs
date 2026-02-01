@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class RangeEnemyAttacks : MonoBehaviour
 {
-    [SerializeField] float range;
     [SerializeField] float attackDelay;
     [SerializeField] float lowRange;
     [SerializeField] float topRange;
@@ -25,13 +24,27 @@ public class RangeEnemyAttacks : MonoBehaviour
         player = GameServices.Get<Player>();
     }
 
+    private void FixedUpdate()
+    {
+        if (!canAttack)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
+
+        if (attackCooldown <= 0)
+        {
+            canAttack = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (canAttack)
         {
+            GetComponent<RangedEnemyMovement>().CancelMove();
             playerTarget = player.CharacterPosition;
             canAttack = false;
-            onProjectileLaunched(transform.position, playerTarget, attackDelay);
+            onProjectileLaunched?.Invoke(transform.position, playerTarget, attackDelay);
             Invoke(nameof(Attack), attackDelay);
         }
 
@@ -44,9 +57,17 @@ public class RangeEnemyAttacks : MonoBehaviour
         {
             if(item.gameObject.TryGetComponent<PlayerDamageReceiver>(out PlayerDamageReceiver damageable))
             {
-                //Hacer daño al jugador.
+                DamageMessage payload =  new DamageMessage
+                {
+                    factionId =  0,
+                    hitPoint = playerTarget,
+                    value = -20
+                };
+                damageable.TakeDamage(payload);
+                Debug.Log(("Player Damaged"));
             }
         }
+        GetComponent<RangedEnemyMovement>().Move();
     }
     
 } 
