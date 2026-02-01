@@ -39,9 +39,13 @@ public class BlackHoleReference : MonoBehaviour
 
     public void RegisterRepairListener(UnityAction listener, bool aggressive = true)
     {
-        if(aggressive)
+        if (aggressive)
+        {
             blackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
+        }
         else
+        {
             nonAggressiveBlackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
+        }
     }
 }

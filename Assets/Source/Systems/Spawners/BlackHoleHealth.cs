@@ -5,7 +5,7 @@ public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
 {
     [SerializeField] private float maxHalth;
 
-    public UnityEvent onRepaired;
+    public UnityEvent onRepaired = new UnityEvent();
 
     [SerializeField] private float currentHealth;
 

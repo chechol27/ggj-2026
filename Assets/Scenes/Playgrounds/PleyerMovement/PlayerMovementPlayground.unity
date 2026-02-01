@@ -964,17 +964,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2641313149954302624, guid: 559bb9c69ee4c26438e36106cf9e8c07, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4039050492784967539, guid: 559bb9c69ee4c26438e36106cf9e8c07, type: 3}
-      propertyPath: spawnWait
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8090254127037187419, guid: 559bb9c69ee4c26438e36106cf9e8c07, type: 3}
       propertyPath: m_Name
       value: BlackHoleReference
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332372404192334323, guid: 559bb9c69ee4c26438e36106cf9e8c07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332372404192334323, guid: 559bb9c69ee4c26438e36106cf9e8c07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
