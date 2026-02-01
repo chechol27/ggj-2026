@@ -83,15 +83,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 0.3
+    - _Float: 0.2
     - _LIGHTERCOLOR: 0
-    - _NormalSTR: 1
+    - _NormalSTR: 0.87
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 7.129739, g: 6.095347, b: 4.7217703, a: 1}
+    - _Offset: {r: 0.01, g: 0, b: 0, a: 0}
+    - _Tint: {r: 2.25575, g: 1.6443584, b: 0.79589665, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
