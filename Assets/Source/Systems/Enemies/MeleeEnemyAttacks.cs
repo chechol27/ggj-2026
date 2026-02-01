@@ -39,7 +39,7 @@ public class MeleeEnemyAttacks : MonoBehaviour
                 {
                     factionId =  0,
                     hitPoint = item.transform.position,
-                    value = 20
+                    value = -20
                 };
                 damageable.TakeDamage(payload);
             }
