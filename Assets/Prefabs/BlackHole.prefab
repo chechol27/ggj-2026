@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 6897063926574308866}
   - component: {fileID: 8320835518363234126}
   m_Layer: 0
-  m_Name: Enemy Spawner
+  m_Name: BlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2132348962455655287
 Transform:
   m_ObjectHideFlags: 0
@@ -126,10 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d08794689a7cc42a12118dfaf504d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  roomId: 0
+  surfaceType: 0
   meleeEnemyPrefab: {fileID: 9073128939671050795, guid: 7b79ac449334f634aa6c0de5f64b5296, type: 3}
   rangeEnemyPrefab: {fileID: 0}
-  rangeEnemySpawnProbability: 0
-  spawnWait: 2
+  rangeEnemySpawnProbability: -1
+  spawnWait: 0.5
   spawnDelay: 0
 --- !u!114 &8320835518363234126
 MonoBehaviour:

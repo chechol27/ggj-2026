@@ -30,9 +30,9 @@ public class PlayerAim : MonoBehaviour , IGameService
     {
         Vector2 pointer = ctx.ReadValue<Vector2>();
         float characterDepth = Vector3.Distance(Camera.main.transform.position, target.position);
-        Vector3 pointerWS = new Vector3(pointer.x, pointer.y, characterDepth);
+        Vector3 pointerWS = new (pointer.x, pointer.y, characterDepth);
         pointerWS = Camera.main.ScreenToWorldPoint(pointerWS);
-        Vector3 projectedRelative = Vector3.ProjectOnPlane(pointerWS - target.position, target.up).normalized;
+        Vector3 projectedRelative = Vector3.ProjectOnPlane(pointerWS - target.position, Vector3.up).normalized;
         Debug.DrawLine(target.position, target.position + projectedRelative);
         Debug.DrawLine(Camera.main.transform.position, pointerWS, Color.aquamarine);
         aimVector = projectedRelative;

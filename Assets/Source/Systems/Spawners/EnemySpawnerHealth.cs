@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
 {
     [SerializeField] private float maxHalth;
 
+    public UnityEvent onRepaired;
 
     private float currentHealth;
 
@@ -18,6 +20,7 @@ public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            onRepaired?.Invoke();
             return true;
         }
 

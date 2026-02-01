@@ -7,7 +7,8 @@ public enum GameStageType
     None,
     Interlude,
     EnemyWave,
-    AsteroidField
+    AsteroidField,
+    GameOver
 }
 
 [Serializable]
@@ -34,9 +35,11 @@ public class GameFlow : MonoBehaviour, IGameService
     
     public void SwitchStage(GameStageType stageType)
     {
+        GameStage lastStage = currentStage;
         switch (stageType)
         {
             case GameStageType.None:
+                currentStage = null;
                 return;
             case GameStageType.Interlude:
                 currentStage?.OnStateExit();
@@ -53,7 +56,11 @@ public class GameFlow : MonoBehaviour, IGameService
             default:
                 throw new ArgumentOutOfRangeException(nameof(stageType), stageType, null);
         }
-        onStageChanged?.Invoke(stageType);
+        if (currentStage != lastStage)
+        {
+            currentStage?.OnStateEnter();
+            onStageChanged?.Invoke(stageType);
+        }
     }
 
     public GameStage CurrentStage => currentStage;

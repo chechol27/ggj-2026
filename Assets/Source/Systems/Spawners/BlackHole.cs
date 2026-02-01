@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class BlackHole : MonoBehaviour
 {
@@ -11,17 +12,23 @@ public class BlackHole : MonoBehaviour
         Wall
     }
     
-    [SerializeField] private int roomId;
     [SerializeField] private SurfaceType surfaceType;
     [SerializeField] GameObject meleeEnemyPrefab;
     [SerializeField] GameObject rangeEnemyPrefab;
     [SerializeField] float rangeEnemySpawnProbability;
     [SerializeField] float spawnWait;
     [SerializeField] float spawnDelay;
+    [SerializeField] private bool waiting;
 
+    private Pool pool;
+    
+    private float spawnDelayTimer = 0;
+    private float spawnTimer = 0;
+    
     private void Awake()
     {
-        GameServices.Get<BlackHoleRegistry>().Register(roomId, this);
+        pool = GameServices.Get<Pool>();
+        waiting = true;
     }
 
     private void Start()
@@ -33,8 +40,8 @@ public class BlackHole : MonoBehaviour
     {
         // if (Random.value < rangeEnemySpawnProbability)
         // {
-            GameServices.Get<Pool>().Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
-            spawnedEnemy.GetComponent<NavMeshAgent>().Warp(transform.position);
+        pool.Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
+        spawnedEnemy.GetComponent<NavMeshAgent>().Warp(transform.position);
         // }
         // else
         // {
@@ -43,10 +50,26 @@ public class BlackHole : MonoBehaviour
         // }
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        CancelInvoke("SpawnEnemy");
-        GameServices.Get<BlackHoleRegistry>().Unregister(roomId, this);
+        if (waiting)
+        {
+            spawnDelayTimer += Time.deltaTime;
+            if (spawnDelayTimer > spawnDelay)
+            {
+                waiting = false;
+                spawnDelayTimer = 0;
+            }
+        }
+        else
+        {
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer > spawnWait)
+            {
+                SpawnEnemy();
+                spawnTimer = 0;
+            }
+        }
     }
 
     public SurfaceType CurrentSurfaceType => surfaceType;

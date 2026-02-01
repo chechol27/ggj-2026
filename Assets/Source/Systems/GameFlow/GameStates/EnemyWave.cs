@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public struct WaveSpawnerMetric
 {
@@ -26,6 +28,16 @@ public class EnemyWave : GameStage
         {38, new WaveSpawnerMetric(10, 2)},
     };
 
+    [SerializeField] private int totalActiveSpawners;
+
+    private GameFlow flow;
+    private Game game;
+    private void Awake()
+    {
+        flow = GameServices.Get<GameFlow>();
+        game = GameServices.Get<Game>();
+    }
+
     WaveSpawnerMetric PickSpawnerMetric()
     {
         uint currentRound = GameServices.Get<Game>().currentRound;
@@ -42,24 +54,36 @@ public class EnemyWave : GameStage
 
         return spawnerTable.Last().Value;
     }
+    
+    public void HandleSpawnerRepair()
+    {
+        Debug.Log("Fixed MOFO");
+        totalActiveSpawners--;
+        if (totalActiveSpawners <= 0)
+        {
+            flow.SwitchStage(GameStageType.Interlude);
+            game.currentRound++;
+        }
+    }
 
     void TurnOnSpawners()
     {
         WaveSpawnerMetric metric = PickSpawnerMetric();
         BlackHoleRegistry blackHoleRegistry = GameServices.Get<BlackHoleRegistry>();
-        int totalActivatedSpawners = 0;
+        totalActiveSpawners = 0;
         List<int> orderedRooms = GameServices.Get<RoomRegistry>()
             .SortByDistance(GameServices.Get<Player>().CharacterPosition);
         foreach (var roomId in orderedRooms)
         {
-            if (totalActivatedSpawners > metric.totalSpawners) break;
-            //Spawn spawners if density allws
-            List<BlackHole> blackHoles = blackHoleRegistry.GetBlackHolesByRoom(roomId);
-            for (int s = 0; s < Random.Range(Mathf.CeilToInt(metric.roomDensity * 0.5f), metric.roomDensity); s++)
+            if (totalActiveSpawners > metric.totalSpawners) break;
+            List<BlackHoleReference> blackHoles = blackHoleRegistry.GetBlackHolesByRoom(roomId);
+            for (int blackHoleRefId = 0; blackHoleRefId < Random.Range(Mathf.CeilToInt(metric.roomDensity * 0.5f), metric.roomDensity); blackHoleRefId++)
             {
-                if (s > blackHoles.Count - 1) break;
-                blackHoles[s].gameObject.SetActive(true);
-                totalActivatedSpawners++;
+                if (blackHoleRefId > blackHoles.Count - 1) break;
+                BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
+                blackHoleRef.Activate();
+                blackHoleRef.RegisterRepairListener(HandleSpawnerRepair);
+                totalActiveSpawners++;
             }
         }
     }
