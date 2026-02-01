@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private void ComputeMotionVector()
     {
         Transform mainCamera = Camera.main.transform;
-        Vector3 characterUp = rb.transform.up;
+        Vector3 characterUp = Vector3.up;
         Vector2 input = inputTransformer.CurrentValue;
         float forwardVectorWeight = Mathf.Abs(Vector3.Dot(mainCamera.forward, characterUp));
         Vector3 rotationAgnosticForward = Vector3.Lerp(mainCamera.forward, mainCamera.up, forwardVectorWeight);
@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if(!player.CanMove) return;
         motionVector *= player.Speed;// * (CanSprint() ? player.SprintMultiplier : 1.0f);
         if (CanSprint())
         {
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             player.O2 += player.O2Regen * Time.fixedDeltaTime;
         }
-        rb.linearVelocity = motionVector;
+        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, motionVector, Time.fixedDeltaTime * 15.0f);
     }
     
     private void FixedUpdate()

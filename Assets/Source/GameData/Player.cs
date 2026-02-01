@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, IGameService
     [SerializeField] private float speed;
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float fireRate;
+    private bool canMove = true;
 
     [SerializeField] private PlayerMode currentMode = PlayerMode.Combat;
     private void Awake()
@@ -113,4 +114,10 @@ public class Player : MonoBehaviour, IGameService
     }
 
     public Vector3 CharacterPosition { get; set; }
+
+    public bool CanMove
+    {
+        get => canMove;
+        set => canMove = value;
+    }
 }

@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
+public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
 {
     [SerializeField] private float maxHalth;
 
+    public UnityEvent onRepaired;
 
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     public void Awake()
     {
@@ -18,9 +20,15 @@ public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            onRepaired?.Invoke();
             return true;
         }
 
         return false;
+    }
+
+    private void OnDisable()
+    {
+        onRepaired = null;
     }
 }

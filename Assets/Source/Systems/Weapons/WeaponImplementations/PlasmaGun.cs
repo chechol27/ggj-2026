@@ -22,7 +22,7 @@ public class PlasmaGun : Weapon
         bool ret = false;
         response = default;
 
-        Ray r = new Ray(muzzle.position, muzzle.forward);
+        Ray r = new (muzzle.position, muzzle.forward);
         Debug.DrawRay(r.origin, r.direction * 20, Color.red, 5);
         if (Physics.Raycast(r, out RaycastHit hit, Mathf.Infinity, detectionMask))
         {
@@ -32,7 +32,7 @@ public class PlasmaGun : Weapon
                 message.value = player.Damage;
                 message.hitPoint = hit.point;
                 response = damageable.TakeDamage(message);
-                zLength = Vector3.Distance(hit.point, muzzle.position);
+                zLength = Vector3.Distance(hit.collider.gameObject.transform.position, muzzle.position);
                 #pragma warning TODO Handle damage after successful shot
                 ret = true;
             }
