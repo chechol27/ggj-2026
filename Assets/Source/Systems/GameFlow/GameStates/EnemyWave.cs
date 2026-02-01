@@ -57,7 +57,6 @@ public class EnemyWave : GameStage
     
     public void HandleSpawnerRepair()
     {
-        Debug.Log("Fixed MOFO");
         totalActiveSpawners--;
         if (totalActiveSpawners <= 0)
         {
