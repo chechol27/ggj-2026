@@ -44,7 +44,13 @@ public class RangeEnemyAttacks : MonoBehaviour
         {
             if(item.gameObject.TryGetComponent<PlayerDamageReceiver>(out PlayerDamageReceiver damageable))
             {
-                //Hacer daño al jugador.
+                DamageMessage payload =  new DamageMessage
+                {
+                    factionId =  0,
+                    hitPoint = playerTarget,
+                    value = 20
+                };
+                damageable.TakeDamage(payload);
             }
         }
     }

@@ -13,6 +13,8 @@ public class RangedEnemyMovement : MonoBehaviour
     private Vector3 maskTarget;
     private float resetTarget;
     bool MaskUsed = false;
+
+    private RangeEnemyAttacks attackScript;
     
     void OnEnable()
     {
@@ -22,6 +24,7 @@ public class RangedEnemyMovement : MonoBehaviour
             agent.updateRotation = true;
         Move();
         maskTarget = player.CharacterPosition;
+        attackScript = GetComponent<RangeEnemyAttacks>();
     }
 
     void SetNavMeshTarget()
@@ -69,6 +72,7 @@ public class RangedEnemyMovement : MonoBehaviour
         maskTarget = newTarget;
         resetTarget = time;
         MaskUsed = used;
+        attackScript.enabled = !used;
     }
 
     public void Move()

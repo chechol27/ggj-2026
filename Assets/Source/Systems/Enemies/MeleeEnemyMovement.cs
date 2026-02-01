@@ -9,15 +9,29 @@ public class MeleeEnemyMovement : MonoBehaviour
     private Vector3 maskTarget;
     private float resetTarget;
     bool MaskUsed = false;
+    private MeleeEnemyAttacks attackScript;
     
+
     void OnEnable()
     {
         player = GameServices.Get<Player>();
         agent = GetComponent<NavMeshAgent>();
         if(agent.isOnNavMesh)
             agent.updateRotation = true;
+
+        DistractMaskController tempMask = FindAnyObjectByType<DistractMaskController>();
+
+        if (player.CurrentMode == PlayerMode.Distract || tempMask != null)
+        {
+            MaskUsed = true;
+            if(tempMask != null)
+            {
+                maskTarget = tempMask.transform.position;
+            }
+        }
+        
         Move();
-        maskTarget = player.CharacterPosition;
+        attackScript = GetComponent<MeleeEnemyAttacks>();
     }
 
     void SetNavMeshTarget()
@@ -49,6 +63,7 @@ public class MeleeEnemyMovement : MonoBehaviour
         maskTarget = newTarget;
         resetTarget = time;
         MaskUsed = used;
+        attackScript.enabled = !used;
     }
 
     public void CancelMove()

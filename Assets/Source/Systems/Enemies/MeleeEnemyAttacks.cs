@@ -33,10 +33,15 @@ public class MeleeEnemyAttacks : MonoBehaviour
     {
         foreach (Collider item in damagedItems)
         {
-            if (item.GetComponent<PlayerMovement>() != null)
+            if(item.gameObject.TryGetComponent<PlayerDamageReceiver>(out PlayerDamageReceiver damageable))
             {
-                //Hacer daño
-                break;
+                DamageMessage payload =  new DamageMessage
+                {
+                    factionId =  0,
+                    hitPoint = item.transform.position,
+                    value = 20
+                };
+                damageable.TakeDamage(payload);
             }
         }
         movement.Move();
