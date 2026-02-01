@@ -27,6 +27,8 @@ public class GameFlow : MonoBehaviour, IGameService
 
     private Game game;
 
+    private GameStageType currentStageType;
+
     private void Awake()
     {
         game = GameServices.Get<Game>();
@@ -45,6 +47,7 @@ public class GameFlow : MonoBehaviour, IGameService
     public void SwitchStage(GameStageType stageType)
     {
         GameStage lastStage = currentStage;
+        currentStageType = stageType;
         switch (stageType)
         {
             case GameStageType.None:
@@ -89,6 +92,8 @@ public class GameFlow : MonoBehaviour, IGameService
     {
         return (game.currentRound + 1 % 10 == 0) ? GameStageType.AsteroidField : GameStageType.EnemyWave;
     }
+
+    public GameStageType CurrentStageType => currentStageType;
 
     public GameStage CurrentStage => currentStage;
 }
