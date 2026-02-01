@@ -6,11 +6,11 @@ public class MeleeEnemyAttacks : MonoBehaviour
 {
     [SerializeField] float attackRange;
     [SerializeField] float attackRangeOffset;
-    EnemyMovement movement;
+    MeleeEnemyMovement movement;
 
     private void OnEnable()
     {
-        movement = GetComponent<EnemyMovement>();
+        movement = GetComponent<MeleeEnemyMovement>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class MeleeEnemyAttacks : MonoBehaviour
         movement.CancelMove();
         
         //DELAY TEMPORAL SIMULANDO LA ANIMACIÓN
-        Invoke("TempInvokeDamage", 0.5f);
+        Invoke(nameof(TempInvokeDamage), 0.5f);
     }
 
     //FUNCIÓN TEMPORAL SIMULANDO LA ANIMACIÓN
@@ -36,7 +36,6 @@ public class MeleeEnemyAttacks : MonoBehaviour
             if (item.GetComponent<PlayerMovement>() != null)
             {
                 //Hacer daño
-                Debug.Log("Daño hecho");
                 break;
             }
         }

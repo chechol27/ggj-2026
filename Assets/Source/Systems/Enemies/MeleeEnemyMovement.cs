@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class MeleeEnemyMovement : MonoBehaviour
 {
     private Player player;
     NavMeshAgent agent;
