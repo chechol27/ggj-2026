@@ -5,7 +5,7 @@ public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
     [SerializeField] private float maxHalth;
 
 
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     public void Awake()
     {

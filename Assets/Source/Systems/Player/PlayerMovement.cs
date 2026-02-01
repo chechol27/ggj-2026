@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if(!player.CanMove) return;
         motionVector *= player.Speed;// * (CanSprint() ? player.SprintMultiplier : 1.0f);
         if (CanSprint())
         {

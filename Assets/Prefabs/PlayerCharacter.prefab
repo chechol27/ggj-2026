@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2612266474672681158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3932926330811061059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7250443088814417689}
+  m_Layer: 0
+  m_Name: StateDistract
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7250443088814417689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932926330811061059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2612266474672681158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4914265534204597039
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,9 +78,9 @@ GameObject:
   - component: {fileID: 6695776416062268749}
   - component: {fileID: 3935745591818811839}
   - component: {fileID: 6598825737434191161}
-  - component: {fileID: 917265093817868567}
   - component: {fileID: 5596354717086208295}
   - component: {fileID: 8962737899998290883}
+  - component: {fileID: 2492708277904152288}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -73,6 +104,9 @@ Transform:
   - {fileID: 2403871564397093078}
   - {fileID: 2288060103340384710}
   - {fileID: 4875557804267805578}
+  - {fileID: 4092518389685256688}
+  - {fileID: 2642257180836760896}
+  - {fileID: 7250443088814417689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7076357618970418689
@@ -214,7 +248,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 917265093817868567}
+      - m_Target: {fileID: 1625646555776798326}
         m_TargetAssemblyTypeName: PlayerShoot, Assembly-CSharp
         m_MethodName: OnShoot
         m_Mode: 0
@@ -320,6 +354,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 57f1f5e5-ba22-44a6-ab3f-61dece6b6383
     m_ActionName: 'Player/Aim[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5bf24e0-4727-473f-bd62-d6713428e650
+    m_ActionName: 'Player/ModeCombat[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbef422a-a455-445f-b7ab-7ff9beeacb78
+    m_ActionName: 'Player/ModeRepair[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 174440b4-046e-4f34-99bd-d478d9a8b290
+    m_ActionName: 'Player/ModeDistract[/Keyboard/3]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -421,22 +467,6 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!114 &917265093817868567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4914265534204597039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ec59445e440f04db630a005b2ebbb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
-  weapon: {fileID: 4702316895004310249}
-  rumbleSpeed:
-    smoothTime: 0.2
-    currentValue: {x: 0, y: 0}
 --- !u!114 &5596354717086208295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +492,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d7d9c45d40a5041882d2fabf37d46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageReceiver
+--- !u!114 &2492708277904152288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4914265534204597039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e014d754b5e594bb045d68331eb11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStateController
+  o2Consumption: 0
+  stateCombat: {fileID: 5541235377907762020}
+  stateRepair: {fileID: 6653618622022975970}
+  stateDistract: {fileID: 3932926330811061059}
+--- !u!1 &5541235377907762020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4092518389685256688}
+  - component: {fileID: 1625646555776798326}
+  m_Layer: 0
+  m_Name: StateCombat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4092518389685256688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541235377907762020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2612266474672681158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1625646555776798326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541235377907762020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ec59445e440f04db630a005b2ebbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
+  weapon: {fileID: 4702316895004310249}
+  rumbleSpeed:
+    smoothTime: 0.2
+    currentValue: {x: 0, y: 0}
+--- !u!1 &6653618622022975970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2642257180836760896}
+  - component: {fileID: 5560515111590758001}
+  m_Layer: 0
+  m_Name: StateRepair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2642257180836760896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653618622022975970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2612266474672681158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5560515111590758001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653618622022975970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc00ba7f8b24794385cab3abc1c70a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRepairController
+  repairRange: 2
 --- !u!1 &8636982443213192090
 GameObject:
   m_ObjectHideFlags: 0
