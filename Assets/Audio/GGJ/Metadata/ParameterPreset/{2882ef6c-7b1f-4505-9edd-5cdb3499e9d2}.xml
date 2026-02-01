@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{2882ef6c-7b1f-4505-9edd-5cdb3499e9d2}">
+		<property name="name">
+			<value>MaskTribalON</value>
+		</property>
+		<relationship name="folder">
+			<destination>{f6816c57-34c3-4330-9f9d-5674738210d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{29cacb11-e24a-4819-9949-58d2ec221f0a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{29cacb11-e24a-4819-9949-58d2ec221f0a}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

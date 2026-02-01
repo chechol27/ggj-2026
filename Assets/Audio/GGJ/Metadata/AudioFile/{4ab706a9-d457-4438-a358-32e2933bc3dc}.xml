@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4ab706a9-d457-4438-a358-32e2933bc3dc}">
+		<property name="assetPath">
+			<value>Negative_Effect_11.WAV</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5490476190476192</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{490ae179-64ed-418a-9e7f-aca4091ede0d}</destination>
+		</relationship>
+	</object>
+</objects>

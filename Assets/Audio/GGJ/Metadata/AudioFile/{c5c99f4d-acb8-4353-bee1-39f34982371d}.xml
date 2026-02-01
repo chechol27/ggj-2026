@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c5c99f4d-acb8-4353-bee1-39f34982371d}">
+		<property name="assetPath">
+			<value>Gears_Cranks_Small_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.7020833333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{490ae179-64ed-418a-9e7f-aca4091ede0d}</destination>
+		</relationship>
+	</object>
+</objects>

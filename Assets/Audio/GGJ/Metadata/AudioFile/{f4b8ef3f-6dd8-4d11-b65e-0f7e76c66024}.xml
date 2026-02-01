@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f4b8ef3f-6dd8-4d11-b65e-0f7e76c66024}">
+		<property name="assetPath">
+			<value>Industry Tool Box Close And Lock 01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.5786666666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{490ae179-64ed-418a-9e7f-aca4091ede0d}</destination>
+		</relationship>
+	</object>
+</objects>
