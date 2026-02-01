@@ -6,6 +6,10 @@ public class MeleeEnemyMovement : MonoBehaviour
 {
     private Player player;
     NavMeshAgent agent;
+    private Vector3 maskTarget;
+    private float resetTarget;
+    bool MaskUsed = false;
+    
     void OnEnable()
     {
         player = GameServices.Get<Player>();
@@ -13,23 +17,43 @@ public class MeleeEnemyMovement : MonoBehaviour
         if(agent.isOnNavMesh)
             agent.updateRotation = true;
         Move();
+        maskTarget = player.CharacterPosition;
     }
 
     void SetNavMeshTarget()
     {
-        agent.SetDestination(player.CharacterPosition);
+        if(MaskUsed)
+            agent.SetDestination(maskTarget);
+        else
+            agent.SetDestination(player.CharacterPosition);
     }
 
     public void Move()
     {
         if(agent.isOnNavMesh)
             agent.isStopped = false;
-        InvokeRepeating("SetNavMeshTarget", 0.5f, 1.5f);
+        InvokeRepeating(nameof(SetNavMeshTarget), 0.5f, 1.5f);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!MaskUsed) return;
+        resetTarget -= Time.fixedDeltaTime;
+        if (resetTarget >= 0) return;
+        ChangeTarget(Vector3.zero, 10, false);
+
+    }
+
+    public void ChangeTarget(Vector3 newTarget, float time, bool used)
+    {
+        maskTarget = newTarget;
+        resetTarget = time;
+        MaskUsed = used;
     }
 
     public void CancelMove()
     {
-        CancelInvoke("SetNavMeshTarget");
+        CancelInvoke(nameof(SetNavMeshTarget));
         if(agent.isOnNavMesh)
             agent.isStopped = true;
     }

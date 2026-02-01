@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7250443088814417689}
+  - component: {fileID: 820551393619935042}
   m_Layer: 3
   m_Name: StateDistract
   m_TagString: Untagged
@@ -62,6 +63,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2612266474672681158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820551393619935042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932926330811061059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d29c045d6bb7f45a40c98571d2dde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDistractController
+  speedBuffDuration: 5
+  speedBuffAmount: 10
+  MaskPrefab: {fileID: 4676716165949294376, guid: b74d15e513ce5f644b563ed006328c2e, type: 3}
 --- !u!1 &4914265534204597039
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +572,7 @@ MonoBehaviour:
   stateCombat: {fileID: 5541235377907762020}
   stateRepair: {fileID: 6653618622022975970}
   stateDistract: {fileID: 3932926330811061059}
+  maskCooldown: 0
 --- !u!1 &5541235377907762020
 GameObject:
   m_ObjectHideFlags: 0

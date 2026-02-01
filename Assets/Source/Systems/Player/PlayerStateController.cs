@@ -6,13 +6,15 @@ public class PlayerStateController : MonoBehaviour
 {
     Player player;
     public delegate void OnPlayerStateChanged(bool distract);
-    public OnPlayerStateChanged onPlayerStateChanged;
+    public OnPlayerStateChanged onMaskUsed;
     [SerializeField] float o2Consumption;
 
     [Header("States References")] 
     [SerializeField] GameObject stateCombat;
     [SerializeField] GameObject stateRepair;
     [SerializeField] GameObject stateDistract;
+    
+    [HideInInspector] public float maskCooldown;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,13 +37,14 @@ public class PlayerStateController : MonoBehaviour
         player.CurrentMode = PlayerMode.Repair;
         
         ChangeState(stateRepair);
-        Debug.Log(player.O2);
-        onPlayerStateChanged?.Invoke(true);
     }
 
     public void OnModeDistract(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;
+        
+        if (maskCooldown > 0) return;
+        
         player.CurrentMode = PlayerMode.Distract;
         
         ChangeState(stateDistract);
@@ -49,13 +52,20 @@ public class PlayerStateController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (maskCooldown >= 0)
+        {
+            maskCooldown -= Time.fixedDeltaTime;
+        }
+        
         if (player.CurrentMode == PlayerMode.Combat) return;
+        
         player.O2 -= o2Consumption*Time.fixedDeltaTime;
         if (player.O2 <= 0)
         {
             player.CurrentMode = PlayerMode.Combat;
             ChangeState(stateCombat);
         }
+
     }
 
     void ChangeState(GameObject state)
@@ -63,8 +73,14 @@ public class PlayerStateController : MonoBehaviour
         stateCombat.SetActive(false);
         stateRepair.SetActive(false);
         stateDistract.SetActive(false);
-        
+
         state.SetActive(true);
-        onPlayerStateChanged?.Invoke(false);
     }
+
+    public void PrematureMaskTurnOff()
+    {
+        ChangeState(stateCombat);
+    }
+    
+    
 }

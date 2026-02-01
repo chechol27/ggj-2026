@@ -10,6 +10,10 @@ public class RangedEnemyMovement : MonoBehaviour
     [SerializeField] private float ApproachSpeed = 1.5f;
     private float moveDelay = 1.5f;
     
+    private Vector3 maskTarget;
+    private float resetTarget;
+    bool MaskUsed = false;
+    
     void OnEnable()
     {
         player = GameServices.Get<Player>();
@@ -17,22 +21,31 @@ public class RangedEnemyMovement : MonoBehaviour
         if(agent.isOnNavMesh)
             agent.updateRotation = true;
         Move();
+        maskTarget = player.CharacterPosition;
     }
 
     void SetNavMeshTarget()
     {
-        float distance = Vector3.Distance(transform.position, player.CharacterPosition);
-        if (distance < agent.stoppingDistance)
+        if (!MaskUsed)
         {
-            agent.speed = runawaySpeed;
-            Vector3 away = (transform.position-player.CharacterPosition).normalized;
-            Vector3 targetPosition = transform.position + away * (agent.stoppingDistance*2);
-            agent.SetDestination(targetPosition);
+            float distance = Vector3.Distance(transform.position, player.CharacterPosition);
+            if (distance < agent.stoppingDistance)
+            {
+                agent.speed = runawaySpeed;
+                Vector3 away = (transform.position-player.CharacterPosition).normalized;
+                Vector3 targetPosition = transform.position + away * (agent.stoppingDistance*2);
+                agent.SetDestination(targetPosition);
+            }
+            else
+            {
+                agent.speed = ApproachSpeed;
+                agent.SetDestination(player.CharacterPosition);
+            }
         }
         else
         {
             agent.speed = ApproachSpeed;
-            agent.SetDestination(player.CharacterPosition);
+            agent.SetDestination(maskTarget); 
         }
     }
 
@@ -44,6 +57,18 @@ public class RangedEnemyMovement : MonoBehaviour
             SetNavMeshTarget();
             moveDelay = 1.5f;
         }
+        
+        if (!MaskUsed) return;
+        resetTarget -= Time.fixedDeltaTime;
+        if (resetTarget >= 0) return;
+        ChangeTarget(player.CharacterPosition, 10, false);
+    }
+
+    public void ChangeTarget(Vector3 newTarget, float time, bool used)
+    {
+        maskTarget = newTarget;
+        resetTarget = time;
+        MaskUsed = used;
     }
 
     public void Move()
