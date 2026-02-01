@@ -14,6 +14,7 @@ public class PlayerRepairController : MonoBehaviour
     public UnityEvent onStartRepair;
     public UnityEvent onEndRepair;
 
+    private Game game;
     void SetActivationState(bool state)
     {
         _active = state;
@@ -26,7 +27,12 @@ public class PlayerRepairController : MonoBehaviour
             onEndRepair?.Invoke();
         }
     }
-    
+
+    private void Awake()
+    {
+        game = GameServices.Get<Game>();
+    }
+
     private void Start()
     {
         player = GameServices.Get<Player>();
@@ -36,6 +42,7 @@ public class PlayerRepairController : MonoBehaviour
 
     public void OnRepairing(InputAction.CallbackContext ctx)
     {
+        if (game.paused) return;
         if(!gameObject.activeInHierarchy) return;
         if (ctx.performed)
         {

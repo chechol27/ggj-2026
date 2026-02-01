@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +8,18 @@ public class PlayerAim : MonoBehaviour , IGameService
 
     private Vector3 aimVector;
     private Vector3 persistentAimVector;
-    
+
+    private Game game;
+
+    private void Awake()
+    {
+        game = GameServices.Get<Game>();
+    }
+
     //Joystick
     public void OnLook(InputAction.CallbackContext ctx)
     {
+        if (game.paused) return;
         Vector2 aim = ctx.ReadValue<Vector2>();
         if (aim.magnitude > 0)
         {

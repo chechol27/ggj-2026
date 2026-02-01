@@ -1137,9 +1137,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6653618622022975970, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 816395717601942933}
+    - targetCorrespondingSourceObject: {fileID: 6653618622022975970, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8982015307736534007}
     - targetCorrespondingSourceObject: {fileID: 3932926330811061059, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5990071311512045250}
+    - targetCorrespondingSourceObject: {fileID: 3932926330811061059, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8471913495067821898}
     - targetCorrespondingSourceObject: {fileID: 7437251620674844212, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4587962359710412371}
@@ -1207,6 +1213,22 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &8982015307736534007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847534341356700391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddcd545393e5844594adf7598c0e93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleActivationParamater
+  eventPath: event:/Music
+  paramName: RestMaskOn
+  startValue: 1
+  stopValue: 0
 --- !u!1 &3977931571965804641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5541235377907762020, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
@@ -1302,6 +1324,22 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &8471913495067821898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568296520443646022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddcd545393e5844594adf7598c0e93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleActivationParamater
+  eventPath: event:/Music
+  paramName: MaskTribalON
+  startValue: 1
+  stopValue: 0
 --- !u!4 &5747488346364568881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3751834617784673844, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
