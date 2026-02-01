@@ -48,17 +48,20 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         if(!player.CanMove) return;
-        motionVector *= player.Speed;// * (CanSprint() ? player.SprintMultiplier : 1.0f);
+        motionVector *= player.Speed;
+        float motionSpeedMaxValue = 0.5f;
         if (CanSprint())
         {
             motionVector *= player.SprintMultiplier;
             player.O2 -= player.O2Deplete * Time.fixedDeltaTime;
+            motionSpeedMaxValue = 1.0f;
         }
         else
         {
             player.O2 += player.O2Regen * Time.fixedDeltaTime;
         }
         rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, motionVector, Time.fixedDeltaTime * 15.0f);
+        player.CharacterSpeed = Mathf.Clamp((motionVector / player.Speed).magnitude, 0, motionSpeedMaxValue);
     }
     
     private void FixedUpdate()

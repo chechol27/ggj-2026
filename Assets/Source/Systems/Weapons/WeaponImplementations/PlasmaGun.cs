@@ -41,7 +41,7 @@ public class PlasmaGun : Weapon
             VFXPrefab, 
             out GameObject particleSystem, 
             TransformFrame.TRS(muzzle.position, muzzle.rotation, new Vector3(1,1,zLength)));
-
+        particleSystem.transform.parent = muzzle;
         impulseSource.GenerateImpulse(impulseForce);
         return ret;
     }
