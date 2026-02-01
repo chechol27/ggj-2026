@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using LitMotion;
+using LitMotion.Extensions;
 
 public class DistractMaskController : MonoBehaviour
 {
@@ -23,6 +25,9 @@ public class DistractMaskController : MonoBehaviour
         }
         
         Invoke(nameof(MyDestroy), lifetime);
+        LMotion.Create(transform.eulerAngles, transform.eulerAngles + new Vector3(0, 720, 0),
+            lifetime).BindToEulerAngles(transform);
+
     }
 
     private void MyDestroy()

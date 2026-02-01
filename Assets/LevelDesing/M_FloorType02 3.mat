@@ -58,7 +58,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3ecbe8b3eb62cdc4dab343019777bbfe, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7cfe5d4ace9ee8244b8c5df4b6efe6a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D_1:
@@ -90,8 +90,8 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.76
     m_Colors:
-    - _Color: {r: 1.467967, g: 1.4980392, b: 0, a: 1}
+    - _Color: {r: 1.9685864, g: 2, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 4.2790756, g: 3.2805574, b: 1.929621, a: 1}
+    - _Tint: {r: 4.5331316, g: 2.3021662, b: 3.2118201, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

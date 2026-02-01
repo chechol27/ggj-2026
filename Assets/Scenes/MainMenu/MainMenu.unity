@@ -454,12 +454,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93190985}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -315.21143, y: 169.5144, z: -194.53223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 339147529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202286577
 GameObject:
@@ -543,7 +543,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 202286580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005836355}
+        m_TargetAssemblyTypeName: MainMenuScreen, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &202286580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +699,9 @@ Transform:
   m_LocalPosition: {x: 315.21143, y: -169.5144, z: 194.53223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2005836354}
+  - {fileID: 93190988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &399415649
@@ -5761,7 +5775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 876459282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005836355}
+        m_TargetAssemblyTypeName: MainMenuScreen, Assembly-CSharp
+        m_MethodName: AnnounceUsername
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &876459282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12291,7 +12317,7 @@ RectTransform:
   - {fileID: 202286578}
   - {fileID: 1363617689}
   - {fileID: 2035168018}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 339147529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12311,8 +12337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuScreen
   startGameButton: {fileID: 876459281}
-  UsernameInputField: {fileID: 0}
-  FeedbackText: {fileID: 0}
+  UsernameInputField: {fileID: 1363617690}
+  FeedbackText: {fileID: 2035168019}
 --- !u!1 &2035168017
 GameObject:
   m_ObjectHideFlags: 0
@@ -12462,5 +12488,3 @@ SceneRoots:
   - {fileID: 309923087}
   - {fileID: 1231039744}
   - {fileID: 995697423}
-  - {fileID: 2005836354}
-  - {fileID: 93190988}

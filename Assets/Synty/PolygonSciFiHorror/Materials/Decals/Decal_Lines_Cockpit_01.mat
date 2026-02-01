@@ -58,6 +58,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
     - _DecalAngleFadeSupported: 1
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
@@ -68,7 +70,7 @@ Material:
     - _Normal_Strength: 1
     - _Smoothness: 0.2
     m_Colors:
-    - _Tint: {r: 1, g: 0.99215686, b: 0.9019608, a: 0}
+    - _Tint: {r: 1, g: 0.7293082, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3627381347322056381
