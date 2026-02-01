@@ -15,6 +15,12 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetTrigger("Shoot");
     }
 
+    public void SetRepairState(bool repairState)
+    {
+        Debug.Log($"{(repairState ? "Starting" : "Ending")} repair animation");
+        animator.SetBool("Repair", repairState);
+    }
+
     void SetMotionVector()
     {
         animator.SetFloat("Speed", player.CharacterSpeed);
