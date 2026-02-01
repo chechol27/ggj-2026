@@ -110,7 +110,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -126,13 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d08794689a7cc42a12118dfaf504d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  roomId: 0
   surfaceType: 0
   meleeEnemyPrefab: {fileID: 9073128939671050795, guid: 7b79ac449334f634aa6c0de5f64b5296, type: 3}
-  rangeEnemyPrefab: {fileID: 0}
-  rangeEnemySpawnProbability: -1
+  rangeEnemyPrefab: {fileID: 659566544116788845, guid: 50c24460bb9152441ba1539cc7220b6d, type: 3}
+  rangeEnemySpawnProbability: 0.1
   spawnWait: 0.5
   spawnDelay: 0
+  waiting: 1
 --- !u!114 &8320835518363234126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerHealth
   maxHalth: 100
+  onRepaired:
+    m_PersistentCalls:
+      m_Calls: []
+  currentHealth: 0
