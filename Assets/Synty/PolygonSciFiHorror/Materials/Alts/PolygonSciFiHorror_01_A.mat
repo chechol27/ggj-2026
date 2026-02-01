@@ -111,7 +111,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Emission_Color: {r: 9.738208, g: 11.084112, b: 0, a: 0}
+    - _Emission_Color: {r: 2.701472, g: 3.0713162, b: 0, a: 0}
     - _Hair_Color: {r: 0.7686275, g: 0.6039216, b: 0.3921569, a: 0}
     - _Skin_Color: {r: 1, g: 0.8, b: 0.682353, a: 0}
   m_BuildTextureStacks: []
