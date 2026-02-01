@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext ctx)
     {
+        if (!gameObject.activeInHierarchy) return;
         if (ctx.ReadValueAsButton() && ctx.started)
         {
             rumbleSpeed.ForceValue(new Vector2(0.5f, 1.0f));

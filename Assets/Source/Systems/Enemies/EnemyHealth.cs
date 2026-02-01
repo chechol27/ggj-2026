@@ -19,7 +19,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
         
         response.result = currentHealth <= 0 ? DamageResult.Dead : DamageResult.Damaged;
         
-        Debug.Log("Damaged");
         if (currentHealth <= 0)
         {
             transform.parent.gameObject.SetActive(false);
