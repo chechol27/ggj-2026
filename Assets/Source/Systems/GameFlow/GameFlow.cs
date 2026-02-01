@@ -5,6 +5,8 @@ using UnityEngine.Events;
 public enum GameStageType
 {
     None,
+    MainMenu,
+    StartGame,
     Interlude,
     EnemyWave,
     AsteroidField,
@@ -48,25 +50,28 @@ public class GameFlow : MonoBehaviour, IGameService
             case GameStageType.None:
                 currentStage = null;
                 return;
+            case GameStageType.MainMenu:
+                currentStage = GetOrCreateStage<MainMenuStage>();
+                break;
+            case GameStageType.StartGame:
+                currentStage = GetOrCreateStage<StartGameStage>();
+                break;
             case GameStageType.Interlude:
-                currentStage?.OnStateExit();
                 currentStage = GetOrCreateStage<RoundInterlude>();
                 break;
             case GameStageType.EnemyWave:
-                currentStage?.OnStateExit();
                 currentStage = GetOrCreateStage<EnemyWave>();
                 break;
             case GameStageType.AsteroidField:
-                currentStage?.OnStateExit();
                 currentStage = GetOrCreateStage<AsteroidFieldRound>();
                 break;
             case GameStageType.GameOver:
-                currentStage?.OnStateExit();
                 currentStage = GetOrCreateStage<GameOver>();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(stageType), stageType, null);
         }
+        lastStage?.OnStateExit();
         if (currentStage != lastStage)
         {
             currentStage?.OnStateEnter();
