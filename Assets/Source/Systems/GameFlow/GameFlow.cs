@@ -22,7 +22,14 @@ public class GameFlow : MonoBehaviour, IGameService
     public GameStageEvent onStageChanged;
 
     private GameStage currentStage;
-    
+
+    private Game game;
+
+    private void Awake()
+    {
+        game = GameServices.Get<Game>();
+    }
+
     private TStage GetOrCreateStage<TStage>() where TStage : GameStage
     {
         if (TryGetComponent(out TStage stage))
@@ -53,6 +60,10 @@ public class GameFlow : MonoBehaviour, IGameService
                 currentStage?.OnStateExit();
                 currentStage = GetOrCreateStage<AsteroidFieldRound>();
                 break;
+            case GameStageType.GameOver:
+                currentStage?.OnStateExit();
+                currentStage = GetOrCreateStage<GameOver>();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(stageType), stageType, null);
         }
@@ -61,6 +72,12 @@ public class GameFlow : MonoBehaviour, IGameService
             currentStage?.OnStateEnter();
             onStageChanged?.Invoke(stageType);
         }
+    }
+
+    public void SetPause(bool pausedState)
+    {
+        game.paused = pausedState;
+        Time.timeScale = pausedState ? 0 : 1;
     }
 
     public GameStage CurrentStage => currentStage;
