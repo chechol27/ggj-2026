@@ -1,16 +1,28 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageResponse>
 {
     [SerializeField] float maxHealth = 100;
     [SerializeField] float currentHealth;
 
+    public UnityEvent onDeath;
+    
     private void OnEnable()
     {
         currentHealth = maxHealth;
     }
 
+    private void DisableParent()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
+    
+    public void PerformDeath()
+    {
+        Invoke(nameof(DisableParent), 1.5f);
+    }
+    
     public DamageResponse TakeDamage(DamageMessage damage)
     {
         DamageResponse response = new DamageResponse();
@@ -21,7 +33,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
         
         if (currentHealth <= 0)
         {
-            transform.parent.gameObject.SetActive(false);
+            onDeath?.Invoke();
         }
         return response;
     }

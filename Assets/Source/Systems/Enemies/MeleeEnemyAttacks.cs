@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class MeleeEnemyAttacks : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class MeleeEnemyAttacks : MonoBehaviour
     [SerializeField] float attackRangeOffset;
     MeleeEnemyMovement movement;
 
+    public UnityEvent onAttack;
+    
     private void OnEnable()
     {
         movement = GetComponent<MeleeEnemyMovement>();
@@ -17,13 +20,10 @@ public class MeleeEnemyAttacks : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() == null) return;
         movement.CancelMove();
-        
-        //DELAY TEMPORAL SIMULANDO LA ANIMACIÓN
-        Invoke(nameof(TempInvokeDamage), 0.5f);
+        onAttack?.Invoke();
     }
 
-    //FUNCIÓN TEMPORAL SIMULANDO LA ANIMACIÓN
-    void TempInvokeDamage()
+    void PerformAttack()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward*attackRangeOffset, attackRange);
         damagePlayer(colliders);
