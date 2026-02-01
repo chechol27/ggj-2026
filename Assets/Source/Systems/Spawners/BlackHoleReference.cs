@@ -31,6 +31,6 @@ public class BlackHoleReference : MonoBehaviour
 
     public void RegisterRepairListener(UnityAction listener)
     {
-        blackHole.GetComponent<EnemySpawnerHealth>().onRepaired.AddListener(listener);
+        blackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
+public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
 {
     [SerializeField] private float maxHalth;
 
@@ -25,5 +25,10 @@ public class EnemySpawnerHealth : MonoBehaviour, IDamageable<float, bool>
         }
 
         return false;
+    }
+
+    private void OnDisable()
+    {
+        onRepaired = null;
     }
 }

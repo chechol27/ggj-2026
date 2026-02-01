@@ -6,7 +6,7 @@ public class PlayerRepairController : MonoBehaviour
 {
     private bool _active;
     [SerializeField] private float repairRange;
-    [SerializeField] private EnemySpawnerHealth activeSpawner;
+    [SerializeField] private BlackHoleHealth activeSpawner;
     private Player player;
 
     private void Start()
@@ -60,7 +60,7 @@ public class PlayerRepairController : MonoBehaviour
         }
         foreach (Collider obj in objects)
         {
-            if (obj.gameObject.TryGetComponent<EnemySpawnerHealth>(out EnemySpawnerHealth active))
+            if (obj.gameObject.TryGetComponent<BlackHoleHealth>(out BlackHoleHealth active))
             {
                 _active = true;
                 activeSpawner = active;
