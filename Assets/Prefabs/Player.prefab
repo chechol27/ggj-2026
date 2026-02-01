@@ -62,7 +62,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 30
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -352,6 +352,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3935745591818811839, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935745591818811839, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4590317747888755670, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -359,6 +367,66 @@ PrefabInstance:
     - target: {fileID: 4914265534204597039, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1470454364642766499}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1470454364642766499}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRepairState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRepairState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560515111590758001, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

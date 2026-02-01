@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+
 
 public class PlayerRepairController : MonoBehaviour
 {
@@ -9,11 +11,27 @@ public class PlayerRepairController : MonoBehaviour
     [SerializeField] private BlackHoleHealth activeSpawner;
     private Player player;
 
+    public UnityEvent onStartRepair;
+    public UnityEvent onEndRepair;
+
+    void SetActivationState(bool state)
+    {
+        _active = state;
+        if (state)
+        {
+            onStartRepair?.Invoke();
+        }
+        else
+        {
+            onEndRepair?.Invoke();
+        }
+    }
+    
     private void Start()
     {
         player = GameServices.Get<Player>();
         activeSpawner = null;
-        _active = false;
+        SetActivationState(false);
     }
 
     public void OnRepairing(InputAction.CallbackContext ctx)
@@ -25,7 +43,7 @@ public class PlayerRepairController : MonoBehaviour
         }
         if (ctx.canceled)
         {
-            _active = false;
+            SetActivationState(false);
             activeSpawner = null;
             player.CanMove = true;
         }
@@ -41,7 +59,7 @@ public class PlayerRepairController : MonoBehaviour
     {
         if (activeSpawner == null)
         { 
-            _active = false;
+            SetActivationState(false);
             player.CanMove = true;
         }
         else
@@ -62,7 +80,7 @@ public class PlayerRepairController : MonoBehaviour
         {
             if (obj.gameObject.TryGetComponent<BlackHoleHealth>(out BlackHoleHealth active))
             {
-                _active = true;
+                SetActivationState(true);
                 activeSpawner = active;
                 player.CanMove = false;
                 break;

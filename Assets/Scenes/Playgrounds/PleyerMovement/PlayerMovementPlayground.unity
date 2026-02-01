@@ -247,7 +247,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 30
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
@@ -907,15 +907,98 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5433815090938456947}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5433815090938456947}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRepairState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRepairState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onEndRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961184769846232436, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: onStartRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569981065058794170, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569981065058794170, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7469028684510519167, guid: 009bed66939af6946b1870ec13d59230, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643952173094844105, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+      propertyPath: Lens.FarClipPlane
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+--- !u!114 &5433815090938456947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1470454364642766499, guid: 009bed66939af6946b1870ec13d59230, type: 3}
+  m_PrefabInstance: {fileID: 5433815090938456946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7c6528ca402aa419254c34cff69639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
 --- !u!1001 &8978644666632948832
 PrefabInstance:
   m_ObjectHideFlags: 0
