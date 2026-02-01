@@ -22,6 +22,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     [SerializeField] private float fireRate;
     private bool canMove = true;
 
+    private float characterSpeed;
     [SerializeField] private PlayerMode currentMode = PlayerMode.Combat;
     private void Awake()
     {
@@ -129,6 +130,12 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     {
         get => canMove;
         set => canMove = value;
+    }
+
+    public float CharacterSpeed
+    {
+        get => characterSpeed;
+        set => characterSpeed = value;
     }
 
     public TBuff AddBuff<TBuff>(string statName) where TBuff : Component, IBuff
