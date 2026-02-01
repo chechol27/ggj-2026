@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &383474603356186416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6602276466018850337}
+  m_Layer: 0
+  m_Name: AudioEmitters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6602276466018850337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383474603356186416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5584282286709445687}
+  - {fileID: 3358314586791874427}
+  m_Father: {fileID: 1706762943244644235}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837922308443876300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +43,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7781655785884686693}
   - component: {fileID: 5149086567695234970}
-  - component: {fileID: 5564743108484994732}
   - component: {fileID: 6467450592446703049}
   - component: {fileID: 4581657513529841683}
   - component: {fileID: 3207129503703417809}
@@ -87,14 +119,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5564743108484994732
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837922308443876300}
-  m_Enabled: 1
 --- !u!114 &6467450592446703049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +209,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!1 &4556888078660105504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5584282286709445687}
+  - component: {fileID: 9022664353663589791}
+  m_Layer: 0
+  m_Name: FootstepsEventEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5584282286709445687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556888078660105504}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6602276466018850337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9022664353663589791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556888078660105504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 99960911
+      Data2: 1109969518
+      Data3: -1343065442
+      Data4: -1090039620
+    Path: event:/Walk
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5955549597794876153
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +422,69 @@ MonoBehaviour:
     FrequencyGain: 1
     Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &6350995960791564594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3358314586791874427}
+  - component: {fileID: 1690594562207597697}
+  m_Layer: 0
+  m_Name: HurtEventEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3358314586791874427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350995960791564594}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6602276466018850337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690594562207597697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350995960791564594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1439095763
+      Data2: 1261416964
+      Data3: -2109256318
+      Data4: -1562413057
+    Path: event:/PlayerHurt
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7469028684510519167
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +779,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b18e6194a0794b545895c3f3409345d3, type: 3}
+--- !u!114 &1245118802475860112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8259289510212815244, guid: b18e6194a0794b545895c3f3409345d3, type: 3}
+  m_PrefabInstance: {fileID: 7194897298321803548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04663a110db57ea498e6e0390a3b83c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!224 &3542954970666871794 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5976965269244748526, guid: b18e6194a0794b545895c3f3409345d3, type: 3}
@@ -702,22 +863,89 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 5747488346364568881}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1733758325823931037}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FMODUnity.StudioEventEmitter, FMODUnity
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 759419737753106110, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1733758325823931037}
   m_SourcePrefab: {fileID: 100100000, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
 --- !u!114 &2157504452985140473 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
   m_PrefabInstance: {fileID: 7575437700176204107}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7181935503286691829}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0633b67c02386374798c3165516477cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlasmaGun
+--- !u!1 &7181935503286691829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 759419737753106110, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+  m_PrefabInstance: {fileID: 7575437700176204107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1733758325823931037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181935503286691829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 935510641
+      Data2: 1338745906
+      Data3: 91655311
+      Data4: 1486051643
+    Path: event:/Shot
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &7557195091842645327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
@@ -731,6 +959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1785227942290333579}
     m_Modifications:
+    - target: {fileID: 820551393619935042, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1245118802475860112}
     - target: {fileID: 1625646555776798326, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: weapon
       value: 
@@ -763,6 +995,10 @@ PrefabInstance:
       propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2492708277904152288, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1245118802475860112}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -888,16 +1124,125 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7250443088814417689, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3241791917215300720}
+    - targetCorrespondingSourceObject: {fileID: 7817611636897082510, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6602276466018850337}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4914265534204597039, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470454364642766499}
+    - targetCorrespondingSourceObject: {fileID: 5541235377907762020, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2428195456679337686}
+    - targetCorrespondingSourceObject: {fileID: 6653618622022975970, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 816395717601942933}
+    - targetCorrespondingSourceObject: {fileID: 3932926330811061059, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5990071311512045250}
+    - targetCorrespondingSourceObject: {fileID: 7437251620674844212, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4587962359710412371}
   m_SourcePrefab: {fileID: 100100000, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+--- !u!4 &1706762943244644235 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7817611636897082510, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2081915879357281585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437251620674844212, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4587962359710412371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081915879357281585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94dd5d99e51674646b8c3ae27456cea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorAudioPlayer
 --- !u!4 &2255353524490101788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7250443088814417689, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
   m_PrefabInstance: {fileID: 8922228480260719365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2847534341356700391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6653618622022975970, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &816395717601942933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847534341356700391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1169324333
+      Data2: 1158222160
+      Data3: 92817582
+      Data4: -1943126779
+    Path: event:/MaskRepairOn
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &3977931571965804641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5541235377907762020, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2428195456679337686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977931571965804641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1406131293
+      Data2: 1101747962
+      Data3: -560600397
+      Data4: -1098852267
+    Path: event:/MaskNormal
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4602931640424304682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4914265534204597039, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
@@ -921,6 +1266,42 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4223690946921379572, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
   m_PrefabInstance: {fileID: 8922228480260719365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5568296520443646022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3932926330811061059, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5990071311512045250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568296520443646022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1668164268
+      Data2: 1177375892
+      Data3: 1126053788
+      Data4: -25102516
+    Path: event:/MaskTribalOn
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &5747488346364568881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3751834617784673844, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}

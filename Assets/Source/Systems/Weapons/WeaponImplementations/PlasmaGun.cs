@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlasmaGun : Weapon
 {
@@ -8,6 +9,8 @@ public class PlasmaGun : Weapon
     [SerializeField] private LayerMask detectionMask;
     [SerializeField] private GameObject VFXPrefab;
     [SerializeField] private Transform muzzle;
+
+    public UnityEvent OnShoot;
 
     private Player player;
 
@@ -22,6 +25,7 @@ public class PlasmaGun : Weapon
         bool ret = false;
         response = default;
 
+        OnShoot?.Invoke();
         Ray r = new (muzzle.position, muzzle.forward);
         Debug.DrawRay(r.origin, r.direction * 20, Color.red, 5);
         if (Physics.Raycast(r, out RaycastHit hit, Mathf.Infinity, detectionMask))
