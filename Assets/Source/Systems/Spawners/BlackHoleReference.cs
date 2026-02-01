@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,8 +5,8 @@ public class BlackHoleReference : MonoBehaviour
 {
     [SerializeField] private int roomId;
     [SerializeField] private BlackHole blackHole;
-
-
+    [SerializeField] private GameObject nonAggressiveBlackHole;
+    
     private void Awake()
     {
         GameServices.Get<BlackHoleRegistry>().Register(roomId, this);
@@ -19,18 +18,30 @@ public class BlackHoleReference : MonoBehaviour
         GameServices.Get<BlackHoleRegistry>().Unregister(roomId, this);
     }
 
-    public void Activate()
+    public void Activate(bool aggressive = true)
     {
-        blackHole.gameObject.SetActive(true);
+        if (nonAggressiveBlackHole.activeSelf || blackHole.gameObject.activeSelf) return;
+        if (aggressive)
+        {
+            blackHole.gameObject.SetActive(true);
+        }
+        else
+        {
+            nonAggressiveBlackHole.gameObject.SetActive(true);
+        }
     }
 
     public void Deactivate()
     {
         blackHole.gameObject.SetActive(false);
+        nonAggressiveBlackHole.gameObject.SetActive(false);
     }
 
-    public void RegisterRepairListener(UnityAction listener)
+    public void RegisterRepairListener(UnityAction listener, bool aggressive = true)
     {
-        blackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
+        if(aggressive)
+            blackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
+        else
+            nonAggressiveBlackHole.GetComponent<BlackHoleHealth>().onRepaired.AddListener(listener);
     }
 }
