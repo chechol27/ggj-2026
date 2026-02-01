@@ -51,6 +51,6 @@ Material:
     m_Colors:
     - _ScanLineVelocity: {r: 0, g: 0.5, b: 0, a: 0}
     - _ScanlineTiling: {r: 1, g: -0.01, b: 0, a: 0}
-    - _ScreenResolution: {r: 256, g: 144, b: 0, a: 0}
+    - _ScreenResolution: {r: 640, g: 480, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

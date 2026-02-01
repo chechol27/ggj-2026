@@ -38,16 +38,16 @@ public class BlackHole : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // if (Random.value < rangeEnemySpawnProbability)
-        // {
-        pool.Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
-        spawnedEnemy.GetComponent<NavMeshAgent>().Warp(transform.position);
-        // }
-        // else
-        // {
-        //     //GameServices.Get<Pool>().Spawn(rangeEnemyPrefab,  out GameObject spawnedRange);
-        //     //spawnedRange.transform.position = transform.position;
-        // }
+        if (UnityEngine.Random.value > rangeEnemySpawnProbability)
+        {
+            pool.Spawn(meleeEnemyPrefab, out GameObject spawnedEnemy);
+            spawnedEnemy.GetComponent<NavMeshAgent>().Warp(transform.position);
+        }
+        else
+        { 
+            GameServices.Get<Pool>().Spawn(rangeEnemyPrefab,  out GameObject spawnedRange);
+            spawnedRange.transform.position = transform.position;
+        }
     }
 
     private void Update()

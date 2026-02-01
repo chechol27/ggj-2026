@@ -20,10 +20,11 @@ public class RangedEnemyMovement : MonoBehaviour
     {
         player = GameServices.Get<Player>();
         agent = GetComponent<NavMeshAgent>();
+        
         if(agent.isOnNavMesh)
             agent.updateRotation = true;
+        
         Move();
-        maskTarget = player.CharacterPosition;
         attackScript = GetComponent<RangeEnemyAttacks>();
     }
 
@@ -83,7 +84,6 @@ public class RangedEnemyMovement : MonoBehaviour
 
     public void CancelMove()
     {
-        
         if(agent.isOnNavMesh)
             agent.isStopped = true;
     }

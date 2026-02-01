@@ -867,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.8
+      value: -36.38
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -875,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.7
+      value: 28.31
       objectReference: {fileID: 0}
     - target: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1133,11 +1133,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6897063926574308866, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
       propertyPath: spawnWait
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6897063926574308866, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
       propertyPath: spawnDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897063926574308866, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
+      propertyPath: rangeEnemyPrefab
+      value: 
+      objectReference: {fileID: 659566544116788845, guid: 50c24460bb9152441ba1539cc7220b6d, type: 3}
+    - target: {fileID: 6897063926574308866, guid: 106fb0fc4fe32f24ca1d6394e4046670, type: 3}
+      propertyPath: rangeEnemySpawnProbability
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
