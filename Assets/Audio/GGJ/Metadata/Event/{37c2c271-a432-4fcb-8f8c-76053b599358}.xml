@@ -54,7 +54,7 @@
 			<destination>{1729546c-703d-4b88-abea-df579fa62c8f}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{3582e7f8-785d-41ed-b5bd-cdbb2581c2f2}</destination>
+			<destination>{0882a991-31af-410a-ad62-3ccfccc70bf5}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{8de973a5-c34b-4caa-bdcd-dac23d734b98}" />
@@ -114,6 +114,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{15bea039-7ce9-47fe-b601-3403bd3d3214}">
+		<property name="volume">
+			<value>-10.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -143,7 +146,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{cff090c0-69b0-4ad7-9e73-dddca574416f}">
 		<property name="volume">
-			<value>-15</value>
+			<value>-12</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
@@ -161,6 +164,7 @@
 	<object class="MixerBusEffectChain" id="{28f0be7f-09fa-415b-b6b7-63515a1d1c0d}">
 		<relationship name="effects">
 			<destination>{63848d8d-eb1c-4a8f-9071-5c1ff233cbe1}</destination>
+			<destination>{3bd8daca-7c32-48b8-9193-687803028645}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{87197609-82c1-4134-bdee-96e226c3ec67}" />
@@ -228,6 +232,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{f0ba776e-1400-4d76-bf67-026bfaa7edac}" />
 	<object class="MixerBusFader" id="{63848d8d-eb1c-4a8f-9071-5c1ff233cbe1}" />
+	<object class="MixerSend" id="{3bd8daca-7c32-48b8-9193-687803028645}">
+		<property name="level">
+			<value>-5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{b918f198-2818-4adc-8b45-1d923d361dd4}</destination>
+		</relationship>
+	</object>
 	<object class="AutomationPoint" id="{ab1ff39f-06f2-4556-a20d-973bf1060a12}">
 		<property name="position">
 			<value>0</value>
@@ -250,7 +265,7 @@
 	<object class="MixerBusFader" id="{2f24eafc-49dc-4957-992a-1ec57a9b34c1}" />
 	<object class="DelayEffect" id="{38056cce-697d-448a-a15e-68d7b52be5cd}">
 		<property name="delay">
-			<value>98</value>
+			<value>90</value>
 		</property>
 		<property name="level">
 			<value>-14.5</value>

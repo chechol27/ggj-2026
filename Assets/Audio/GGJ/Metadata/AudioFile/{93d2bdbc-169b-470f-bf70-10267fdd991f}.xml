@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{93d2bdbc-169b-470f-bf70-10267fdd991f}">
+		<property name="assetPath">
+			<value>DRONE-POWERFUL-LOOP.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.392290249433106</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{490ae179-64ed-418a-9e7f-aca4091ede0d}</destination>
+		</relationship>
+	</object>
+</objects>
