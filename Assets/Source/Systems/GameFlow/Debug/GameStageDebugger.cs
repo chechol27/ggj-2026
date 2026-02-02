@@ -3,19 +3,21 @@ using UnityEngine;
 
 public class GameStageDebugger : MonoBehaviour
 {
-    [SerializeField] private bool SetOnAwake;
+    [SerializeField] private bool SetOnStart;
+    [SerializeField] private float autoSwitchDelay;
     [SerializeField] private GameStageType stage;
 
     public void SimulateStageSwitch()
     {
+        Debug.Log($"Switching to {stage}");
         GameServices.Get<GameFlow>().SwitchStage(stage);
     }
 
-    private void Awake()
+    private void Start()
     {
-        if (SetOnAwake)
+        if (SetOnStart)
         {
-            SimulateStageSwitch();
+            Invoke(nameof(SimulateStageSwitch), autoSwitchDelay);
         }
     }
 }

@@ -41,7 +41,7 @@ public class EnemyWave : GameStage
     WaveSpawnerMetric PickSpawnerMetric()
     {
         uint currentRound = GameServices.Get<Game>().currentRound;
-        for (int i = 0; i < currentRound; i++)
+        for (int i = -1; i < currentRound; i++)
         {
             foreach (KeyValuePair<uint,WaveSpawnerMetric> spawnerMetric in spawnerTable)
             {
@@ -51,8 +51,9 @@ public class EnemyWave : GameStage
                 }
             }
         }
+        var ret = spawnerTable.Last().Value;
 
-        return spawnerTable.Last().Value;
+        return ret;
     }
     
     public void HandleSpawnerRepair()

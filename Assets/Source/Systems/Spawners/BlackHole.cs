@@ -33,7 +33,7 @@ public class BlackHole : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemy), spawnDelay, spawnWait);
+        //InvokeRepeating(nameof(SpawnEnemy), spawnDelay, spawnWait);
     }
 
     void SpawnEnemy()

@@ -11497,8 +11497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c24e1b3e447d5b884d2d3b64d8f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStageDebugger
-  SetOnAwake: 0
-  stage: 0
+  SetOnStart: 1
+  autoSwitchDelay: 0
+  stage: 1
 --- !u!4 &1459539012
 Transform:
   m_ObjectHideFlags: 0
