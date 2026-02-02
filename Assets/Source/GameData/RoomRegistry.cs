@@ -8,6 +8,7 @@ public class RoomRegistry : MonoBehaviour, IGameService
     
     public List<int> SortByDistance(Vector3 position)
     {
+        Debug.Log("Ordering rooms by distance...");
         return rooms.Keys.OrderByDescending(x => Vector3.Distance(rooms[x].position, position)).ToList();
     }
 

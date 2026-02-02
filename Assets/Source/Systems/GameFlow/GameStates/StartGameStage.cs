@@ -13,6 +13,5 @@ public class StartGameStage : GameStage
     public override void OnStateEnter()
     {
         SceneManager.LoadScene("level01", LoadSceneMode.Single);
-        flow.SwitchStage(GameStageType.EnemyWave);
     }
 }

@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Distortion: 0.1
+    - _Distortion: 0.01
     - _FishEyeIntensity: -1.02
     - _HighlightPower: 0.383
     - _ScanlineIntensity: 2.2
@@ -55,6 +55,6 @@ Material:
     - _LightDir: {r: 1.11, g: 1.37, b: 0.49, a: 0}
     - _ScanLineVelocity: {r: 0, g: 0.5, b: 0, a: 0}
     - _ScanlineTiling: {r: 0.001, g: 0.03, b: 0, a: 0}
-    - _ScreenResolution: {r: 640, g: 480, b: 0, a: 0}
+    - _ScreenResolution: {r: 768, g: 432, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
