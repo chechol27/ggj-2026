@@ -1288,9 +1288,9 @@ Canvas:
   m_GameObject: {fileID: 9067066777131081901}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04663a110db57ea498e6e0390a3b83c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  attachOnAwake: 1
   lifeBar: {fileID: 8083056378422952673}
   o2Bar: {fileID: 8730459073269118001}
   Mask: {fileID: 5000751405152515819}

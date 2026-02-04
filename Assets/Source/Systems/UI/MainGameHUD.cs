@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainGameHUD : MonoBehaviour
+public class MainGameHUD : HUDUI
 {
     [SerializeField] Slider lifeBar;
     [SerializeField] Slider o2Bar;
