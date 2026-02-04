@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class MainGameHUD : MonoBehaviour
 {
     [SerializeField] Slider lifeBar;
     [SerializeField] Slider o2Bar;
@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
 
         player.OnHealthChanged += UpdateHealth;
         player.OnO2Changed += UpdateO2;
-
     }
 
     void UpdateHealth(float value)

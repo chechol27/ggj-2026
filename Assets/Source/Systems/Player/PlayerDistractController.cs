@@ -9,7 +9,7 @@ public class PlayerDistractController : MonoBehaviour
     [SerializeField] private float speedBuffAmount;
     [SerializeField] GameObject MaskPrefab;
     float useDuration = 6f;
-    [SerializeField] private UIManager HUD;
+    [SerializeField] private MainGameHUD HUD;
     
 
     private void Start()

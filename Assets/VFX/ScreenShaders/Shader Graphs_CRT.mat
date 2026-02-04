@@ -49,7 +49,7 @@ Material:
     - _FishEyeIntensity: -1.02
     - _HighlightPower: 0.383
     - _ScanlineIntensity: 2.2
-    - _ScreenResScale: 0.167
+    - _ScreenResScale: 0.182
     - _VignettePower: 0.4
     m_Colors:
     - _LightColor: {r: 0.9405251, g: 0.844, b: 1, a: 0.2}

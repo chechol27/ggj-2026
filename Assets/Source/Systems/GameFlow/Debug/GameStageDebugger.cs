@@ -9,7 +9,6 @@ public class GameStageDebugger : MonoBehaviour
 
     public void SimulateStageSwitch()
     {
-        Debug.Log($"Switching to {stage}");
         GameServices.Get<GameFlow>().SwitchStage(stage);
     }
 

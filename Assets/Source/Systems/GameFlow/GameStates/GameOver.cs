@@ -8,12 +8,10 @@ public class GameOver : GameStage
     private string URL =
         "https://script.google.com/macros/s/AKfycbxSoO2gksEcMHaqklyrisA4w5j93bwKHJpq8Ir9RhQZWqmI3i0WQkYgI7gUBRlRiL7W/exec";
 
-    private GameObject LoseCanvas;
     
     public override void OnStateEnter()
     {
-        LoseCanvas = Resources.Load<GameObject>("Canvas/LoseCanvas");
-        Instantiate(LoseCanvas, transform.position, Quaternion.identity);
+        GameServices.Get<HUD>().SetHUDUI<GameOverHUD>();
         GameServices.Get<GameFlow>().SetPause(true);
         SendAndResetPoints();
         //Canvas de perder
@@ -52,5 +50,4 @@ public class GameOver : GameStage
             }
         }
     }
-
 }

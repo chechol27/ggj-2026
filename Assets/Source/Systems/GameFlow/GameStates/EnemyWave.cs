@@ -89,7 +89,6 @@ public class EnemyWave : GameStage
     
     public override void OnStateEnter()
     {
-        Debug.Log("Starting Wave");
         totalActiveSpawners = 0;
         TurnOnSpawners();
     }

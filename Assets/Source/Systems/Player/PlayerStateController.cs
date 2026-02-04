@@ -18,7 +18,7 @@ public class PlayerStateController : MonoBehaviour
     [SerializeField] GameObject stateDistract;
     
     [HideInInspector] public float maskCooldown;
-    [SerializeField] private UIManager HUD;
+    [SerializeField] private MainGameHUD HUD;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

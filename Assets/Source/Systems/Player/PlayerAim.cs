@@ -37,6 +37,7 @@ public class PlayerAim : MonoBehaviour , IGameService
     //Mouse
     public void OnAim(InputAction.CallbackContext ctx)
     {
+        if (game.paused) return;
         Vector2 pointer = ctx.ReadValue<Vector2>();
         float characterDepth = Vector3.Distance(Camera.main.transform.position, target.position);
         Vector3 pointerWS = new (pointer.x, pointer.y, characterDepth);
@@ -51,6 +52,5 @@ public class PlayerAim : MonoBehaviour , IGameService
     {
         if(aimVector.magnitude > 0)
             target.forward = aimVector;
-        Debug.DrawLine(target.position, target.position + persistentAimVector.normalized);
     }
 }
