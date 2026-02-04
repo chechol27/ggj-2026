@@ -26,4 +26,12 @@ public class HUD : MonoBehaviour, IGameService
         currentUI.Initialize(Camera.main);
     }
 
+    public TUI AddHUDUI<TUI>() where TUI : HUDUI
+    {
+        if (currentUI == null) return null;
+        TUI newHUDPrefab = (TUI)database.hudPrefabs.First(hudPrefab => hudPrefab is TUI);
+        TUI newHUD = Instantiate(newHUDPrefab, currentUI.transform);
+        return newHUD;
+    }
+
 }
