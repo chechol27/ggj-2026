@@ -26,6 +26,7 @@ public class AsteroidFieldRound : GameStage
         if (totalActiveSpawners <= 0)
         {
             //TODO Spawn Buff
+            Debug.Log("Spawn Buff Item besides the player");
         }
     }
     
@@ -61,7 +62,6 @@ public class AsteroidFieldRound : GameStage
                 if (blackHoleRefId > blackHoles.Count - 1) break;
                 BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
                 blackHoleRef.Activate(false);
-                blackHoleRef.RegisterRepairListener(HandleSpawnerRepair, false);
                 totalActiveSpawners++;
             }
         }

@@ -93,6 +93,16 @@ public class GameFlow : MonoBehaviour, IGameService
         return (game.currentRound + 1 % 10 == 0) ? GameStageType.AsteroidField : GameStageType.EnemyWave;
     }
 
+    public TStage GetCurrentStage<TStage>() where TStage : GameStage
+    {
+        if (currentStage is TStage castedStage)
+        {
+            return castedStage;
+        }
+
+        return null;
+    }
+
     public GameStageType CurrentStageType => currentStageType;
 
     public GameStage CurrentStage => currentStage;

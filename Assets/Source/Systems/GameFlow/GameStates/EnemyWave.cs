@@ -20,7 +20,7 @@ public class EnemyWave : GameStage
 {
     private static readonly Dictionary<uint, WaveSpawnerMetric> spawnerTable = new Dictionary<uint, WaveSpawnerMetric>()
     {
-        {0, new WaveSpawnerMetric( 10, 1)},
+        {0, new WaveSpawnerMetric( 1, 1)},
         {3, new WaveSpawnerMetric(2, 1)},
         {8, new WaveSpawnerMetric(3, 1)},
         {18, new WaveSpawnerMetric(5, 2)},
@@ -82,7 +82,6 @@ public class EnemyWave : GameStage
                 if (blackHoleRefId > blackHoles.Count - 1) break;
                 BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
                 blackHoleRef.Activate();
-                blackHoleRef.RegisterRepairListener(HandleSpawnerRepair);
                 totalActiveSpawners++;
             }
         }
@@ -91,6 +90,7 @@ public class EnemyWave : GameStage
     public override void OnStateEnter()
     {
         Debug.Log("Starting Wave");
+        totalActiveSpawners = 0;
         TurnOnSpawners();
     }
 
