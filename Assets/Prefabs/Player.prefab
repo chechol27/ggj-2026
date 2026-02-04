@@ -696,6 +696,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8f6930939a66ed94d80ac27fb6b585c4, type: 2}
@@ -1173,6 +1177,10 @@ PrefabInstance:
     - target: {fileID: 3935745591818811839, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566333006428617236, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4590317747888755670, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_RenderingLayerMask
