@@ -31,11 +31,6 @@ public class BlackHole : MonoBehaviour
         waiting = true;
     }
 
-    private void Start()
-    {
-        InvokeRepeating(nameof(SpawnEnemy), spawnDelay, spawnWait);
-    }
-
     void SpawnEnemy()
     {
         if (UnityEngine.Random.value > rangeEnemySpawnProbability)

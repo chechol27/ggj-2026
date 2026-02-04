@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 public class MainMenuStage : GameStage
 {

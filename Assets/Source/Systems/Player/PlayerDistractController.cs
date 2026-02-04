@@ -9,6 +9,8 @@ public class PlayerDistractController : MonoBehaviour
     [SerializeField] private float speedBuffAmount;
     [SerializeField] GameObject MaskPrefab;
     float useDuration = 6f;
+    [SerializeField] private UIManager HUD;
+    
 
     private void Start()
     {
@@ -30,6 +32,9 @@ public class PlayerDistractController : MonoBehaviour
     private void FixedUpdate()
     {
         useDuration -= Time.deltaTime;
+        if(gameObject.activeInHierarchy)
+            HUD.MaskValue(useDuration*2);
+                
         if (useDuration <= 0f)
         {
             LeaveRemanent();

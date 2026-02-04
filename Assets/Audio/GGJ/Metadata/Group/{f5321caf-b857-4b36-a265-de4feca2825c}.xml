@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{f5321caf-b857-4b36-a265-de4feca2825c}">
+		<property name="name">
+			<value>Enemies</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{95136c9e-0711-409c-b7fd-991d14f6b64f}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{aab99e67-bed1-4e94-8731-a133a155dd30}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{3582e7f8-785d-41ed-b5bd-cdbb2581c2f2}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{95136c9e-0711-409c-b7fd-991d14f6b64f}">
+		<relationship name="effects">
+			<destination>{55775b9e-e146-4b5d-9e0d-7e290a36f466}</destination>
+			<destination>{667cbf98-f48c-49b9-91cc-957087590571}</destination>
+			<destination>{77ee5ca3-d97f-4eff-8e00-b83f1608b3c1}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{aab99e67-bed1-4e94-8731-a133a155dd30}" />
+	<object class="CompressorEffect" id="{55775b9e-e146-4b5d-9e0d-7e290a36f466}">
+		<property name="threshold">
+			<value>-15</value>
+		</property>
+		<property name="ratio">
+			<value>1.95000005</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{94ed84c6-9656-4e70-b952-b73aa9f47c36}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusFader" id="{667cbf98-f48c-49b9-91cc-957087590571}" />
+	<object class="MixerSend" id="{77ee5ca3-d97f-4eff-8e00-b83f1608b3c1}">
+		<property name="level">
+			<value>-3</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{b918f198-2818-4adc-8b45-1d923d361dd4}</destination>
+		</relationship>
+	</object>
+</objects>

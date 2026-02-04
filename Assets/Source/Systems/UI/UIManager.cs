@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Slider lifeBar;
     [SerializeField] Slider o2Bar;
+    [SerializeField] private Slider Mask;
     private Player player;
     
     void Start()
@@ -27,5 +28,10 @@ public class UIManager : MonoBehaviour
     void UpdateO2(float value)
     {
         o2Bar.value = value;
+    }
+
+    public void MaskValue(float _value)
+    {
+        Mask.value = _value;
     }
 }

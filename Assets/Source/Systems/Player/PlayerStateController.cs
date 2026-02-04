@@ -18,6 +18,7 @@ public class PlayerStateController : MonoBehaviour
     [SerializeField] GameObject stateDistract;
     
     [HideInInspector] public float maskCooldown;
+    [SerializeField] private UIManager HUD;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,6 +59,7 @@ public class PlayerStateController : MonoBehaviour
         if (maskCooldown >= 0)
         {
             maskCooldown -= Time.fixedDeltaTime;
+            HUD.MaskValue(12-maskCooldown);
         }
         
         if (player.CurrentMode == PlayerMode.Combat) return;

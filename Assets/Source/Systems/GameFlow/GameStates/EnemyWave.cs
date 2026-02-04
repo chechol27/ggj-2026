@@ -41,7 +41,7 @@ public class EnemyWave : GameStage
     WaveSpawnerMetric PickSpawnerMetric()
     {
         uint currentRound = GameServices.Get<Game>().currentRound;
-        for (int i = 0; i < currentRound; i++)
+        for (int i = -1; i < currentRound; i++)
         {
             foreach (KeyValuePair<uint,WaveSpawnerMetric> spawnerMetric in spawnerTable)
             {
@@ -51,8 +51,9 @@ public class EnemyWave : GameStage
                 }
             }
         }
+        var ret = spawnerTable.Last().Value;
 
-        return spawnerTable.Last().Value;
+        return ret;
     }
     
     public void HandleSpawnerRepair()
@@ -81,7 +82,6 @@ public class EnemyWave : GameStage
                 if (blackHoleRefId > blackHoles.Count - 1) break;
                 BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
                 blackHoleRef.Activate();
-                blackHoleRef.RegisterRepairListener(HandleSpawnerRepair);
                 totalActiveSpawners++;
             }
         }
@@ -89,6 +89,8 @@ public class EnemyWave : GameStage
     
     public override void OnStateEnter()
     {
+        Debug.Log("Starting Wave");
+        totalActiveSpawners = 0;
         TurnOnSpawners();
     }
 
