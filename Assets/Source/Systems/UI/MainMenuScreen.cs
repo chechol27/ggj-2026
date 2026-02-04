@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class MainMenuScreen
+public class MainMenuScreen : MonoBehaviour
 {
     [SerializeField] private Button startGameButton;
     [SerializeField] private TMP_InputField UsernameInputField;

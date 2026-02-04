@@ -25,9 +25,9 @@ public class HUD : MonoBehaviour, IGameService
 
     public void SetHUDUI<TUI>(TUI hudUI, bool persistent = false) where TUI : HUDUI
     {
+        RemoveHUD();
         currentUI = hudUI;
         currentUI.Initialize(Camera.main);
-        RemoveHUD();
     }
     
     public void SetHUDUI<TUI>(bool persistent = false) where TUI : HUDUI

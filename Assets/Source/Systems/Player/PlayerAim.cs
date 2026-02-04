@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerAim : MonoBehaviour , IGameService
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Rigidbody target;
 
     private Vector3 aimVector;
     private Vector3 persistentAimVector;
@@ -48,9 +48,9 @@ public class PlayerAim : MonoBehaviour , IGameService
         aimVector = projectedRelative;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(aimVector.magnitude > 0)
-            target.forward = aimVector;
+            target.rotation = Quaternion.LookRotation(aimVector, Vector3.up);
     }
 }
