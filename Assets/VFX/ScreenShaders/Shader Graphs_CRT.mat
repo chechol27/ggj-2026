@@ -57,6 +57,6 @@ Material:
     - _PixelVignetteParams: {r: 0, g: 1.23, b: 0, a: 0}
     - _ScanLineVelocity: {r: 0, g: 0.5, b: 0, a: 0}
     - _ScanlineTiling: {r: 0.001, g: 0.03, b: 0, a: 0}
-    - _ScreenResolution: {r: 1920, g: 1080, b: 0, a: 0}
+    - _ScreenResolution: {r: 768, g: 432, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
