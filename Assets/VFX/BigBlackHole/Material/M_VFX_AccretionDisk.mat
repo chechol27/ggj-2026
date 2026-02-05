@@ -41,7 +41,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlphaMask:
-        m_Texture: {fileID: 2800000, guid: f40cd999c01d2044b8da5f3faf4cb5f9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 783741ca50fadfa4c98edcad593c9cb6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -140,7 +140,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 9.082411, g: 5.309517, b: 0.64485097, a: 1}
+    - _Color: {r: 13.766359, g: 8.047722, b: 0.9774112, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Velocity: {r: 0.5, g: 0.1, b: 0, a: 0}
