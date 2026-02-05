@@ -44,7 +44,7 @@ public class PlasmaGun : Weapon
         GameServices.Get<Pool>().Spawn(
             VFXPrefab, 
             out GameObject particleSystem, 
-            TransformFrame.TRS(muzzle.position, muzzle.rotation, new Vector3(1,1,zLength)));
+            TransformFrame.TRS(muzzle.position, muzzle.rotation, new Vector3(1,1,zLength * 2.0f)));
         particleSystem.transform.parent = muzzle;
         impulseSource.GenerateImpulse(impulseForce);
         return ret;
