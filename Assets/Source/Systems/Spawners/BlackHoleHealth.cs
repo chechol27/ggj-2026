@@ -7,6 +7,8 @@ public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
     
     [SerializeField] private float currentHealth;
 
+    public UnityEvent onDeath;
+    
     public void Awake()
     {
         currentHealth = maxHalth;
@@ -19,6 +21,7 @@ public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
         {
             gameObject.SetActive(false);
             GameServices.Get<GameFlow>().GetCurrentStage<EnemyWave>()?.HandleSpawnerRepair();
+            onDeath?.Invoke();
             return true;
         }
 
