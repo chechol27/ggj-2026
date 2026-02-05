@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5955549597794876153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16893926, y: 0.8289797, z: -0.40785554, w: -0.34337458}
+  m_LocalRotation: {x: 0.16893928, y: -0.8289797, z: 0.40785554, w: 0.3433746}
   m_LocalPosition: {x: 5, y: 9.18, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -735,14 +735,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1785227942290333579}
     m_Modifications:
-    - target: {fileID: 523424927059490480, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6990013
-      objectReference: {fileID: 0}
-    - target: {fileID: 523424927059490480, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0010004044
-      objectReference: {fileID: 0}
     - target: {fileID: 820551393619935042, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: HUD
       value: 
@@ -791,6 +783,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3559766729484230919, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 406451951618826979}
     - target: {fileID: 4914265534204597039, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -799,27 +795,22 @@ PrefabInstance:
       propertyPath: cameraRotator
       value: 
       objectReference: {fileID: 5483617602787003210}
-    - target: {fileID: 9113106717500195290, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: rotationDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113106717500195290, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: curve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113106717500195290, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: curve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113106717500195290, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
-      propertyPath: curve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+--- !u!114 &406451951618826979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9112504303902351846, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+  m_PrefabInstance: {fileID: 8922228480260719365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
 --- !u!4 &6886774602183652291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2612266474672681158, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}

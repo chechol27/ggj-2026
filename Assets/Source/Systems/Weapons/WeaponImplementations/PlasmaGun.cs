@@ -24,7 +24,6 @@ public class PlasmaGun : Weapon
         float zLength = 100;
         bool ret = false;
         response = default;
-
         OnShoot?.Invoke();
         Ray r = new (muzzle.position, muzzle.forward);
         Debug.DrawRay(r.origin, r.direction * 20, Color.red, 5);

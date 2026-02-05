@@ -21,6 +21,8 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float fireRate;
     private bool canMove = true;
+
+    private float damageIFrames;
     
     public event Action<float> OnO2Changed;
     public event Action<float> OnHealthChanged;
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         speed = config.baseSpeed;
         sprintMultiplier = config.sprintMultiplier;
         fireRate = config.baseFireRate;
+        damageIFrames = 0.5f;
     }
 
     public float Health
@@ -145,6 +148,12 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     {
         get => characterSpeed;
         set => characterSpeed = value;
+    }
+
+    public float DamageIFrames
+    {
+        get => damageIFrames;
+        set => damageIFrames = value;
     }
 
     public TBuff AddBuff<TBuff>(string statName) where TBuff : Component, IBuff
