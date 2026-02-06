@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c7b1ad57cd4dd8a72970b64dc06b6d, type: 3}
   m_Name: AsteroidFieldRoundConfig
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidFieldRoundConfig
+  timeLimit: 120
+  spawnersPerRound:
+  - minimumRound: 0
+    totalSpawners: 2
+    roomDensity: 2
+  - minimumRound: 3
+    totalSpawners: 4
+    roomDensity: 2
+  - minimumRound: 38
+    totalSpawners: 6
+    roomDensity: 2
   spawnHeight: 5
   minRadius: 5
   maxRadius: 8

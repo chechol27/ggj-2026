@@ -71,7 +71,10 @@ public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerChara
         }
         else
         {
-            activeSpawner.TakeDamage(player.Intelligence * Time.fixedDeltaTime);
+            if (activeSpawner.TakeDamage(player.Intelligence * Time.fixedDeltaTime))
+            {
+                activeSpawner = null;
+            }
         }
     }
 

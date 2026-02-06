@@ -1,37 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class AsteroidFieldRound : GameStage
+public class AsteroidFieldRound : RoundStage
 {
     private const string CONFIG_FILE_PATH = "GameData/AsteroidFieldRoundConfig";
-    private const float ROUND_TIME = 120.0f;
-    
-    private static readonly Dictionary<uint, WaveSpawnerMetric> spawnerTable = new Dictionary<uint, WaveSpawnerMetric>()
-    {
-        {0, new WaveSpawnerMetric( 2, 2)},
-        {3, new WaveSpawnerMetric(4, 2)},
-        {38, new WaveSpawnerMetric(6, 2)},
-    };
-
     private AsteroidFieldRoundConfig config;
-    
-    private BlackHoleRegistry registry;
-    private int totalActiveSpawners;
     private float timer;
-    private List<BlackHoleReference> blackHoles = new List<BlackHoleReference>();
     
-
-    private GameFlow flow;
-    
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         config = Resources.Load<AsteroidFieldRoundConfig>(CONFIG_FILE_PATH);
-        registry = GameServices.Get<BlackHoleRegistry>();
-        flow = GameServices.Get<GameFlow>();
     }
 
     void SpawnRandomBuff()
@@ -42,56 +23,18 @@ public class AsteroidFieldRound : GameStage
         Vector3 randomNearbyPosition3D = playerPosition + new Vector3(randomNearbyPosition2D.x, 0, randomNearbyPosition2D.y);
         if (NavMesh.SamplePosition(randomNearbyPosition3D, out NavMeshHit hit, config.maxRadius * 2.0f, NavMesh.AllAreas))
         {
-            Debug.Log("Spawning on navmesh");
             randomNearbyPosition3D = hit.position;
         }
         GameServices.Get<Pool>().Spawn(newBuff, out GameObject newBuffInstance, TransformFrame.T(randomNearbyPosition3D + Vector3.up * config.spawnHeight));
     }
     
-    public void HandleSpawnerRepair()
+    public override void HandleSpawnerRepair()
     {
         totalActiveSpawners--;
         if (totalActiveSpawners <= 0)
         {
+            flow.SwitchStage(GameStageType.Interlude);
             SpawnRandomBuff();
-            flow.SwitchStage(GameStageType.EnemyWave);
-        }
-    }
-    
-    WaveSpawnerMetric PickSpawnerMetric()
-    {
-        uint currentRound = GameServices.Get<Game>().currentRound;
-        for (int i = 0; i < currentRound; i++)
-        {
-            foreach (KeyValuePair<uint,WaveSpawnerMetric> spawnerMetric in spawnerTable)
-            {
-                if (spawnerMetric.Key >= i)
-                {
-                    return spawnerMetric.Value;
-                }
-            }
-        }
-        return spawnerTable.Last().Value;
-    }
-    
-    void TurnOnSpawners()
-    {
-        WaveSpawnerMetric metric = PickSpawnerMetric();
-        totalActiveSpawners = 0;
-        List<int> orderedRooms = GameServices.Get<RoomRegistry>()
-            .SortByDistance(GameServices.Get<Player>().CharacterPosition);
-        foreach (var roomId in orderedRooms)
-        {
-            if (totalActiveSpawners > metric.totalSpawners) break;
-            List<BlackHoleReference> blackHoles = registry.GetBlackHolesByRoom(roomId);
-            for (int blackHoleRefId = 0; blackHoleRefId < Random.Range(Mathf.CeilToInt(metric.roomDensity * 0.5f), metric.roomDensity); blackHoleRefId++)
-            {
-                if (blackHoleRefId > blackHoles.Count - 1) break;
-                BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
-                blackHoleRef.Activate(false);
-                blackHoles.Add(blackHoleRef);
-                totalActiveSpawners++;
-            }
         }
     }
 
@@ -106,9 +49,8 @@ public class AsteroidFieldRound : GameStage
     public override void OnStateEnter()
     {
         timer = 0;
-        SpawnRandomBuff();
         blackHoles.Clear();
-        TurnOnSpawners();
+        TurnOnSpawners(config.spawnersPerRound, false);
     }
 
     public override void OnStateExit()
@@ -120,11 +62,11 @@ public class AsteroidFieldRound : GameStage
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= ROUND_TIME)
+        if (timer >= config.timeLimit)
         {
             timer = 0;
             TurnOffSpawners();
-            flow.SwitchStage(GameStageType.EnemyWave);
+            flow.SwitchStage(GameStageType.Interlude);
         }
     }
 }

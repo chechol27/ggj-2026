@@ -22,7 +22,6 @@ public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, D
 
     public DamageResponse TakeDamage(DamageMessage damage)
     {
-        float previousHealth = player.Health;
         player.Health += damage.value;
         DamageResponse response = new();
         response.result = DamageResult.Immune;

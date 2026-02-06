@@ -58,8 +58,11 @@ public class BlackHole : MonoBehaviour
         {
             DamageMessage message = new();
             message.value = 10000;
-            if(spawnedEnemy.gameObject.activeInHierarchy)
+            if (spawnedEnemy.gameObject.activeInHierarchy)
+            {
+                Debug.DrawLine(transform.position, transform.position + spawnedEnemy.transform.position, Color.magenta, 10.0f);
                 spawnedEnemy.TakeDamage(message);
+            }
         }
         spawnedEnemies.Clear();
     }

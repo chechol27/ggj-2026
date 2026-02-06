@@ -88,11 +88,6 @@ public class GameFlow : MonoBehaviour, IGameService
         Time.timeScale = pausedState ? 0 : 1;
     }
 
-    public GameStageType GetNextRound()
-    {
-        return (game.currentRound + 1 % 10 == 0) ? GameStageType.AsteroidField : GameStageType.EnemyWave;
-    }
-
     public TStage GetCurrentStage<TStage>() where TStage : GameStage
     {
         if (currentStage is TStage castedStage)
