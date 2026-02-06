@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlasmaGun : Weapon
 {
@@ -8,6 +9,8 @@ public class PlasmaGun : Weapon
     [SerializeField] private LayerMask detectionMask;
     [SerializeField] private GameObject VFXPrefab;
     [SerializeField] private Transform muzzle;
+
+    public UnityEvent OnShoot;
 
     private Player player;
 
@@ -21,7 +24,7 @@ public class PlasmaGun : Weapon
         float zLength = 100;
         bool ret = false;
         response = default;
-
+        OnShoot?.Invoke();
         Ray r = new (muzzle.position, muzzle.forward);
         Debug.DrawRay(r.origin, r.direction * 20, Color.red, 5);
         if (Physics.Raycast(r, out RaycastHit hit, Mathf.Infinity, detectionMask))
@@ -40,7 +43,7 @@ public class PlasmaGun : Weapon
         GameServices.Get<Pool>().Spawn(
             VFXPrefab, 
             out GameObject particleSystem, 
-            TransformFrame.TRS(muzzle.position, muzzle.rotation, new Vector3(1,1,zLength)));
+            TransformFrame.TRS(muzzle.position, muzzle.rotation, new Vector3(1,1,zLength * 2.0f)));
         particleSystem.transform.parent = muzzle;
         impulseSource.GenerateImpulse(impulseForce);
         return ret;

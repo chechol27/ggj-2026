@@ -12,15 +12,18 @@ public class PlayerShoot : MonoBehaviour
     public UnityEvent onShoot;
     
     private Player player;
-    
+
+    private Game game;
     private void Awake()
     {
         rumbleSpeed.ForceValue(Vector2.zero);
         player = GameServices.Get<Player>();
+        game = GameServices.Get<Game>();
     }
 
     public void OnShoot(InputAction.CallbackContext ctx)
     {
+        if (game.paused) return;
         if (!gameObject.activeInHierarchy) return;
         if (ctx.ReadValueAsButton() && ctx.started)
         {

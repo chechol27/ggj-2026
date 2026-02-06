@@ -17,7 +17,6 @@ public class PlayerAnimation : MonoBehaviour
 
     public void SetRepairState(bool repairState)
     {
-        Debug.Log($"{(repairState ? "Starting" : "Ending")} repair animation");
         animator.SetBool("Repair", repairState);
     }
 
