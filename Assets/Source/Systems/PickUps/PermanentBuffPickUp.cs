@@ -12,7 +12,7 @@ public class PermanentBuffPickUp : MonoBehaviour
             Player p = comp.GetActor();
             var buff = p.AddBuff<AddFloatBuff>(statID);
             buff.Value = buffValue;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
