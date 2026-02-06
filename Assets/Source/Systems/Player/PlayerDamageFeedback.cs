@@ -3,7 +3,7 @@ using LitMotion;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerDamageFeedback : MonoBehaviour
+public class PlayerDamageFeedback : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     [SerializeField] private Material feedbackMaterial;
     [SerializeField] private AnimationCurve ease;
@@ -19,10 +19,9 @@ public class PlayerDamageFeedback : MonoBehaviour
 
     IEnumerator HitStop()
     {
-        float deltaTime = Time.deltaTime;
         yield return null;
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(deltaTime * 10);
+        yield return new WaitForSecondsRealtime(0.16f);
         Time.timeScale = 1;
     }
     
@@ -32,4 +31,6 @@ public class PlayerDamageFeedback : MonoBehaviour
         source.GenerateImpulse(1);
         StartCoroutine(HitStop());
     }
+
+    public Actor Actor { get; set; }
 }

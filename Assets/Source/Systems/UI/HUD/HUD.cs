@@ -48,5 +48,4 @@ public class HUD : MonoBehaviour, IGameService
         if(persistent) DontDestroyOnLoad(newHUD);
         return newHUD;
     }
-
 }

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
-public class PlayerRepairController : MonoBehaviour
+public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     private bool _active;
     [SerializeField] private float repairRange;
@@ -104,4 +104,6 @@ public class PlayerRepairController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, repairRange);
     }
+
+    public Actor Actor { get; set; }
 }

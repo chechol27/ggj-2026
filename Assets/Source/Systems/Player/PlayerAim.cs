@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAim : MonoBehaviour , IGameService
+public class PlayerAim : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     [SerializeField] private Rigidbody target;
 
@@ -53,4 +53,6 @@ public class PlayerAim : MonoBehaviour , IGameService
         if(aimVector.magnitude > 0)
             target.rotation = Quaternion.LookRotation(aimVector, Vector3.up);
     }
+
+    public Actor Actor { get; set; }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, DamageResponse>
+public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, DamageResponse>, IActorComponent<PlayerCharacter>
 {
     private Player player;
 
@@ -48,4 +48,6 @@ public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, D
         }
         return response;
     }
+
+    public Actor Actor { get; set; }
 }

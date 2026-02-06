@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 
 
-public class PlayerStateController : MonoBehaviour
+public class PlayerStateController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     Player player;
     public delegate void OnPlayerStateChanged(bool distract);
@@ -86,6 +86,7 @@ public class PlayerStateController : MonoBehaviour
     {
         ChangeState(stateCombat);
     }
-    
-    
+
+
+    public Actor Actor { get; set; }
 }

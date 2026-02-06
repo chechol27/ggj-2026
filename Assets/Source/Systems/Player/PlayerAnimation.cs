@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     [SerializeField] private Animator animator;
     private Player player;
@@ -29,4 +29,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         SetMotionVector();
     }
+
+    public Actor Actor { get; set; }
 }
