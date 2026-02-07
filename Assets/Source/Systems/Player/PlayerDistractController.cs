@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerDistractController : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerDistractController : MonoBehaviour, IActorComponent
 {
     private bool isFirstTime = true;
     private Player player;

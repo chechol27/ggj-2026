@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RangeEnemyAttacks : MonoBehaviour
+public class RangeEnemyAttacks : MonoBehaviour, IActorComponent
 {
     [SerializeField] float attackDelay;
     [SerializeField] float lowRange;
@@ -47,7 +47,6 @@ public class RangeEnemyAttacks : MonoBehaviour
             onProjectileLaunched?.Invoke(transform.position, playerTarget, attackDelay);
             Invoke(nameof(Attack), attackDelay);
         }
-
     }
 
     void Attack()
@@ -68,5 +67,6 @@ public class RangeEnemyAttacks : MonoBehaviour
         }
         GetComponent<RangedEnemyMovement>().Move();
     }
-    
+
+    public Actor Actor { get; set; }
 } 

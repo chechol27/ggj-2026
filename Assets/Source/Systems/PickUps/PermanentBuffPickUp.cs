@@ -7,12 +7,16 @@ public class PermanentBuffPickUp : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IActorComponent<PlayerCharacter> comp))
+        if (other.TryGetComponent(out IActorComponent comp))
         {
-            Player p = comp.GetActor();
-            var buff = p.AddBuff<AddFloatBuff>(statID);
-            buff.Value = buffValue;
-            gameObject.SetActive(false);
+            PlayerCharacter pc = comp.GetActor<PlayerCharacter>();
+            if (pc != null)
+            {
+                Player p = pc;
+                var buff = p.AddBuff<AddFloatBuff>(statID);
+                buff.Value = buffValue;
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 
 
-public class PlayerStateController : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerStateController : MonoBehaviour, IActorComponent
 {
     Player player;
     public delegate void OnPlayerStateChanged(bool distract);

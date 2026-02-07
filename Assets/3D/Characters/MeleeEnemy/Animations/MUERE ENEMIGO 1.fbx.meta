@@ -63,9 +63,9 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: AnimationAudioEvent
-        data: event:/EnemyDie
-        objectReferenceParameter: {instanceID: 0}
+        functionName: SendStringAnimationEvent
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: a34486a914a57f944b6ecc0cee9e4816, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

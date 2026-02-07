@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RangedEnemyMovement : MonoBehaviour
+public class RangedEnemyMovement : MonoBehaviour, IActorComponent
 {
     private Player player;
     NavMeshAgent agent;
@@ -92,4 +92,6 @@ public class RangedEnemyMovement : MonoBehaviour
     {
         CancelMove();
     }
+
+    public Actor Actor { get; set; }
 }

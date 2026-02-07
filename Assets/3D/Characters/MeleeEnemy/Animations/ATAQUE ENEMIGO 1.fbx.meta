@@ -56,9 +56,9 @@ ModelImporter:
       curves: []
       events:
       - time: 0.37046003
-        functionName: AnimationAudioEvent
-        data: event:/EnemyAttack
-        objectReferenceParameter: {instanceID: 0}
+        functionName: SendStringAnimationEvent
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 253d73e7a5435fe46a0f70952c32d497, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

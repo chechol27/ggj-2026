@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, DamageResponse>, IActorComponent<PlayerCharacter>
+public class PlayerDamageReceiver : MonoBehaviour , IDamageable<DamageMessage, DamageResponse>, IActorComponent
 {
     private Player player;
 

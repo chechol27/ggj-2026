@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemyMovement : MonoBehaviour
+public class MeleeEnemyMovement : MonoBehaviour, IActorComponent
 {
     private Player player;
     NavMeshAgent agent;
@@ -77,4 +77,6 @@ public class MeleeEnemyMovement : MonoBehaviour
     {
         CancelMove();
     }
+
+    public Actor Actor { get; set; }
 }

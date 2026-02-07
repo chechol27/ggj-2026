@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
-public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerRepairController : MonoBehaviour, IActorComponent
 {
     private bool _active;
     [SerializeField] private float repairRange;
@@ -73,6 +73,7 @@ public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerChara
         {
             if (activeSpawner.TakeDamage(player.Intelligence * Time.fixedDeltaTime))
             {
+                SetActivationState(false);
                 activeSpawner = null;
             }
         }
@@ -83,7 +84,6 @@ public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerChara
         Collider[] objects = Physics.OverlapSphere(transform.position, repairRange);
         if (objects.Length <= 0)
         {
-            Debug.Log("Arreglo vacío");
             return;
         }
         foreach (Collider obj in objects)
@@ -101,6 +101,7 @@ public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerChara
     private void OnDisable()
     {
         player.CanMove = true;
+        SetActivationState(false);
     }
 
     private void OnDrawGizmos()

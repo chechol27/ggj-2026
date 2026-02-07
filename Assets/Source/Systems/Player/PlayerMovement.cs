@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerMovement : MonoBehaviour, IActorComponent
 {
     protected Player player;
     [SerializeField] private Rigidbody rb;
