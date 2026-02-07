@@ -1,108 +1,139 @@
-﻿using Source.Systems.ModelViewer.InputControl;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ViewerLookRotator : MonoBehaviour
+namespace Source.Systems.ModelViewer.InputControl
 {
-    [Header("Input Actions")] [SerializeField]
-    private InputActionAsset actions;
-
-    [SerializeField] private string actionMapName = "Player";
-    [SerializeField] private string lookActionName = "Look";
-
-    [Header("Target")] [SerializeField] private Transform targetPivot;
-
-    [Header("Rotation Area")] [SerializeField]
-    private PointerInsideRectGate rotationGate;
-
-    [Header("Sensitivity")] [SerializeField]
-    private float mouseSensitivity = 0.15f;
-
-    [SerializeField] private float stickSensitivity = 120f;
-
-    [Header("Mouse")] [SerializeField] private int mouseButton = 0; // 0 = Left
-    [SerializeField] private bool requireMouseHold = true;
-
-    private InputAction lookAction;
-    private float yaw;
-
-    private void Awake()
+    public class ViewerLookRotator : MonoBehaviour
     {
-        var map = actions.FindActionMap(actionMapName, true);
-        lookAction = map.FindAction(lookActionName, true);
-        CacheFromTarget();
-    }
+        [Header("Input Actions")]
+        [SerializeField] private InputActionAsset actions;
+        [SerializeField] private string actionMapName = "Player";
+        [SerializeField] private string lookActionName = "Look";
 
-    private void OnEnable() => lookAction.Enable();
-    private void OnDisable() => lookAction.Disable();
+        [Header("Target")]
+        [SerializeField] private Transform targetPivot;
 
-    private void Update()
-    {
-        if (targetPivot == null) return;
+        [Header("Rotation Area")]
+        [SerializeField] private PointerInsideRectGate rotationGate;
 
-        Vector2 look = lookAction.ReadValue<Vector2>();
-        if (look.sqrMagnitude < 0.0001f) return;
+        [Header("Sensitivity")]
+        [SerializeField] private float mouseSensitivity = 0.15f;
+        [SerializeField] private float stickSensitivity = 120f;
 
-        bool isMouse = lookAction.activeControl?.device is Mouse;
-        bool isGamepad = lookAction.activeControl?.device is Gamepad;
+        [Header("Mouse")]
+        [SerializeField] private int mouseButton = 0;
+        [SerializeField] private bool requireMouseHold = true;
 
-        if (isMouse)
+        private InputAction lookAction;
+        private float yaw;
+
+        // Limits
+        private bool useLimits;
+        private float minYaw;
+        private float maxYaw;
+
+        private void Awake()
         {
-            if (rotationGate != null && !rotationGate.IsPointerInside)
-                return;
-
-            if (requireMouseHold && !IsMousePressed())
-                return;
-
-            yaw += look.x * mouseSensitivity;
-        }
-        else if (isGamepad)
-        {
-            yaw += look.x * stickSensitivity * Time.deltaTime;
-        }
-        else
-        {
-            yaw += look.x * stickSensitivity * Time.deltaTime;
+            var map = actions.FindActionMap(actionMapName, true);
+            lookAction = map.FindAction(lookActionName, true);
+            CacheFromTarget();
         }
 
-        Apply();
-    }
+        private void OnEnable() => lookAction.Enable();
+        private void OnDisable() => lookAction.Disable();
 
-    private bool IsMousePressed()
-    {
-        if (Mouse.current == null) return false;
-
-        return mouseButton switch
+        private void Update()
         {
-            0 => Mouse.current.leftButton.isPressed,
-            1 => Mouse.current.rightButton.isPressed,
-            2 => Mouse.current.middleButton.isPressed,
-            _ => false
-        };
-    }
+            if (targetPivot == null) return;
 
-    private void Apply()
-    {
-        targetPivot.localRotation = Quaternion.Euler(0f, yaw, 0f);
-    }
+            Vector2 look = lookAction.ReadValue<Vector2>();
+            if (look.sqrMagnitude < 0.0001f) return;
 
-    public void SetTarget(Transform t)
-    {
-        targetPivot = t;
-        CacheFromTarget();
-    }
+            bool isMouse = lookAction.activeControl?.device is Mouse;
+            bool isGamepad = lookAction.activeControl?.device is Gamepad;
 
-    public void ResetRotation()
-    {
-        yaw = 0f;
-        Apply();
-    }
+            if (isMouse)
+            {
+                if (rotationGate != null && !rotationGate.IsPointerInside)
+                    return;
 
-    private void CacheFromTarget()
-    {
-        if (targetPivot == null) return;
-        float y = targetPivot.localEulerAngles.y;
-        if (y > 180f) y -= 360f;
-        yaw = y;
+                if (requireMouseHold && !IsMousePressed())
+                    return;
+
+                yaw += look.x * mouseSensitivity;
+            }
+            else if (isGamepad)
+            {
+                yaw += look.x * stickSensitivity * Time.deltaTime;
+            }
+            else
+            {
+                yaw += look.x * stickSensitivity * Time.deltaTime;
+            }
+
+            Apply();
+        }
+
+        private bool IsMousePressed()
+        {
+            if (Mouse.current == null) return false;
+
+            return mouseButton switch
+            {
+                0 => Mouse.current.leftButton.isPressed,
+                1 => Mouse.current.rightButton.isPressed,
+                2 => Mouse.current.middleButton.isPressed,
+                _ => false
+            };
+        }
+
+        private void Apply()
+        {
+            if (useLimits)
+                yaw = Mathf.Clamp(yaw, minYaw, maxYaw);
+
+            targetPivot.localRotation = Quaternion.Euler(0f, yaw, 0f);
+        }
+
+        public void SetTarget(Transform t)
+        {
+            targetPivot = t;
+            CacheFromTarget();
+            Apply();
+        }
+
+        public void ResetRotation()
+        {
+            yaw = 0f;
+            Apply();
+        }
+
+        public void SetYawLimits(bool enabled, float min, float max)
+        {
+            useLimits = enabled;
+
+            if (min <= max)
+            {
+                minYaw = min;
+                maxYaw = max;
+            }
+            else
+            {
+                minYaw = max;
+                maxYaw = min;
+            }
+
+            Apply();
+        }
+
+        private void CacheFromTarget()
+        {
+            if (targetPivot == null) return;
+
+            float y = targetPivot.localEulerAngles.y;
+            if (y > 180f) y -= 360f;
+
+            yaw = y;
+        }
     }
 }

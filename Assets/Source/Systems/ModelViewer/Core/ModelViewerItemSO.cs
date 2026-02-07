@@ -18,5 +18,9 @@ namespace Source.Systems.ModelViewer.Core
 
         [Header("Optional")]
         public bool resetRotationOnSelect = true;
+        
+        public bool useYawLimits = false;
+        public float minYaw = -180f;
+        public float maxYaw = 180f;
     }
 }

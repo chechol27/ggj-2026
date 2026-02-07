@@ -18,3 +18,6 @@ MonoBehaviour:
   localEuler: {x: 0, y: 0, z: 0}
   localScale: {x: 1, y: 1, z: 1}
   resetRotationOnSelect: 1
+  useYawLimits: 1
+  minYaw: -45
+  maxYaw: 45

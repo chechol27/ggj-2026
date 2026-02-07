@@ -50,6 +50,7 @@ namespace Source.Systems.ModelViewer
             if (dragRotator != null)
             {
                 dragRotator.SetTarget(spawnRoot);
+                dragRotator.SetYawLimits(item.useYawLimits, item.minYaw, item.maxYaw);
 
                 if (item.resetRotationOnSelect)
                     dragRotator.ResetRotation();
