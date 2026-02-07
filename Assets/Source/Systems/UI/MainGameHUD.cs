@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,5 +33,11 @@ public class MainGameHUD : HUDUI
     public void MaskValue(float _value)
     {
         Mask.value = _value;
+    }
+
+    private void OnDestroy()
+    {
+        player.OnHealthChanged -= UpdateHealth;
+        player.OnO2Changed -= UpdateO2;
     }
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   hudPrefabs:
   - {fileID: 7909328166248439462, guid: 31af7fad8a61e804fa2d6ddfc0a66230, type: 3}
   - {fileID: 7537912908500185425, guid: d4ec9f1c02d675349af218fe78f53816, type: 3}
+  - {fileID: 8259289510212815244, guid: b18e6194a0794b545895c3f3409345d3, type: 3}
