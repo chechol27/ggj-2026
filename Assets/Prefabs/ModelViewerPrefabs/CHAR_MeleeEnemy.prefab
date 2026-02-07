@@ -54,8 +54,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4eafb518a751f3244bd7e4aa3d849537, type: 2}
     - target: {fileID: 919132149155446097, guid: ecaab978b66204f4c9ab34a04d6ae4c1, type: 3}
       propertyPath: m_Name
-      value: PERSONAJE ENEMIGO SIN ANIMACION
+      value: CHAR_MeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ecaab978b66204f4c9ab34a04d6ae4c1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 051649998bf1a924380a704b0ef576ea, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
