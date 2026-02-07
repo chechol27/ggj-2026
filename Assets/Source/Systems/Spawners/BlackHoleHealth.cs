@@ -19,9 +19,9 @@ public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
-            GameServices.Get<GameFlow>().GetCurrentStage<EnemyWave>()?.HandleSpawnerRepair();
+            GameServices.Get<GameFlow>().GetCurrentStage<RoundStage>()?.HandleSpawnerRepair();
             onDeath?.Invoke();
+            gameObject.SetActive(false);
             return true;
         }
 

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
 {
     private const string CONFIG_PATH = "GameData/PlayerConfig";
 
+    [SerializeField] private float maxHealth;
     [SerializeField] private float health;
     [SerializeField] private float minO2;
     [SerializeField] private float maxO2;
@@ -29,9 +30,11 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
 
     private float characterSpeed;
     [SerializeField] private PlayerMode currentMode = PlayerMode.Combat;
-    private void Awake()
+
+    public void Initialize()
     {
-        PlayerConfig config = Resources.Load<PlayerConfig>(CONFIG_PATH); 
+        PlayerConfig config = Resources.Load<PlayerConfig>(CONFIG_PATH);
+        maxHealth = config.baseHealth;
         health = config.baseHealth;
         minO2 = config.minO2;
         maxO2 = config.maxO2;
@@ -44,6 +47,30 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         sprintMultiplier = config.sprintMultiplier;
         fireRate = config.baseFireRate;
         damageIFrames = 0.5f;
+        foreach (IBuff buff in GetComponents<IBuff>())
+        {
+            Destroy((Component)buff);
+        }
+    }
+    
+    private void Awake()
+    {
+        Initialize();
+    }
+
+    public float MaxHealth
+    {
+        get
+        {
+            float ret = maxHealth;
+            foreach (IBuff buff in GetComponents<IBuff>().Where(buff => buff.StatName == "Health"))
+            {
+                ret = (float)buff.ModifyValue(ret);
+            }
+
+            return ret;
+        }
+        set => maxHealth = value;
     }
 
     public float Health
@@ -71,7 +98,16 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
 
     public float O2
     {
-        get => o2;
+        get
+        {
+            float ret = o2;
+            foreach (IBuff buff in GetComponents<IBuff>().Where(buff => buff.StatName == "O2"))
+            {
+                ret = (float)buff.ModifyValue(ret);
+            }
+
+            return ret;
+        }
         set
         {
             o2 = Mathf.Clamp(value, MinO2, MaxO2);
@@ -126,7 +162,16 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
 
     public float FireRate
     {
-        get => fireRate;
+        get
+        {
+            float ret = fireRate;
+            foreach (IBuff buff in GetComponents<IBuff>().Where(buff => buff.StatName == "FireRate"))
+            {
+                ret = (float)buff.ModifyValue(ret);
+            }
+
+            return ret;
+        }
         set => fireRate = value;
     }
 

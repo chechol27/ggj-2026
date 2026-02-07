@@ -3,7 +3,7 @@ using LitMotion;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCameraRotator : MonoBehaviour
+public class PlayerCameraRotator : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     [SerializeField] private Transform cameraRotator;
     [SerializeField] private float rotationDuration = 0.2f;
@@ -11,19 +11,6 @@ public class PlayerCameraRotator : MonoBehaviour
     private const float ROTATION_ANGLE = 90.0f;
 
     [SerializeField] private bool isRotating;
-
-    // IEnumerator PerformRotation(float value)
-    // {
-    //     isRotating = true;
-    //     float deltaRot = value * (Time.deltaTime / rotationDuration);
-    //     for (float f = 0; f < rotationDuration; f+= Time.deltaTime)
-    //     {
-    //         cameraRotator.Rotate(Vector3.up * deltaRot);
-    //         yield return null;
-    //     }
-    //
-    //     isRotating = false;
-    // }
 
     void PerformRotation(float value)
     {
@@ -51,6 +38,7 @@ public class PlayerCameraRotator : MonoBehaviour
             PerformRotation(ROTATION_ANGLE);
         }
     }
-    
-    
+
+
+    public Actor Actor { get; set; }
 }

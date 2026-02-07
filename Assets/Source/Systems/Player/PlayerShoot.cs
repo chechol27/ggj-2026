@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerShoot : MonoBehaviour
+public class PlayerShoot : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     [SerializeField] private Weapon weapon;
     [SerializeField] private Vector2Damper rumbleSpeed;
@@ -49,4 +49,6 @@ public class PlayerShoot : MonoBehaviour
         rumbleSpeed.Update();
         Gamepad.current?.SetMotorSpeeds(rumbleSpeed.CurrentValue.x, rumbleSpeed.CurrentValue.y);
     }
+
+    public Actor Actor { get; set; }
 }

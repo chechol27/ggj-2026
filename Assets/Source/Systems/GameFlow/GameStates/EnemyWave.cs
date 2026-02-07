@@ -4,59 +4,19 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public struct WaveSpawnerMetric
+public class EnemyWave : RoundStage
 {
-    public int totalSpawners;
-    public int roomDensity;
+    private const string CONFIG_FILE_PATH = "GameData/EnemyWaveRoundConfig";
 
-    public WaveSpawnerMetric(int totalSpawners, int roomDensity)
+    private EnemyWaveRoundConfig config;
+
+    protected override void Awake()
     {
-        this.totalSpawners = totalSpawners;
-        this.roomDensity = roomDensity;
-    }
-}
-
-public class EnemyWave : GameStage
-{
-    private static readonly Dictionary<uint, WaveSpawnerMetric> spawnerTable = new Dictionary<uint, WaveSpawnerMetric>()
-    {
-        {0, new WaveSpawnerMetric( 1, 1)},
-        {3, new WaveSpawnerMetric(2, 1)},
-        {8, new WaveSpawnerMetric(3, 1)},
-        {18, new WaveSpawnerMetric(5, 2)},
-        {28, new WaveSpawnerMetric(7, 3)},
-        {38, new WaveSpawnerMetric(10, 2)},
-    };
-
-    [SerializeField] private int totalActiveSpawners;
-
-    private GameFlow flow;
-    private Game game;
-    private void Awake()
-    {
-        flow = GameServices.Get<GameFlow>();
-        game = GameServices.Get<Game>();
+        base.Awake();
+        config = Resources.Load<EnemyWaveRoundConfig>(CONFIG_FILE_PATH);
     }
 
-    WaveSpawnerMetric PickSpawnerMetric()
-    {
-        uint currentRound = GameServices.Get<Game>().currentRound;
-        for (int i = -1; i < currentRound; i++)
-        {
-            foreach (KeyValuePair<uint,WaveSpawnerMetric> spawnerMetric in spawnerTable)
-            {
-                if (spawnerMetric.Key >= i)
-                {
-                    return spawnerMetric.Value;
-                }
-            }
-        }
-        var ret = spawnerTable.Last().Value;
-
-        return ret;
-    }
-    
-    public void HandleSpawnerRepair()
+    public override void HandleSpawnerRepair()
     {
         totalActiveSpawners--;
         if (totalActiveSpawners <= 0)
@@ -65,32 +25,12 @@ public class EnemyWave : GameStage
             game.currentRound++;
         }
     }
-
-    void TurnOnSpawners()
-    {
-        WaveSpawnerMetric metric = PickSpawnerMetric();
-        BlackHoleRegistry blackHoleRegistry = GameServices.Get<BlackHoleRegistry>();
-        totalActiveSpawners = 0;
-        List<int> orderedRooms = GameServices.Get<RoomRegistry>()
-            .SortByDistance(GameServices.Get<Player>().CharacterPosition);
-        foreach (var roomId in orderedRooms)
-        {
-            if (totalActiveSpawners > metric.totalSpawners) break;
-            List<BlackHoleReference> blackHoles = blackHoleRegistry.GetBlackHolesByRoom(roomId);
-            for (int blackHoleRefId = 0; blackHoleRefId < Random.Range(Mathf.CeilToInt(metric.roomDensity * 0.5f), metric.roomDensity); blackHoleRefId++)
-            {
-                if (blackHoleRefId > blackHoles.Count - 1) break;
-                BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
-                blackHoleRef.Activate();
-                totalActiveSpawners++;
-            }
-        }
-    }
     
     public override void OnStateEnter()
     {
+        Debug.Log("A");
         totalActiveSpawners = 0;
-        TurnOnSpawners();
+        TurnOnSpawners(config.spawnersPerRound, true);
     }
 
     public override void OnStateExit()

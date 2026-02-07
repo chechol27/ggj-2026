@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     protected Player player;
     [SerializeField] private Rigidbody rb;
@@ -77,4 +77,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
         player.CharacterPosition = transform.position;
     }
+
+    public Actor Actor { get; set; }
 }

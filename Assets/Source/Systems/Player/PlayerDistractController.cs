@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerDistractController : MonoBehaviour
+public class PlayerDistractController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     private bool isFirstTime = true;
     private Player player;
@@ -49,4 +49,6 @@ public class PlayerDistractController : MonoBehaviour
         
         GetComponentInParent<PlayerStateController>().PrematureMaskTurnOff();
     }
+
+    public Actor Actor { get; set; }
 }
