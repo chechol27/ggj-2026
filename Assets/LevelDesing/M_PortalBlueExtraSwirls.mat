@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_UV 2
+  m_Name: M_PortalBlueExtraSwirls
   m_Shader: {fileID: -6465566751694194690, guid: b37bbd79881c6904e920be4ca9952fde, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2999
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -32,6 +32,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: cb3b6c75d81cc0041b3de8c01a3b30df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_50123e4244294584bcf4900361ec875d_Texture_1_Texture2D:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_7468d635a5154ddcac1169dd453bc388_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 9077cd82606d2b24689bf882b8431cbd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -40,12 +44,24 @@ Material:
         m_Texture: {fileID: 2800000, guid: fdc08f456f9ff4a4c9cae798d306a4b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c2c1ea450d684bf7a14eece07b98aee9_Texture_1_Texture2D:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c577042ed2734401a13a9a0e170d41e8_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 35def63f42a24fa45a5313842c1ee7dd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_fc81cb40a49945158a6168c975e4da23_Texture_1_Texture2D:
         m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
         m_Texture: {fileID: 2800000, guid: b0fb450200ab1e14f97f8395bf1851c8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D_1:
+        m_Texture: {fileID: 2800000, guid: cb3b6c75d81cc0041b3de8c01a3b30df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -62,15 +78,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Disssolve: 0
+    - _Emission_soft: 0.001
+    - _Emissionwidth: 0.02025
     - _Multiply: 0.5
     - _Power: 1
+    - _PowerGradient: 0
+    - _Powermask: 2.12
     - _QueueControl: 0
-    - _QueueOffset: -1
+    - _QueueOffset: 0
+    - _Soft: 0
     - _intDist: 0
+    - _maskint: 0.6
     m_Colors:
-    - _Color: {r: 35.609577, g: 0, b: 36.32964, a: 1}
+    - _Color: {r: 0, g: 17.665956, b: 36.32963, a: 1}
+    - _Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _Scale: {r: 4, g: -0.61, b: 0, a: 0}
     - _Speed: {r: -0.4, g: 0.2, b: 0, a: 0}
+    - _Vector2: {r: 0, g: 0.28, b: 0, a: 0}
+    - _Vector2_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2_2: {r: 0.15, g: 2, b: 0, a: 0}
     - _View_direction: {r: 0, g: 0, b: 0, a: 0}
     - _remap: {r: 0.58, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
