@@ -19,7 +19,8 @@ public class PlayerAim : MonoBehaviour, IActorComponent<PlayerCharacter>
     //Joystick
     public void OnLook(InputAction.CallbackContext ctx)
     {
-        if (game.paused) return;
+        
+        if (game == null || game.paused) return;
         Vector2 aim = ctx.ReadValue<Vector2>();
         if (aim.magnitude > 0)
         {
@@ -37,7 +38,7 @@ public class PlayerAim : MonoBehaviour, IActorComponent<PlayerCharacter>
     //Mouse
     public void OnAim(InputAction.CallbackContext ctx)
     {
-        if (game.paused) return;
+        if (game == null || game.paused) return;
         Vector2 pointer = ctx.ReadValue<Vector2>();
         float characterDepth = Vector3.Distance(Camera.main.transform.position, target.position);
         Vector3 pointerWS = new (pointer.x, pointer.y, characterDepth);
