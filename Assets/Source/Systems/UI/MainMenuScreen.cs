@@ -25,6 +25,10 @@ public class MainMenuScreen : MonoBehaviour
     {
         GameServices.Get<GameFlow>().SwitchStage(GameStageType.StartGame);
     }
+    public void GoToModelViewer()
+    {
+        GameServices.Get<GameFlow>().SwitchStage(GameStageType.ModelViewer);
+    }
 
     public void AnnounceUsername()
     {
