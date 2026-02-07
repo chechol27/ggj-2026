@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDPrefabDatabase
   hudPrefabs:
   - {fileID: 7909328166248439462, guid: 31af7fad8a61e804fa2d6ddfc0a66230, type: 3}
-  - {fileID: 8594336783672467188, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+  - {fileID: 7537912908500185425, guid: d4ec9f1c02d675349af218fe78f53816, type: 3}

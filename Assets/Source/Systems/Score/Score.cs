@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class Score : MonoBehaviour, IGameService
 {
-    const string URL = "https://script.google.com/macros/s/AKfycbzbrajDajFsTeKpUTIkc10CoG_OM9gcAJHBb1CIhwI1E26KA774m3gDt5kSO_xBwR5d/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbwSDFyjwKwx6_Xc0NqKsctXQPhxnJrMRwylyOsI-JVga2bre1PKa0wwVrknpqj7X7NS/exec";
 
     IEnumerator SendScore(int points)
     {

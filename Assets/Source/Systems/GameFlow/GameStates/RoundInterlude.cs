@@ -13,10 +13,12 @@ public class RoundInterlude : GameStage
     public override void OnStateEnter()
     {
         waiting = false;
+		GameServices.Get<HUD>().SetHUDUI<InterludeUI>();
     }
 
     public override void OnStateExit()
     {
+		GameServices.Get<HUD>().SetHUDUI<MainGameHUD>();
         waiting = true;
         timer = 0;
     }
