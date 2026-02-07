@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083b7b79d8044e48f0bfff30bf90b09, type: 3}
+  m_Name: MVVFXBuff
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Systems.ModelViewer.Core.ModelViewerItemSO
+  displayName: Buff
+  prefab: {fileID: 188430465268890764, guid: db4988b5edd7e1f45988085ac9d0f273, type: 3}
+  localPosition: {x: -0.03, y: 1, z: 0}
+  localEuler: {x: 0, y: 0, z: 0}
+  localScale: {x: 1, y: 1, z: 1}
+  resetRotationOnSelect: 1
+  useYawLimits: 1
+  minYaw: -45
+  maxYaw: 45

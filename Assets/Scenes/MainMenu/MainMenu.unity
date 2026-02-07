@@ -11207,6 +11207,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2817565028363622289, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817565028363622289, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971273489462806609, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565669372920029370, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565669372920029370, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565669372920029370, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565669372920029370, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539731660446024217, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539731660446024217, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539731660446024217, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539731660446024217, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8745772082028888072, guid: 9a4d15826a9746e4e8e6544d538f00cb, type: 3}
       propertyPath: m_Name
       value: MainMenuHUD

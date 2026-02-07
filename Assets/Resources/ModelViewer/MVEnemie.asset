@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083b7b79d8044e48f0bfff30bf90b09, type: 3}
+  m_Name: MVEnemie
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Systems.ModelViewer.Core.ModelViewerItemSO
+  displayName: 'Enemy 1 '
+  prefab: {fileID: 606556918732545688, guid: d1d9132c3783fab42ae10633875b5437, type: 3}
+  localPosition: {x: 0, y: 0, z: 0}
+  localEuler: {x: 0, y: -180, z: 0}
+  localScale: {x: 0.8, y: 0.8, z: 0.8}
+  resetRotationOnSelect: 1
