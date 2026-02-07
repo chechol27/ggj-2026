@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_UV 1
+  m_Name: Shader Graphs_UV 1 Blue
   m_Shader: {fileID: -6465566751694194690, guid: b37bbd79881c6904e920be4ca9952fde, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -80,7 +80,7 @@ Material:
     m_Floats:
     - _Disssolve: 0.2
     - _Emission_soft: 0.001
-    - _Emissionwidth: 0.05
+    - _Emissionwidth: 0.07
     - _Multiply: 0.5
     - _Power: 1
     - _PowerGradient: 1.63
@@ -91,13 +91,13 @@ Material:
     - _intDist: 0
     - _maskint: 7.03
     m_Colors:
-    - _Color: {r: 1.7259712, g: 0, b: 3.6226413, a: 1}
-    - _Color_1: {r: 63.25359, g: 2.109255, b: 0, a: 1}
+    - _Color: {r: 0, g: 1.4422355, b: 3.6226413, a: 1}
+    - _Color_1: {r: 11.984315, g: 0, b: 0, a: 1}
     - _Scale: {r: 3.66, g: 3, b: 0, a: 0}
     - _Speed: {r: -0.3, g: 0.1, b: 0, a: 0}
     - _Vector2: {r: 0, g: -0.28, b: 0, a: 0}
     - _Vector2_1: {r: 0, g: 0, b: 0, a: 0}
-    - _Vector2_2: {r: 0.15, g: 2, b: 0, a: 0}
+    - _Vector2_2: {r: 2.95, g: 2, b: 0, a: 0}
     - _View_direction: {r: 0, g: 0, b: 0, a: 0}
     - _remap: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

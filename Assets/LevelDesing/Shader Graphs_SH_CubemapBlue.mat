@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SH_Cubemap
+  m_Name: Shader Graphs_SH_CubemapBlue
   m_Shader: {fileID: -6465566751694194690, guid: 21b401791eb91fb49af91f9f3d0c7751, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3002
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -85,12 +85,12 @@ Material:
     - _PoweeGradient: 1.63
     - _Power: 0.23
     - _QueueControl: 0
-    - _QueueOffset: 1
+    - _QueueOffset: 2
     - _Scale: 10
     - _intDist: -0.7
     m_Colors:
-    - _Color: {r: 0.7648361, g: 0, b: 1.6055588, a: 1}
-    - _Color_1: {r: 5.656854, g: 0, b: 2.6886587, a: 1}
+    - _Color: {r: 0, g: 1.436745, b: 1.6055588, a: 1}
+    - _Color_1: {r: 0, g: 1.2405322, b: 6.964404, a: 1}
     - _Scale: {r: 1, g: 1, b: 0, a: 0}
     - _Speed: {r: 0.1, g: 0.5, b: 0, a: 0}
     - _Speed_1: {r: 0, g: 0.28, b: 0, a: 0}
