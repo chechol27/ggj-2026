@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LevelDesing/level01.unity
     guid: 41360bbc0f563f34390cecf58131e917
+  - enabled: 1
+    path: Assets/Scenes/ModelViewer/ModelViewer.unity
+    guid: c8b787b0f0182db4091426e877286026
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
