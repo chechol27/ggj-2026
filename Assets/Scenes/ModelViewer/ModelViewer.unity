@@ -808,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Source.Systems.ModelViewer.InputControl.ViewerLookRotator
   actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionMapName: Player
-  lookActionName: Look
+  lookActionName: LookOnModelViewer
   targetPivot: {fileID: 0}
   rotationGate: {fileID: 2120004616}
   mouseSensitivity: 0.15

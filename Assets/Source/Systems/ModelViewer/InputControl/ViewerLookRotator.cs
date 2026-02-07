@@ -8,7 +8,7 @@ namespace Source.Systems.ModelViewer.InputControl
         [Header("Input Actions")]
         [SerializeField] private InputActionAsset actions;
         [SerializeField] private string actionMapName = "Player";
-        [SerializeField] private string lookActionName = "Look";
+        [SerializeField] private string lookActionName = "LookOnModelViewer";
 
         [Header("Target")]
         [SerializeField] private Transform targetPivot;
