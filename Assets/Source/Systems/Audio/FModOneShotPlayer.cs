@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using FMODUnity;
 using UnityEngine;
 
 
-public class AnimatorAudioPlayer : MonoBehaviour
+public class FModOneShotPlayer : MonoBehaviour
 {
-
-    public void AnimationAudioEvent(string eventPath)
+    public void PlayOneShot(string eventPath)
     {
         try
         {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageResponse>
+public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageResponse>, IActorComponent
 {
     [SerializeField] float maxHealth = 100;
     [SerializeField] float currentHealth;
@@ -37,4 +37,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
         }
         return response;
     }
+
+    public Actor Actor { get; set; }
 }

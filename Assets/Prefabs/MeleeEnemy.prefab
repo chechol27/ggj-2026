@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 5951049580492659075}
   - component: {fileID: 8915029021521042985}
   - component: {fileID: 3841129600872434554}
+  - component: {fileID: 6284604368188024493}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
   attackRange: 1.28
   attackRangeOffset: 1.75
-  onAttack:
+  onAttackStarted:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3841129600872434554}
@@ -354,6 +355,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MellEnemyAnimation
   animator: {fileID: 3142945475573379607}
+--- !u!114 &6284604368188024493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073128939671050795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda9b62117db695419798510af51254b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemyCharacter
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8860667253943193478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,33 +469,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f4bc461872f1c47baf73b3c5d23a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationEventSender
-  onAnimationEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9073128939671050795}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SendMessage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1345073239820328044}
-        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
-        m_MethodName: SendMessage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  broadcastStream:
+  - name: PerformAttack
+    relay:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8915029021521042985}
+          m_TargetAssemblyTypeName: MeleeEnemyAttacks, Assembly-CSharp
+          m_MethodName: PerformAttack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: PerformDeath
+    relay:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1345073239820328044}
+          m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
+          m_MethodName: PerformDeath
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  floatBroadcastStream: []
+  intBroadcastStream: []
+  stringBroadcastStream:
+  - name: PlayOneShot
+    relay:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7998468430403890539}
+          m_TargetAssemblyTypeName: FModOneShotPlayer, Assembly-CSharp
+          m_MethodName: PlayOneShot
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  objectBroadcastStream: []
 --- !u!114 &7998468430403890539
 MonoBehaviour:
   m_ObjectHideFlags: 0

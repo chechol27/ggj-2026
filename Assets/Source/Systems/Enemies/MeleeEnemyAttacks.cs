@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class MeleeEnemyAttacks : MonoBehaviour
+public class MeleeEnemyAttacks : MonoBehaviour, IActorComponent
 {
     [SerializeField] float attackRange;
     [SerializeField] float attackRangeOffset;
     MeleeEnemyMovement movement;
 
-    public UnityEvent onAttack;
+    public UnityEvent onAttackStarted;
     
     private void OnEnable()
     {
@@ -20,10 +20,10 @@ public class MeleeEnemyAttacks : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() == null) return;
         movement.CancelMove();
-        onAttack?.Invoke();
+        onAttackStarted?.Invoke();
     }
 
-    void PerformAttack()
+    public void PerformAttack()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward*attackRangeOffset, attackRange);
         damagePlayer(colliders);
@@ -51,4 +51,6 @@ public class MeleeEnemyAttacks : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position + transform.forward*attackRangeOffset, attackRange);
     }
+
+    public Actor Actor { get; set; }
 }

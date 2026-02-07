@@ -3,7 +3,7 @@ using LitMotion;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCameraRotator : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerCameraRotator : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Transform cameraRotator;
     [SerializeField] private float rotationDuration = 0.2f;

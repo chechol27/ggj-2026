@@ -1,9 +1,11 @@
-﻿public interface IActorComponent
+﻿using System.ComponentModel;
+
+public interface IActorComponent
 {
     public Actor Actor { get; set; }
-}
 
-public interface IActorComponent<TActor> : IActorComponent where TActor : Actor
-{
-    public TActor GetActor() => (TActor)Actor;
+    public TActor GetActor<TActor>() where TActor : Actor
+    {
+        return Actor as TActor;
+    }
 }

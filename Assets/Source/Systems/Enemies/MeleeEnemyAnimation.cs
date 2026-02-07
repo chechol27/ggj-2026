@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class MeleeEnemyAnimation : MonoBehaviour
+public class MeleeEnemyAnimation : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Animator animator;
-
+    
     public void SetAttackStage()
     {
         animator.SetTrigger("Attack");
@@ -18,4 +19,6 @@ public class MeleeEnemyAnimation : MonoBehaviour
     {
         SetDeathState(false);
     }
+
+    public Actor Actor { get; set; }
 }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAim : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerAim : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Rigidbody target;
 

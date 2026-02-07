@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerShoot : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerShoot : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Weapon weapon;
     [SerializeField] private Vector2Damper rumbleSpeed;

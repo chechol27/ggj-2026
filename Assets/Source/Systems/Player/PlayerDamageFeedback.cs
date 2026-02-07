@@ -3,7 +3,7 @@ using LitMotion;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerDamageFeedback : MonoBehaviour, IActorComponent<PlayerCharacter>
+public class PlayerDamageFeedback : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Material feedbackMaterial;
     [SerializeField] private AnimationCurve ease;
