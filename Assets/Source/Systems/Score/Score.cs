@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class Score : MonoBehaviour, IGameService
 {
-    const string URL = "https://script.google.com/macros/s/AKfycbxSoO2gksEcMHaqklyrisA4w5j93bwKHJpq8Ir9RhQZWqmI3i0WQkYgI7gUBRlRiL7W/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbzbrajDajFsTeKpUTIkc10CoG_OM9gcAJHBb1CIhwI1E26KA774m3gDt5kSO_xBwR5d/exec";
 
     IEnumerator SendScore(int points)
     {
@@ -23,8 +23,8 @@ public class Score : MonoBehaviour, IGameService
             }
             else
             {
-                Debug.Log("Respuesta de Google Sheets: " + www.downloadHandler.text);
                 Debug.Log("Data enviada");
+                Debug.Log("Respuesta de Google Sheets: " + www.downloadHandler.text);
             }
         }
     }

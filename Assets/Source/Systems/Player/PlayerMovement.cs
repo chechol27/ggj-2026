@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,7 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if(!player.CanMove) return;
+        if (!player.CanMove)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            return;  
+        } 
         motionVector *= player.Speed;
         float motionSpeedMaxValue = 0.5f;
         if (CanSprint())
