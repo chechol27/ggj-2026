@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ab2317e33e68e5a49b458759a8a79f87, type: 2}
     - target: {fileID: 919132149155446097, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
       propertyPath: m_Name
-      value: Astronauta Base
+      value: CHAR_Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
