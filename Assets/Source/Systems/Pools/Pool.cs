@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pool : MonoBehaviour, IGameService
 {
     private const int MAX_OBJECT_COUNT = 256;
     
     private readonly Dictionary<GameObject, List<GameObject>> pools = new Dictionary<GameObject, List<GameObject>>();
+
     
+
     public bool Spawn(GameObject prefab,out GameObject result,bool activate = true)
     {
         if (!pools.ContainsKey(prefab))
@@ -87,5 +90,23 @@ public class Pool : MonoBehaviour, IGameService
             list.Add(go);
             go.SetActive(false);
         }
+    }
+
+    private void CleanupNulls(Scene scene)
+    {
+        foreach (List<GameObject> gameObjects in pools.Values)
+        {
+            gameObjects.RemoveAll(go => go == null);
+        }
+    }
+    
+    private void Awake()
+    {
+        SceneManager.sceneUnloaded += CleanupNulls;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneUnloaded -= CleanupNulls;
     }
 }

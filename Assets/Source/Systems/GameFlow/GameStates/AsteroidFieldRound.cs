@@ -1,74 +1,72 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class AsteroidFieldRound : GameStage
+public class AsteroidFieldRound : RoundStage
 {
-    private static readonly Dictionary<uint, WaveSpawnerMetric> spawnerTable = new Dictionary<uint, WaveSpawnerMetric>()
-    {
-        {0, new WaveSpawnerMetric( 2, 2)},
-        {3, new WaveSpawnerMetric(4, 2)},
-        {38, new WaveSpawnerMetric(6, 2)},
-    };
+    private const string CONFIG_FILE_PATH = "GameData/AsteroidFieldRoundConfig";
+    private AsteroidFieldRoundConfig config;
+    private float timer;
     
-    private BlackHoleRegistry registry;
-    private int totalActiveSpawners;
-
-    private void Awake()
+    protected override void Awake()
     {
-        registry = GameServices.Get<BlackHoleRegistry>();
+        base.Awake();
+        config = Resources.Load<AsteroidFieldRoundConfig>(CONFIG_FILE_PATH);
+    }
+
+    void SpawnRandomBuff()
+    {
+        GameObject newBuff = config.postRoundBuffPrefabs[Random.Range(0, config.postRoundBuffPrefabs.Length)];
+        Vector3 playerPosition = GameServices.Get<Player>().CharacterPosition;
+        Vector2 randomNearbyPosition2D = Random.insideUnitCircle * Random.Range(config.minRadius, config.maxRadius);
+        Vector3 randomNearbyPosition3D = playerPosition + new Vector3(randomNearbyPosition2D.x, 0, randomNearbyPosition2D.y);
+        if (NavMesh.SamplePosition(randomNearbyPosition3D, out NavMeshHit hit, config.maxRadius * 2.0f, NavMesh.AllAreas))
+        {
+            randomNearbyPosition3D = hit.position;
+        }
+        GameServices.Get<Pool>().Spawn(newBuff, out GameObject newBuffInstance, TransformFrame.T(randomNearbyPosition3D + Vector3.up * config.spawnHeight));
     }
     
-    public void HandleSpawnerRepair()
+    public override void HandleSpawnerRepair()
     {
         totalActiveSpawners--;
         if (totalActiveSpawners <= 0)
         {
-            //TODO Spawn Buff
+            flow.SwitchStage(GameStageType.Interlude);
+            SpawnRandomBuff();
         }
     }
-    
-    WaveSpawnerMetric PickSpawnerMetric()
+
+    void TurnOffSpawners()
     {
-        uint currentRound = GameServices.Get<Game>().currentRound;
-        for (int i = 0; i < currentRound; i++)
+        foreach (BlackHoleReference blackHoleReference in blackHoles)
         {
-            foreach (KeyValuePair<uint,WaveSpawnerMetric> spawnerMetric in spawnerTable)
-            {
-                if (spawnerMetric.Key >= i)
-                {
-                    return spawnerMetric.Value;
-                }
-            }
-        }
-        return spawnerTable.Last().Value;
-    }
-    
-    void TurnOnSpawners()
-    {
-        WaveSpawnerMetric metric = PickSpawnerMetric();
-        BlackHoleRegistry blackHoleRegistry = GameServices.Get<BlackHoleRegistry>();
-        totalActiveSpawners = 0;
-        List<int> orderedRooms = GameServices.Get<RoomRegistry>()
-            .SortByDistance(GameServices.Get<Player>().CharacterPosition);
-        foreach (var roomId in orderedRooms)
-        {
-            if (totalActiveSpawners > metric.totalSpawners) break;
-            List<BlackHoleReference> blackHoles = blackHoleRegistry.GetBlackHolesByRoom(roomId);
-            for (int blackHoleRefId = 0; blackHoleRefId < Random.Range(Mathf.CeilToInt(metric.roomDensity * 0.5f), metric.roomDensity); blackHoleRefId++)
-            {
-                if (blackHoleRefId > blackHoles.Count - 1) break;
-                BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
-                blackHoleRef.Activate(false);
-                blackHoleRef.RegisterRepairListener(HandleSpawnerRepair, false);
-                totalActiveSpawners++;
-            }
+            blackHoleReference.Deactivate();
         }
     }
 
     public override void OnStateEnter()
     {
-        TurnOnSpawners();
+        timer = 0;
+        blackHoles.Clear();
+        TurnOnSpawners(config.spawnersPerRound, false);
+    }
+
+    public override void OnStateExit()
+    {
+        timer = 0;
+        blackHoles.Clear();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= config.timeLimit)
+        {
+            timer = 0;
+            TurnOffSpawners();
+            flow.SwitchStage(GameStageType.Interlude);
+        }
     }
 }

@@ -64,7 +64,6 @@ public class RangeEnemyAttacks : MonoBehaviour
                     value = -20
                 };
                 damageable.TakeDamage(payload);
-                Debug.Log(("Player Damaged"));
             }
         }
         GetComponent<RangedEnemyMovement>().Move();

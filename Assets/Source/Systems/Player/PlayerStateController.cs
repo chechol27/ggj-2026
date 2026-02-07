@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 
 
-public class PlayerStateController : MonoBehaviour
+public class PlayerStateController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     Player player;
     public delegate void OnPlayerStateChanged(bool distract);
@@ -18,6 +18,7 @@ public class PlayerStateController : MonoBehaviour
     [SerializeField] GameObject stateDistract;
     
     [HideInInspector] public float maskCooldown;
+    [SerializeField] private MainGameHUD HUD;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,6 +59,7 @@ public class PlayerStateController : MonoBehaviour
         if (maskCooldown >= 0)
         {
             maskCooldown -= Time.fixedDeltaTime;
+            HUD.MaskValue(12-maskCooldown);
         }
         
         if (player.CurrentMode == PlayerMode.Combat) return;
@@ -84,6 +86,7 @@ public class PlayerStateController : MonoBehaviour
     {
         ChangeState(stateCombat);
     }
-    
-    
+
+
+    public Actor Actor { get; set; }
 }

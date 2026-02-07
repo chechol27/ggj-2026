@@ -4,11 +4,11 @@ using UnityEngine.Events;
 public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
 {
     [SerializeField] private float maxHalth;
-
-    public UnityEvent onRepaired = new UnityEvent();
-
+    
     [SerializeField] private float currentHealth;
 
+    public UnityEvent onDeath;
+    
     public void Awake()
     {
         currentHealth = maxHalth;
@@ -19,16 +19,12 @@ public class BlackHoleHealth : MonoBehaviour, IDamageable<float, bool>
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            GameServices.Get<GameFlow>().GetCurrentStage<RoundStage>()?.HandleSpawnerRepair();
+            onDeath?.Invoke();
             gameObject.SetActive(false);
-            onRepaired?.Invoke();
             return true;
         }
 
         return false;
-    }
-
-    private void OnDisable()
-    {
-        onRepaired = null;
     }
 }

@@ -1,7 +1,8 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     protected Player player;
     [SerializeField] private Rigidbody rb;
@@ -47,7 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if(!player.CanMove) return;
+        if (!player.CanMove)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            return;  
+        } 
         motionVector *= player.Speed;
         float motionSpeedMaxValue = 0.5f;
         if (CanSprint())
@@ -71,4 +77,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
         player.CharacterPosition = transform.position;
     }
+
+    public Actor Actor { get; set; }
 }

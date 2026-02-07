@@ -1,11 +1,10 @@
-﻿using UnityEngine.Events;
-
-public class GameOver : GameStage
+﻿public class GameOver : GameStage
 {
-    
     public override void OnStateEnter()
     {
+        GameServices.Get<HUD>().SetHUDUI<GameOverHUD>();
         GameServices.Get<GameFlow>().SetPause(true);
+        GameServices.Get<Score>().SendAndResetPoints();
     }
 
     public override void OnStateExit()

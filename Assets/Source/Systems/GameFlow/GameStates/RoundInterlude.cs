@@ -13,10 +13,12 @@ public class RoundInterlude : GameStage
     public override void OnStateEnter()
     {
         waiting = false;
+		GameServices.Get<HUD>().SetHUDUI<InterludeUI>();
     }
 
     public override void OnStateExit()
     {
+		GameServices.Get<HUD>().SetHUDUI<MainGameHUD>();
         waiting = true;
         timer = 0;
     }
@@ -25,6 +27,13 @@ public class RoundInterlude : GameStage
     {
         flow = GameServices.Get<GameFlow>();
     }
+    
+    public GameStageType GetNextRound()
+    {
+        GameStageType ret = GameServices.Get<Game>().currentRound % 10 == 0 ? GameStageType.AsteroidField : GameStageType.EnemyWave;
+        Debug.Log(ret);
+        return ret;
+    }
 
     private void Update()
     {
@@ -32,7 +41,7 @@ public class RoundInterlude : GameStage
         timer += Time.deltaTime;
         if (timer > MAX_INTERLUDE_TIME)
         {
-            flow.SwitchStage(flow.GetNextRound()); //TODO get next Game Stage Type based on game design (EnemyWave vs AsteroidShower)
+            flow.SwitchStage(GetNextRound());
             timer = 0;
         }
     }

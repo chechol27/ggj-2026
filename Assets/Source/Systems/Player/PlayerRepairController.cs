@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
-public class PlayerRepairController : MonoBehaviour
+public class PlayerRepairController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     private bool _active;
     [SerializeField] private float repairRange;
@@ -14,6 +14,7 @@ public class PlayerRepairController : MonoBehaviour
     public UnityEvent onStartRepair;
     public UnityEvent onEndRepair;
 
+    private Game game;
     void SetActivationState(bool state)
     {
         _active = state;
@@ -26,7 +27,12 @@ public class PlayerRepairController : MonoBehaviour
             onEndRepair?.Invoke();
         }
     }
-    
+
+    private void Awake()
+    {
+        game = GameServices.Get<Game>();
+    }
+
     private void Start()
     {
         player = GameServices.Get<Player>();
@@ -36,6 +42,7 @@ public class PlayerRepairController : MonoBehaviour
 
     public void OnRepairing(InputAction.CallbackContext ctx)
     {
+        if (game.paused) return;
         if(!gameObject.activeInHierarchy) return;
         if (ctx.performed)
         {
@@ -64,7 +71,10 @@ public class PlayerRepairController : MonoBehaviour
         }
         else
         {
-            activeSpawner.TakeDamage(player.Intelligence * Time.fixedDeltaTime);
+            if (activeSpawner.TakeDamage(player.Intelligence * Time.fixedDeltaTime))
+            {
+                activeSpawner = null;
+            }
         }
     }
 
@@ -97,4 +107,6 @@ public class PlayerRepairController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, repairRange);
     }
+
+    public Actor Actor { get; set; }
 }

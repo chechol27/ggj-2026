@@ -1,16 +1,26 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAim : MonoBehaviour , IGameService
+public class PlayerAim : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Rigidbody target;
 
     private Vector3 aimVector;
     private Vector3 persistentAimVector;
-    
+
+    private Game game;
+
+    private void Awake()
+    {
+        game = GameServices.Get<Game>();
+    }
+
     //Joystick
     public void OnLook(InputAction.CallbackContext ctx)
     {
+        
+        if (game == null || game.paused) return;
         Vector2 aim = ctx.ReadValue<Vector2>();
         if (aim.magnitude > 0)
         {
@@ -28,6 +38,7 @@ public class PlayerAim : MonoBehaviour , IGameService
     //Mouse
     public void OnAim(InputAction.CallbackContext ctx)
     {
+        if (game == null || game.paused) return;
         Vector2 pointer = ctx.ReadValue<Vector2>();
         float characterDepth = Vector3.Distance(Camera.main.transform.position, target.position);
         Vector3 pointerWS = new (pointer.x, pointer.y, characterDepth);
@@ -38,10 +49,11 @@ public class PlayerAim : MonoBehaviour , IGameService
         aimVector = projectedRelative;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(aimVector.magnitude > 0)
-            target.forward = aimVector;
-        Debug.DrawLine(target.position, target.position + persistentAimVector.normalized);
+            target.rotation = Quaternion.LookRotation(aimVector, Vector3.up);
     }
+
+    public Actor Actor { get; set; }
 }

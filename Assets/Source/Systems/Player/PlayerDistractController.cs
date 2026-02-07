@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerDistractController : MonoBehaviour
+public class PlayerDistractController : MonoBehaviour, IActorComponent<PlayerCharacter>
 {
     private bool isFirstTime = true;
     private Player player;
@@ -9,6 +9,8 @@ public class PlayerDistractController : MonoBehaviour
     [SerializeField] private float speedBuffAmount;
     [SerializeField] GameObject MaskPrefab;
     float useDuration = 6f;
+    [SerializeField] private MainGameHUD HUD;
+    
 
     private void Start()
     {
@@ -30,6 +32,9 @@ public class PlayerDistractController : MonoBehaviour
     private void FixedUpdate()
     {
         useDuration -= Time.deltaTime;
+        if(gameObject.activeInHierarchy)
+            HUD.MaskValue(useDuration*2);
+                
         if (useDuration <= 0f)
         {
             LeaveRemanent();
@@ -44,4 +49,6 @@ public class PlayerDistractController : MonoBehaviour
         
         GetComponentInParent<PlayerStateController>().PrematureMaskTurnOff();
     }
+
+    public Actor Actor { get; set; }
 }
