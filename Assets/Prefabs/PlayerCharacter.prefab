@@ -553,6 +553,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e62fc2b8-1029-46c1-a8dd-3d13301c0bbe
     m_ActionName: 'Player/RotateCamerALeft[/Keyboard/q,/DualSenseGamepadHID/leftShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c556f228-08ee-48a8-82f8-a76e3a51492f
+    m_ActionName: 'Player/LookOnModelViewer[/XInputControllerWindows/rightStick,/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1177,7 +1181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.699
+      value: 0.6989994
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1185,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.001000315
+      value: -0.0010004044
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1321,7 +1325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.002
+      value: -0.0020008087
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1329,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.505
+      value: 0.5050001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1426,7 +1430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006
+      value: 0.006000519
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1434,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.477
+      value: 0.47699928
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1574,9 +1578,21 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3151657121039509325, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3151657121039509325, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ab2317e33e68e5a49b458759a8a79f87, type: 2}
+    - target: {fileID: -3151657121039509325, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab2317e33e68e5a49b458759a8a79f87, type: 2}
+    - target: {fileID: -1703299853165107069, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
       propertyPath: m_Name
       value: Astronauta Base

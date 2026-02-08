@@ -47,10 +47,10 @@ Material:
     m_Floats:
     - _Distortion: 0.01
     - _FishEyeIntensity: -1.02
-    - _HighlightPower: 0.383
+    - _HighlightPower: 0.553
     - _ScanlineIntensity: 2.2
     - _ScreenResScale: 0.318
-    - _VignettePower: 0.4
+    - _VignettePower: 0.32
     m_Colors:
     - _LightColor: {r: 0.9405251, g: 0.844, b: 1, a: 0.16862746}
     - _LightDir: {r: 0.84, g: 1.25, b: 0.82, a: 0}
