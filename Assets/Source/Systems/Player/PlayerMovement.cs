@@ -9,10 +9,14 @@ public class PlayerMovement : MonoBehaviour, IActorComponent
     [SerializeField] private Vector2Damper inputTransformer;
     private bool wantsToSprint;
     private Vector3 motionVector;
-    
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem sprintParticles;
+
     private void Awake()
     {
         player = GameServices.Get<Player>();
+        if (sprintParticles != null)
+            sprintParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -23,6 +27,17 @@ public class PlayerMovement : MonoBehaviour, IActorComponent
     public void OnSprint(InputAction.CallbackContext ctx)
     {
         wantsToSprint = ctx.ReadValueAsButton();
+        if (sprintParticles == null)
+            return;
+
+        if (wantsToSprint)
+        {
+            sprintParticles.Play();
+        }
+        else
+        {
+            sprintParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private bool CanSprint()
