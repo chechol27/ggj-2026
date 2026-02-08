@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageResponse>, IActorComponent
@@ -7,7 +7,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
     [SerializeField] float currentHealth;
 
     public UnityEvent onDeath;
-    
+    public UnityEvent onDamaged;
+
     private void OnEnable()
     {
         currentHealth = maxHealth;
@@ -20,21 +21,27 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
     
     public void PerformDeath()
     {
-        Invoke(nameof(DisableParent), 1.5f);
+        Invoke(nameof(DisableParent), 0.5f);
     }
-    
+
     public DamageResponse TakeDamage(DamageMessage damage)
     {
         DamageResponse response = new DamageResponse();
         response.receivedDamage = damage.value;
         currentHealth -= damage.value;
-        
-        response.result = currentHealth <= 0 ? DamageResult.Dead : DamageResult.Damaged;
-        
-        if (currentHealth <= 0)
+
+        if (currentHealth <= 0 && damage.value > 0)
         {
+            response.result = DamageResult.Dead;
             onDeath?.Invoke();
         }
+        else if (damage.value > 0) // ← IMPORTANTE
+        {
+            response.result = DamageResult.Damaged;
+            onDamaged?.Invoke();
+        }
+        Debug.Log("Enemy hit: " + damage.value);
+
         return response;
     }
 

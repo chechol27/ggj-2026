@@ -11,6 +11,9 @@ public class PlayerDamageFeedback : MonoBehaviour, IActorComponent
 
     private Player player;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem damageParticles;
+
     private void Awake()
     {
         player = GameServices.Get<Player>();
@@ -21,6 +24,8 @@ public class PlayerDamageFeedback : MonoBehaviour, IActorComponent
     {
         LMotion.Create(0f, 1f, player.DamageIFrames).WithEase(ease).Bind(val => feedbackMaterial.SetVector("_EffectParams", new Vector2(val, 0)));
         source.GenerateImpulse(1);
+        if (damageParticles != null)
+            damageParticles.Play();
     }
 
     public Actor Actor { get; set; }
