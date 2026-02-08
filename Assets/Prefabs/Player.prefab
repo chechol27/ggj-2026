@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5955549597794876153}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16893928, y: -0.8289797, z: 0.40785554, w: 0.3433746}
+  m_LocalRotation: {x: -0.16893926, y: 0.8289797, z: -0.40785554, w: -0.34337458}
   m_LocalPosition: {x: 5, y: 9.18, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -783,9 +783,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4223690946921379572, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4914265534204597039, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627769444977391910, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627769444977391910, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[25].m_ActionId
+      value: c556f228-08ee-48a8-82f8-a76e3a51492f
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627769444977391910, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[25].m_ActionName
+      value: 'Player/LookOnModelViewer[/DualSenseGamepadHID/rightStick,/Mouse/delta]'
       objectReference: {fileID: 0}
     - target: {fileID: 9113106717500195290, guid: 7c96446bac4940c48b45ac98573ad20f, type: 3}
       propertyPath: cameraRotator

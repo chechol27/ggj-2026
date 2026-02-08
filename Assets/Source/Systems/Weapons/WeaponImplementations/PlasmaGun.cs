@@ -27,16 +27,17 @@ public class PlasmaGun : Weapon
         OnShoot?.Invoke();
         Ray r = new (muzzle.position, muzzle.forward);
         Debug.DrawRay(r.origin, r.direction * 20, Color.red, 5);
-        if (Physics.Raycast(r, out RaycastHit hit, Mathf.Infinity, detectionMask))
+        if(Physics.SphereCast(r, 0.05f, out RaycastHit hit,Mathf.Infinity, detectionMask))
         {
             if (hit.collider.TryGetComponent(out IDamageable<DamageMessage, DamageResponse> damageable))
             {
-                DamageMessage message = new DamageMessage();
-                message.value = player.Damage;
-                message.hitPoint = hit.point;
+                DamageMessage message = new()
+                {
+                    value = player.Damage,
+                    hitPoint = hit.point
+                };
                 response = damageable.TakeDamage(message);
                 zLength = Vector3.Distance(hit.collider.gameObject.transform.position, muzzle.position);
-                #pragma warning TODO Handle damage after successful shot
                 ret = true;
             }
         }

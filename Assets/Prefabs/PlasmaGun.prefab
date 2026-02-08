@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8162161144528712323}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714627133877665762}
   - component: {fileID: 2156845060359543372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ImpulseSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +200,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlasmaGun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84be2c4ab3922df40a670b4454abc1e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009246732251323435, guid: 84be2c4ab3922df40a670b4454abc1e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044744343948625255, guid: 84be2c4ab3922df40a670b4454abc1e0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -271,6 +283,9 @@ MonoBehaviour:
     m_Bits: 64
   VFXPrefab: {fileID: 455369577519507936, guid: 31f4d0c6010bc0947b561df3e6ac9eb1, type: 3}
   muzzle: {fileID: 8162161144528712323}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1773428102 &6053916316962160422
 ParentConstraint:
   m_ObjectHideFlags: 0
