@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Weapon weapon;
     [SerializeField] private Vector2Damper rumbleSpeed;
+    [SerializeField] private Transform logicalMuzzle;
 
     public UnityEvent onShoot;
     
@@ -32,9 +33,9 @@ public class PlayerShoot : MonoBehaviour, IActorComponent
             
             if (weapon != null)
             {
-                onShoot?.Invoke();
-                if (weapon.Shoot(out DamageResponse response))
+                if (weapon.Shoot(out DamageResponse response, logicalMuzzle))
                 {
+                    onShoot?.Invoke();
                     if (response.result == DamageResult.Damaged)
                     {
                         
