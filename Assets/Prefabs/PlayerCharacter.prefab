@@ -126,6 +126,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &2625037107431265304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939666314485655224}
+  m_Layer: 3
+  m_Name: LogicalMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939666314485655224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625037107431265304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2612266474672681158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3932926330811061059
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +304,7 @@ Transform:
   - {fileID: 7596314526394382978}
   - {fileID: 9200876933607388245}
   - {fileID: 1528785755222293246}
+  - {fileID: 1939666314485655224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4716706440723425789
@@ -558,7 +590,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c556f228-08ee-48a8-82f8-a76e3a51492f
-    m_ActionName: 'Player/LookOnModelViewer[/XInputControllerWindows/rightStick,/Mouse/delta]'
+    m_ActionName: 'Player/LookOnModelViewer[/DualSenseGamepadHID/rightStick,/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -873,6 +905,7 @@ MonoBehaviour:
   rumbleSpeed:
     smoothTime: 0.2
     currentValue: {x: 0, y: 0}
+  logicalMuzzle: {fileID: 1939666314485655224}
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -1231,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 3751834617784673844}
+    - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
+      propertyPath: detectionMask.m_Bits
+      value: 320
+      objectReference: {fileID: 0}
     - target: {fileID: 8417688045810771378, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1672,6 +1709,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3ede335fe276ff741a45613d4414003b, type: 2}
+    - target: {fileID: 5866666021909216657, guid: cffa5fffb2344b4488672199a089d48e, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

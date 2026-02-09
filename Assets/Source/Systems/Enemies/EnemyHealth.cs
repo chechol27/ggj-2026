@@ -40,8 +40,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable<DamageMessage, DamageRespo
             response.result = DamageResult.Damaged;
             onDamaged?.Invoke();
         }
-        Debug.Log("Enemy hit: " + damage.value);
-
         return response;
     }
 

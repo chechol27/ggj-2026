@@ -282,7 +282,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   VFXPrefab: {fileID: 455369577519507936, guid: 31f4d0c6010bc0947b561df3e6ac9eb1, type: 3}
-  muzzle: {fileID: 8162161144528712323}
+  graphicalMuzzle: {fileID: 8162161144528712323}
+  reloadRate: 6
+  maxEnergy: 10
+  energyPerShot: 1
+  currentEnergy: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls: []

@@ -10,7 +10,7 @@ public class PlayerAim : MonoBehaviour, IActorComponent
     private Vector3 persistentAimVector;
 
     private Game game;
-
+    
     private void Awake()
     {
         game = GameServices.Get<Game>();
@@ -19,7 +19,6 @@ public class PlayerAim : MonoBehaviour, IActorComponent
     //Joystick
     public void OnLook(InputAction.CallbackContext ctx)
     {
-        
         if (game == null || game.paused) return;
         Vector2 aim = ctx.ReadValue<Vector2>();
         if (aim.magnitude > 0)
@@ -51,8 +50,10 @@ public class PlayerAim : MonoBehaviour, IActorComponent
 
     private void FixedUpdate()
     {
-        if(aimVector.magnitude > 0)
+        if (aimVector.magnitude > 0)
+        {
             target.rotation = Quaternion.LookRotation(aimVector, Vector3.up);
+        }
     }
 
     public Actor Actor { get; set; }

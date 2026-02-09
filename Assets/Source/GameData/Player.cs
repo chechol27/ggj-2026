@@ -182,7 +182,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     }
 
     public Vector3 CharacterPosition { get; set; }
-
+    
     public bool CanMove
     {
         get => canMove;
