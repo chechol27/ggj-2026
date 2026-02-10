@@ -3,7 +3,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-
+[Serializable]
+public class PlayerStateChangedEvent : UnityEvent<PlayerMode>
+{
+    
+}
 
 public class PlayerStateController : MonoBehaviour, IActorComponent
 {
@@ -17,8 +21,9 @@ public class PlayerStateController : MonoBehaviour, IActorComponent
     [SerializeField] GameObject stateRepair;
     [SerializeField] GameObject stateDistract;
     
-    [HideInInspector] public float maskCooldown;
-    [SerializeField] private MainGameHUD HUD;
+    [HideInInspector] public float maskCooldown; //TODO: Decouple cooldown system's HUD and move all things depending on distract mode to distract mode controllers
+
+    public PlayerStateChangedEvent onStateChanged;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,7 +55,6 @@ public class PlayerStateController : MonoBehaviour, IActorComponent
         if (maskCooldown > 0) return;
         
         player.CurrentMode = PlayerMode.Distract;
-        
         ChangeState(stateDistract);
     }
 
@@ -59,7 +63,7 @@ public class PlayerStateController : MonoBehaviour, IActorComponent
         if (maskCooldown >= 0)
         {
             maskCooldown -= Time.fixedDeltaTime;
-            HUD.MaskValue(12-maskCooldown);
+            GameServices.Get<HUD>().GetCurrentHUD<MainGameHUD>()?.MaskValue(12-maskCooldown);
         }
         
         if (player.CurrentMode == PlayerMode.Combat) return;
@@ -80,13 +84,13 @@ public class PlayerStateController : MonoBehaviour, IActorComponent
         stateDistract.SetActive(false);
 
         state.SetActive(true);
+        onStateChanged?.Invoke(player.CurrentMode);
     }
 
     public void PrematureMaskTurnOff()
     {
         ChangeState(stateCombat);
     }
-
 
     public Actor Actor { get; set; }
 }

@@ -48,4 +48,9 @@ public class HUD : MonoBehaviour, IGameService
         if(persistent) DontDestroyOnLoad(newHUD);
         return newHUD;
     }
+
+    public TUI GetCurrentHUD<TUI>() where TUI : HUDUI
+    {
+        return currentUI as TUI;
+    }
 }
