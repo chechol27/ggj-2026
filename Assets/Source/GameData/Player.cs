@@ -24,6 +24,8 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
     private bool canMove = true;
 
     private float damageIFrames;
+
+    private PlayerCharacter character;
     
     public event Action<float> OnO2Changed;
     public event Action<float> OnHealthChanged;
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         set
         {
             health = value;
-            OnHealthChanged?.Invoke(health);
+            OnHealthChanged?.Invoke(health/maxHealth);
         }
             
     }
@@ -111,7 +113,7 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         set
         {
             o2 = Mathf.Clamp(value, MinO2, MaxO2);
-            OnO2Changed?.Invoke(o2);
+            OnO2Changed?.Invoke(o2/maxO2);
         }
     }
 
@@ -206,5 +208,15 @@ public class Player : MonoBehaviour, IGameService, IBuffReceiver
         TBuff buff = gameObject.AddComponent<TBuff>();
         buff.StatName = statName;
         return buff;
+    }
+
+    public PlayerCharacter Character
+    {
+        get => character;
+        set
+        {
+            Debug.Log("Possesing Character");
+            character = value;
+        }
     }
 }

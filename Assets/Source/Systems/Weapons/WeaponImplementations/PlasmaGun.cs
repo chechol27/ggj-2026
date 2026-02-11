@@ -36,12 +36,14 @@ public class PlasmaGun : Weapon
                 currentEnergy = maxEnergy;
                 isReloading = false;
             }
+            onReload?.Invoke(currentEnergy / maxEnergy);
         }
     }
 
-    public override bool Shoot(out DamageResponse response, Transform logicalMuzzle = null)
+    public override bool Shoot(out DamageResponse response, out float normalizedRemainingEnergy, Transform logicalMuzzle = null)
     {
         response = default;
+        normalizedRemainingEnergy = currentEnergy / maxEnergy;
         if (isReloading)
         {
             return false;
@@ -75,6 +77,7 @@ public class PlasmaGun : Weapon
             TransformFrame.TRS(graphicalMuzzle.position, graphicalMuzzle.rotation, new Vector3(1,1,zLength * 2.0f)));
         //particleSystem.transform.parent = muzzle;
         impulseSource.GenerateImpulse(impulseForce);
+        normalizedRemainingEnergy = currentEnergy / maxEnergy;
         return true;
     }
 }

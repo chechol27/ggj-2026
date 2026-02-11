@@ -6,6 +6,7 @@ public class MainGameHUD : HUDUI
 {
     [SerializeField] Slider lifeBar;
     [SerializeField] Slider o2Bar;
+    [SerializeField] Slider ammoBar;
     [SerializeField] private Slider Mask;
     private Player player;
     
@@ -18,11 +19,17 @@ public class MainGameHUD : HUDUI
 
         player.OnHealthChanged += UpdateHealth;
         player.OnO2Changed += UpdateO2;
+        player.Character.onWeaponAmmoChanged += UpdateAmmo;
     }
 
     void UpdateHealth(float value)
     {
-        lifeBar.value = player.Health;
+        lifeBar.value = value;
+    }
+
+    void UpdateAmmo(float value)
+    {
+        ammoBar.value = value;
     }
 
     void UpdateO2(float value)
@@ -39,5 +46,6 @@ public class MainGameHUD : HUDUI
     {
         player.OnHealthChanged -= UpdateHealth;
         player.OnO2Changed -= UpdateO2;
+        player.Character.onWeaponAmmoChanged -= UpdateAmmo;
     }
 }

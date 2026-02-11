@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 2585888455432939209}
   - component: {fileID: 9113106717500195290}
   - component: {fileID: 2458951747305894398}
+  - component: {fileID: 596109813912428767}
   m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -856,6 +857,18 @@ MonoBehaviour:
     m_RotationOrder: 4
   source: {fileID: 9112504303902351846}
   damageParticles: {fileID: 3367670584051620454}
+--- !u!114 &596109813912428767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4914265534204597039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56585c8efa1f43afa9ce5263cf8c4484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
 --- !u!1 &5541235377907762020
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +934,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onAmmoSpent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2638444216313269877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,7 +1234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6989994
+      value: 0.69900036
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1226,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0010004044
+      value: -0.0010032654
       objectReference: {fileID: 0}
     - target: {fileID: 126611610470050820, guid: 9c06a5d391353cb42bc45463a1df63e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1433,7 +1449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0020008087
+      value: -0.001999855
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1441,7 +1457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5050001
+      value: 0.50499916
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38bf2262543900940a7fcd011c5705f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1538,7 +1554,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006000519
+      value: 0.006000042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c685e93036a79e449ce9dd90455bc7e, type: 3}
       propertyPath: m_LocalPosition.y
