@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public abstract bool Shoot(out DamageResponse response, Transform logicalMuzzle = null);
+    public Action<float> onReload;
+    public abstract bool Shoot(out DamageResponse response, out float normalizedRemainingAmmo, Transform logicalMuzzle = null);
 }

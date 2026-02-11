@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[Serializable]
+public class AmmoChangedEvent : UnityEvent<float>
+{
+    
+}
+
 public class PlayerShoot : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Weapon weapon;
@@ -11,6 +17,7 @@ public class PlayerShoot : MonoBehaviour, IActorComponent
     [SerializeField] private Transform logicalMuzzle;
 
     public UnityEvent onShoot;
+    public AmmoChangedEvent onAmmoChanged;
     
     private Player player;
 
@@ -20,6 +27,7 @@ public class PlayerShoot : MonoBehaviour, IActorComponent
         rumbleSpeed.ForceValue(Vector2.zero);
         player = GameServices.Get<Player>();
         game = GameServices.Get<Game>();
+        weapon.onReload += val => onAmmoChanged?.Invoke(val);
     }
 
     public void OnShoot(InputAction.CallbackContext ctx)
@@ -33,9 +41,10 @@ public class PlayerShoot : MonoBehaviour, IActorComponent
             
             if (weapon != null)
             {
-                if (weapon.Shoot(out DamageResponse response, logicalMuzzle))
+                if (weapon.Shoot(out DamageResponse response, out float normalizedRemainingAmmo,logicalMuzzle))
                 {
                     onShoot?.Invoke();
+                    onAmmoChanged?.Invoke(normalizedRemainingAmmo);
                     if (response.result == DamageResult.Damaged)
                     {
                         
