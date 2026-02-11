@@ -5,15 +5,20 @@ using UnityEngine.InputSystem;
 public class PlayerAim : MonoBehaviour, IActorComponent
 {
     [SerializeField] private Rigidbody target;
+    [SerializeField] private Transform headTracker;
 
     private Vector3 aimVector;
     private Vector3 persistentAimVector;
-
+    private Vector3 headLookVector;
+    
     private Game game;
+
+    private Player player;
     
     private void Awake()
     {
         game = GameServices.Get<Game>();
+        player = GameServices.Get<Player>();
     }
 
     //Joystick
@@ -30,6 +35,7 @@ public class PlayerAim : MonoBehaviour, IActorComponent
             Vector3 projectedForward = Vector3.ProjectOnPlane(rotationAgnosticForward, characterUp).normalized;
             Vector3 characterCentered = projectedForward * aim.y + mainCamera.right * aim.x;
             persistentAimVector += characterCentered;
+            headLookVector = target.position + characterCentered.normalized * 2;
             aimVector = characterCentered.normalized;
         }
     }
@@ -42,6 +48,7 @@ public class PlayerAim : MonoBehaviour, IActorComponent
         float characterDepth = Vector3.Distance(Camera.main.transform.position, target.position);
         Vector3 pointerWS = new (pointer.x, pointer.y, characterDepth);
         pointerWS = Camera.main.ScreenToWorldPoint(pointerWS);
+        headLookVector = pointerWS;
         Vector3 projectedRelative = Vector3.ProjectOnPlane(pointerWS - target.position, Vector3.up).normalized;
         Debug.DrawLine(target.position, target.position + projectedRelative);
         Debug.DrawLine(Camera.main.transform.position, pointerWS, Color.aquamarine);
@@ -52,6 +59,13 @@ public class PlayerAim : MonoBehaviour, IActorComponent
     {
         if (aimVector.magnitude > 0)
         {
+            if (player.CurrentMode == PlayerMode.Distract)
+            {
+                Transform camTransform = Camera.main.transform;
+                aimVector = -Vector3.ProjectOnPlane((camTransform.forward + camTransform.up).normalized, Vector3.up);
+                headLookVector = camTransform.position;
+            }
+            headTracker.position = headLookVector;
             target.rotation = Quaternion.LookRotation(aimVector, Vector3.up);
         }
     }

@@ -10,11 +10,14 @@ public class PlayerDistractController : MonoBehaviour, IActorComponent
     [SerializeField] GameObject MaskPrefab;
     float useDuration = 6f;
     [SerializeField] private MainGameHUD HUD;
+    [SerializeField] private Transform pointerVFX;
+    private GameFlow flow;
     
 
     private void Start()
     {
         player = GameServices.Get<Player>();
+        flow = GameServices.Get<GameFlow>();
     }
 
     private void OnEnable()
@@ -29,12 +32,20 @@ public class PlayerDistractController : MonoBehaviour, IActorComponent
         buff.MaxValue = speedBuffAmount;
     }
 
+    private void PointToNearestSpawner()
+    {
+        RoundStage currentRoundStage = flow.GetCurrentStage<RoundStage>();
+        if (pointerVFX == null || currentRoundStage == null)
+            return;
+        pointerVFX.LookAt(currentRoundStage.GetNearestSpawner(player.CharacterPosition));
+    }
+
     private void FixedUpdate()
     {
         useDuration -= Time.deltaTime;
         if(gameObject.activeInHierarchy)
             HUD.MaskValue(useDuration*2);
-                
+        //PointToNearestSpawner();
         if (useDuration <= 0f)
         {
             LeaveRemanent();

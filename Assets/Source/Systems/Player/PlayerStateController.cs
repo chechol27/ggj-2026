@@ -89,6 +89,7 @@ public class PlayerStateController : MonoBehaviour, IActorComponent
 
     public void PrematureMaskTurnOff()
     {
+        player.CurrentMode = PlayerMode.Combat;
         ChangeState(stateCombat);
     }
 

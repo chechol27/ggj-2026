@@ -28,7 +28,18 @@ public abstract class RoundStage : GameStage
     [SerializeField] protected int totalActiveSpawners;
     protected List<BlackHoleReference> blackHoles = new List<BlackHoleReference>();
 
+    private BlackHoleRegistry blackHoleRegistry;
+
     public abstract void HandleSpawnerRepair();
+
+    public Vector3 GetNearestSpawner(Vector3 centerPosition)
+    {
+        blackHoleRegistry.GetFlattenedReferences(blackHoles);
+        return blackHoles
+            .Where(rf => rf.Active)
+            .OrderBy(x => Vector3.Distance(x.transform.position, centerPosition))
+            .First().transform.position;
+    }
     
     protected virtual void Awake()
     {

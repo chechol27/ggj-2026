@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BlackHoleRegistry : MonoBehaviour, IGameService
@@ -24,6 +25,15 @@ public class BlackHoleRegistry : MonoBehaviour, IGameService
     public List<BlackHoleReference> GetBlackHolesByRoom(int roomId)
     {
         return blackHoles[roomId];
+    }
+
+    public void GetFlattenedReferences(List<BlackHoleReference> references)
+    {
+        references.Clear();
+        foreach (var list in blackHoles.Values)
+        {
+            references.AddRange(list);
+        }
     }
 
     public void DisableBlackHoles()

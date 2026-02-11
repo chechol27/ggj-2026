@@ -6,6 +6,8 @@ public class BlackHoleReference : MonoBehaviour
     [SerializeField] private int roomId;
     [SerializeField] private BlackHole blackHole;
     [SerializeField] private GameObject nonAggressiveBlackHole;
+
+    public bool Active => nonAggressiveBlackHole.activeSelf || blackHole.gameObject.activeSelf;
     
     private void Awake()
     {
@@ -20,7 +22,7 @@ public class BlackHoleReference : MonoBehaviour
 
     public void Activate(bool aggressive = true)
     {
-        if (nonAggressiveBlackHole.activeSelf || blackHole.gameObject.activeSelf) return;
+        if (Active) return;
         if (aggressive)
         {
             blackHole.gameObject.SetActive(true);
