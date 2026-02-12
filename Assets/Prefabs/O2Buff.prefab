@@ -29313,6 +29313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PermanentBuffPickUp
   statID: O2
   buffValue: 10
+  pickupFXPrefab: {fileID: 5198888084785392606, guid: f9bac6a6bba1c234b91346e2faf679ef, type: 3}
 --- !u!135 &3471141367341896921
 SphereCollider:
   m_ObjectHideFlags: 0

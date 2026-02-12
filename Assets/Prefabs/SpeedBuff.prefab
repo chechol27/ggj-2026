@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PermanentBuffPickUp
   statID: Speed
   buffValue: 2
+  pickupFXPrefab: {fileID: 3529102822537955566, guid: 6ca22dd7450b4f245aae9de3f3c990b2, type: 3}
 --- !u!135 &2070622109139993891
 SphereCollider:
   m_ObjectHideFlags: 0
