@@ -60,15 +60,15 @@ namespace Source.Systems.ModelViewer.InputControl
                 if (requireMouseHold && !IsMousePressed())
                     return;
 
-                yaw += look.x * mouseSensitivity;
+                yaw -= look.x * mouseSensitivity;
             }
             else if (isGamepad)
             {
-                yaw += look.x * stickSensitivity * Time.deltaTime;
+                yaw -= look.x * stickSensitivity * Time.deltaTime;
             }
             else
             {
-                yaw += look.x * stickSensitivity * Time.deltaTime;
+                yaw -= look.x * stickSensitivity * Time.deltaTime;
             }
 
             Apply();
