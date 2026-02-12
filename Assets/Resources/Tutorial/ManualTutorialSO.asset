@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2c794331744578842de773b336a019, type: 3}
+  m_Name: ManualTutorialSO
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Systems.TutorialSystem.Core.StageManualDatabaseSO
+  entries:
+  - stage: 8
+    text: "Mu\xE9vete con WASD / Joystick y dispara con Click / RT.\nEl Ox\xEDgeno
+      (O2) es tu recurso principal:\n\nSirve para esprintar.\n\nLimita los modos
+      Reparaci\xF3n y Distracci\xF3n.\nSi se acaba, quedas vulnerable."
+  - stage: 4
+    text: "Cambia de m\xE1scara con 1, 2 y 3 seg\xFAn la situaci\xF3n:\n\n1\uFE0F\u20E3
+      Respirar y disparar libremente.\n2\uFE0F\u20E3 Reparar portales (no puedes
+      disparar).\n3\uFE0F\u20E3 Distraer enemigos por tiempo limitado.\n\nElige bien
+      en cada ronda."
+  - stage: 5
+    text: "Esquiva los asteroides que caen del cielo.\nCada 10 rondas aparecen portales
+      especiales.\nSi los reparas a tiempo, ganas buffs:\n+Vida, +Ox\xEDgeno o +Velocidad."
