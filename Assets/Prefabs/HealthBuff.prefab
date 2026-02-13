@@ -34334,6 +34334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PermanentBuffPickUp
   statID: Health
   buffValue: 10
+  pickupFXPrefab: {fileID: 8818268255300232301, guid: 62636012f27b72d48b929e1c94b4eb9d, type: 3}
 --- !u!135 &724227558042764059
 SphereCollider:
   m_ObjectHideFlags: 0
