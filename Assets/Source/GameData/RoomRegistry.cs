@@ -8,8 +8,16 @@ public class RoomRegistry : MonoBehaviour, IGameService
     
     public List<int> SortByDistance(Vector3 position)
     {
-        return rooms.Keys.OrderByDescending(x => Vector3.Distance(rooms[x].position, position)).ToList();
+        var deadKeys = rooms.Where(kvp => kvp.Value == null).Select(kvp => kvp.Key).ToList();
+        for (int i = 0; i < deadKeys.Count; i++)
+            rooms.Remove(deadKeys[i]);
+
+        return rooms
+            .OrderByDescending(kvp => (kvp.Value.position - position).sqrMagnitude)
+            .Select(kvp => kvp.Key)
+            .ToList();
     }
+
 
     public void Register(int roomId, Transform transform)
     {
