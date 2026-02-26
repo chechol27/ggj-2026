@@ -36,4 +36,5 @@ public class BlackHoleReference : MonoBehaviour
         blackHole.gameObject.SetActive(false);
         nonAggressiveBlackHole.gameObject.SetActive(false);
     }
+
 }

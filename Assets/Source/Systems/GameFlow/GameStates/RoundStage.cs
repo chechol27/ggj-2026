@@ -69,6 +69,10 @@ public abstract class RoundStage : GameStage
             {
                 if (blackHoleRefId > blackHoles.Count - 1) break;
                 BlackHoleReference blackHoleRef = blackHoles[blackHoleRefId];
+                if (blackHoleRef == null)
+                {
+                    Debug.LogWarning("Referencia zombie detectada");
+                }
                 blackHoleRef.Activate(aggressive);
                 blackHoles.Add(blackHoleRef);
                 totalActiveSpawners++;

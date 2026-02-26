@@ -71,7 +71,7 @@ MonoBehaviour:
   surfaceType: 0
   meleeEnemyPrefab: {fileID: 9073128939671050795, guid: 7b79ac449334f634aa6c0de5f64b5296, type: 3}
   rangeEnemyPrefab: {fileID: 659566544116788845, guid: 50c24460bb9152441ba1539cc7220b6d, type: 3}
-  rangeEnemySpawnProbability: 0.1
+  rangeEnemySpawnProbability: 0
   spawnWait: 0.5
   spawnDelay: 0
   waiting: 1
@@ -88,10 +88,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerHealth
   maxHalth: 100
-  onRepaired:
+  currentHealth: 0
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
-  currentHealth: 0
 --- !u!1001 &1841415280793478342
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,4 +8,5 @@ public class RoomId : MonoBehaviour
     {
         GameServices.Get<RoomRegistry>().Register(roomId, transform);
     }
+
 }

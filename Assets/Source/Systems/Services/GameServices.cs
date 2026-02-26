@@ -18,5 +18,5 @@ public static class GameServices
         }
 
         return (TService)services[t];
-    } 
+    }
 }
