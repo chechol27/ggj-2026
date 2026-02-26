@@ -73,6 +73,8 @@ public class GameFlow : MonoBehaviour, IGameService
                 currentStage = GetOrCreateStage<AsteroidFieldRound>();
                 break;
             case GameStageType.GameOver:
+                //GameServices.Get<RoomRegistry>().CleanNulls();
+                GameServices.Get<BlackHoleRegistry>().Clear();
                 currentStage = GetOrCreateStage<GameOver>();
                 break;
             case GameStageType.ModelViewer:

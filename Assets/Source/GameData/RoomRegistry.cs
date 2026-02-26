@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class RoomRegistry : MonoBehaviour, IGameService
 {
-    public Dictionary<int, Transform> rooms = new Dictionary<int, Transform>();
+    public Dictionary<int, Vector3> rooms = new Dictionary<int, Vector3>();
     
     public List<int> SortByDistance(Vector3 position)
     {
-        var deadKeys = rooms.Where(kvp => kvp.Value == null).Select(kvp => kvp.Key).ToList();
-        for (int i = 0; i < deadKeys.Count; i++)
-            rooms.Remove(deadKeys[i]);
-
-        return rooms
-            .OrderByDescending(kvp => (kvp.Value.position - position).sqrMagnitude)
-            .Select(kvp => kvp.Key)
-            .ToList();
+        Debug.Log(rooms.Count);
+        return rooms.Keys.OrderByDescending(x => Vector3.Distance(rooms[x], position)).ToList();
     }
-
 
     public void Register(int roomId, Transform transform)
     {
         if (rooms.ContainsKey(roomId)) return;
-        rooms[roomId] = transform;
+        Vector3 position = transform.position;
+        rooms[roomId] = position;
+    }
+
+    public void CleanNulls()
+    {
+        rooms.Clear();
     }
 }

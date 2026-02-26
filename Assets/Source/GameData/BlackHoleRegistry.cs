@@ -36,4 +36,9 @@ public class BlackHoleRegistry : MonoBehaviour, IGameService
             }
         }
     }
+
+    public void Clear()
+    {
+        blackHoles.Clear();
+    }
 }

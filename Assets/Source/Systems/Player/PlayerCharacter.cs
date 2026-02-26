@@ -5,6 +5,10 @@ public class PlayerCharacter : Actor
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
         GameServices.Get<Player>().Character = this;
         GetActorComponent<PlayerShoot>().onAmmoChanged.AddListener(val => onWeaponAmmoChanged?.Invoke(val));
     }
