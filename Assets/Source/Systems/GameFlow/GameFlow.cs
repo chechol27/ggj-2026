@@ -1,4 +1,5 @@
 using System;
+using Source.Systems.GameFlow.GameStates;
 using Source.Systems.ModelViewer;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,7 +13,8 @@ public enum GameStageType
     EnemyWave,
     AsteroidField,
     GameOver,
-    ModelViewer
+    ModelViewer,
+    LevelIntro
 }
 
 [Serializable]
@@ -77,6 +79,9 @@ public class GameFlow : MonoBehaviour, IGameService
                 break;
             case GameStageType.ModelViewer:
                 currentStage = GetOrCreateStage<ModelViewerStage>();
+                break;
+            case GameStageType.LevelIntro:
+                currentStage = GetOrCreateStage<LevelIntro>();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(stageType), stageType, null);
